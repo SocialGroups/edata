@@ -1,0 +1,276 @@
+<!-- Latest compiled and minified CSS -->
+
+<link rel="stylesheet" type="text/css" href="/assets/css/jquery.smartsuggest.css" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"> </script>
+<script type="text/javascript" src="/assets/js/jquery.smartsuggest.js"> </script>
+
+<script type='text/javascript'>  
+
+ var $JSnoConflict = jQuery.noConflict();  
+
+</script> 
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+  <script src="/playground/demo/tweet_to_enter/jquery.tweetToEnter.js"></script>
+
+  <link rel="stylesheet" href="/assets/css/jquery.gritter.css" />
+  
+  <link rel="stylesheet" href="/assets/css/jquery-ui-1.10.3.full.min.css" />  
+  <script src="/assets/js/jquery.gritter.min.js"></script>
+  <script src="/assets/js/chosen.jquery.min.js"></script>
+
+  <script src="/assets/js/bootbox.min.js"></script>
+  <script src="/assets/js/chosen.jquery.min.js"></script>
+
+  <script src="/assets/js/jquery-ui-1.10.3.full.min.js"></script>
+  <script src="/assets/js/jquery.ui.touch-punch.min.js"></script>
+
+  <!-- Inclusão do Jquery -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js" ></script>
+<!-- Inclusão do Jquery Validate -->
+<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery.validate/1.6/jquery.validate.js" ></script>
+
+
+<script type="text/javascript">
+  var $j = jQuery.noConflict();
+</script>
+
+<!-- Cadastra comentário via Ajax !-->
+
+<style>	
+
+body {
+  
+  background: url('/img/bg_index.png') no-repeat !important;
+  min-width: 100%; display: inline-block;
+}
+
+.gritter-success{background-color: #160625;}
+
+.content_background{
+
+	width: 100%;
+	height: 197px;
+	margin-top: 49px;
+	border-bottom:3px solid #42A2FF;
+	background: url('/img/bg_box.jpg')
+}
+
+.content_background_header{
+
+	width: 1200px;
+	height: auto;
+
+}
+
+.foto_perfil_top {
+    width: 75px;
+    height: 75px;
+    border-radius: 150px;
+    -webkit-border-radius: 150px;
+    -moz-border-radius: 150px;
+    background: url(http://link-to-your/image.jpg) no-repeat; 
+
+    border: 3px solid #FFF;
+    float: left;
+    z-index: 9999; 
+    margin-top: 0px;
+    margin-left: 15px;
+    margin-bottom: -20px;
+  }
+
+
+</style>
+<body>
+
+
+
+  <link rel="stylesheet" href="/assets/css/chosen.css" />
+  <link rel="stylesheet" href="/assets/css/chosen.min.css" />
+  <script src="/assets/js/chosen.jquery.min.js"></script>
+  <script type="text/javascript" src="/assets/js/chosen.ajaxaddition.jquery.js"></script>
+
+<script>
+// Modal de Compartilhamento
+  window.addEvent("domready", function(e){
+
+    jQuery('.publico').live("click",function(){
+
+        // ID do box
+        var ID = $j(this).attr("id");
+
+        // Título do box
+        var boxTitulo = $j('.boxTitulo'+ID).val();
+
+        var SM = new SimpleModal({"btn_ok":"Confirm button", "width":"auto"});
+              // Aggiunge Bottone annulla
+              SM.show({
+                "model":"modal-ajax",
+                height:"auto",
+                "title":"<center> Criar Grupo Público </center>",
+                "param":{
+                  "url":"/criargrupo/publico",
+                  "onRequestComplete": function(){ }
+                }
+           });
+
+          return false;
+
+    });
+
+  }); 
+// Modal de Compartilhamento
+</script>
+
+
+<style>
+
+body{background: #e9eaed;}
+
+.content{width:500px; height: auto; min-height: 480px; margin-top: 88px; background: #FFF;
+
+	-moz-border-radius: 4px; /* Para Firefox */
+-webkit-border-radius: 4px; /*Para Safari e Chrome */
+border-radius: 4px; /* Para Opera 10.5+*/
+
+padding: 10px;
+
+}
+
+
+label{ top: 5px; float: left; width: 450px; text-align: left; color:red;}
+
+</style>
+	
+
+<center>
+	<div class="content">
+		
+		<form name="editarPerfil" action="" method="POST" id="cadastroUsuario" style="float:left;" enctype="multipart/form-data">
+
+			<div class="form-group" style="float:left; width:100%;">
+
+			    <p for="exampleInputEmail1" style="float:left; text-align:left; width:100%; font-weight:bold; margin-bottom:3px;">Nome : </p>
+			    
+			    <input type="text" name="nome" class="form-control" placeholder="{{nome|raw}} {{sobreNome|raw}}" style="width:480px; float:left;">
+
+  			</div>
+
+  			<div class="form-group" style="float:left; width:100%;">
+
+			     <p for="exampleInputEmail1" style="float:left; text-align:left; width:100%; font-weight:bold; margin-bottom:3px;">Sobrenome : </p>
+			    
+			    <input type="text" name="sobreNome" id="sobreNome" class="form-control" placeholder="{{nome|raw}} {{sobreNome|raw}}" style="width:480px; float:left;">
+
+  			</div>
+
+  			<div class="form-group" style="float:left; width:100%;">
+
+			     <p for="exampleInputEmail1" style="float:left; text-align:left; width:100%; font-weight:bold; margin-bottom:3px;">E-Mail : </p>
+			    
+			    <input type="text" name="email" id="email" class="form-control" placeholder="{{nome|raw}} {{sobreNome|raw}}" style="width:480px; float:left;">
+
+  			</div>
+
+  			<div class="form-group" style="float:left; width:100%;">
+
+			    <p for="exampleInputEmail1" style="float:left; text-align:left; width:100%; font-weight:bold; margin-bottom:3px;">Senha : </p>
+			    
+			    <input type="password" name="senha" id="senha" class="form-control" placeholder="{{nome|raw}} {{sobreNome|raw}}" style="width:480px; float:left;">
+
+  			</div>
+
+  			<div class="form-group" style="float:left; width:100%;">
+
+			     <p for="exampleInputEmail1" style="float:left; text-align:left; width:100%; font-weight:bold; margin-bottom:3px;">Repetir Senha : </p>
+			    
+			    <input type="password" name="conf_senha" id="conf_senha" class="form-control" placeholder="{{nome|raw}} {{sobreNome|raw}}" style="width:480px; float:left;">
+
+  			</div>
+
+  			<div class="form-group" style="float:left; width:100%;">
+
+			    <p for="exampleInputEmail1" style="float:left; text-align:left; width:100%; font-weight:bold; margin-bottom:3px;"> Foto perfil : </p>
+			    
+			    <input type="file" name="file" style="float:left; margin-top:8px;">
+
+  			</div>
+
+        <div class="form-group" style="float:left; width:100%;">
+
+          <p for="exampleInputEmail1" style="float:left; text-align:left; width:100%; font-weight:bold; margin-bottom:3px;"> Foto Capa do perfil : </p>
+          
+          <input type="file" name="file_capa" style="float:left; margin-top:8px;">
+
+        </div>
+
+  			<input type="hidden" name="chave" value="{{chave|raw}}">
+
+  			<input type="submit" class="btn btn-success" value="Abrir uma conta" style="float:right;">
+
+
+		</form>
+
+	</div>
+</center>
+
+
+<script type="text/javascript">
+    $j(document).ready(function(){
+        $j('#cadastroUsuario').validate({
+            rules:{ 
+                nome:{ 
+                    required: true,
+                    minlength: 3
+                },
+                sobreNome:{ 
+                    required: true
+                },
+                email: {
+                    required: true,
+                    email: true
+                },
+                senha: {
+                    required: true
+                },
+                conf_senha:{
+                    required: true,
+                    equalTo: "#senha"
+                },
+                termos: "required"
+            },
+            messages:{
+                nome:{ 
+                    required: "O campo nome é obrigatorio.",
+                },
+                 sobreNome:{ 
+                    required: "O campo sobrenome é obrigatorio.",
+                    minlength: "O campo sobrenome conter no mínimo 3 caracteres."
+                },
+                email: {
+                    required: "O campo email é obrigatorio.",
+                    email: "O campo email deve conter um email válido."
+                },
+                senha: {
+                    required: "O campo senha é obrigatorio."
+                },
+                conf_senha:{
+                    required: "O campo confirmação de senha é obrigatorio.",
+                    equalTo: "O campo confirmação de senha deve ser identico ao campo senha."
+                },
+                termos: "Para se cadastrar você deve aceitar os termos de uso."
+            }
+             
+        });
+    });
+</script>

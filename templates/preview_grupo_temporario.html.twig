@@ -1,0 +1,866 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+<!-- Latest compiled and minified CSS -->
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+  <script src="/playground/demo/tweet_to_enter/jquery.tweetToEnter.js"></script>
+
+  <link rel="stylesheet" href="/assets/css/jquery.gritter.css" />
+  <link rel="stylesheet" href="/assets/css/jquery.gritter.css" />
+  
+  <link rel="stylesheet" href="/assets/css/jquery-ui-1.10.3.full.min.css" />  
+  <script src="/assets/js/jquery.gritter.min.js"></script>
+  <script src="/assets/js/chosen.jquery.min.js"></script>
+
+  <script src="/assets/js/bootbox.min.js"></script>
+  <script src="/assets/js/chosen.jquery.min.js"></script>
+  <script src="/assets/js/jquery.gritter.min.js"></script>
+
+  <script src="/assets/js/jquery-ui-1.10.3.full.min.js"></script>
+  <script src="/assets/js/jquery.ui.touch-punch.min.js"></script>
+
+
+<style>	
+
+body {
+  background-color: #FFF;
+  min-width: 100%; display: inline-block;
+}
+
+.gritter-success{background-color: #160625;}
+
+.content_background{
+
+	width: 100%;
+	height: 197px;
+	margin-top: 49px;
+	border-bottom:3px solid #42A2FF;
+	background: url('/img/bg_box.jpg')
+}
+
+.content_background_header{
+
+	width: 1200px;
+	height: auto;
+
+}
+
+.content_background_capa{
+
+	width: 344px;
+	height: auto;
+	background-color: #FFF;
+	float: left;
+	min-height: 250px;
+
+}
+
+.content_background_capa_sidebar{
+
+	width: 350px;
+	height: auto;
+	float: left;
+
+}
+
+.content_background_capa_picture{
+
+	width: 340px;
+	height: auto;
+	float: left;
+	margin: 2px;
+	margin-top: 0px;
+	color: #000;
+	background-color: #333;
+	text-align: left;
+
+
+}
+
+.content_background_titulo{
+
+	width: 600px;
+	height: 50px;
+	float: left;
+	margin-left: 25px;
+	margin-top: 20px;
+	text-align: left;
+	font-size: 25px;
+	color: #FFF;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+}
+
+
+.content_background_grupo_dados{
+
+	width: 800px;
+	height: 150px;
+	float: left;
+	margin-left: 25px;
+	margin-top: 25px;
+
+}
+
+
+.content_background_grupo_box{
+
+	width: 225px;
+	height: 125px;
+	float: left;
+	margin-right: 20px;
+
+}
+
+.content_background_grupo_box_icon{
+
+	width: 91px;
+	height: 95px;
+	float: left;
+	margin: 4px;
+
+}
+
+.content_background_grupo_box_titulo{
+
+	width: 100px;
+	height: 13px;
+	float: left;
+	color: #FFF;
+	font-size: 17px;
+
+}
+
+.content_background_grupo_box_value{
+
+	width: 100px;
+	height: 55px;
+	float: left;
+	color: #FFF;
+	font-size: 48px;
+
+}
+
+.content_menu_sidebar{
+
+	width: 350px;
+	height: auto;
+	float: left;
+	margin-top: 10px;
+	text-align: left;
+	color: #5F5F5F;
+	font-size: 15px;
+
+}
+
+.content_menu_sidebar ul{
+
+	width: 330px;
+	margin:10px;
+	float: left;
+
+}
+
+.content_menu_sidebar li{
+
+	width: 280px;
+	margin:10px;
+
+}
+
+.selected{
+
+	width: 330px;
+	font-weight: bold;
+
+}
+
+.content_background_mais_visualizadas_separador{
+
+	width: 350px;
+	height: 4px;
+	background: url('/img/separador.png');
+	float: left;
+
+}
+
+.content_background_mais_visualizadas_conteudo{
+
+	width: 330px;
+	height: auto;
+	margin: 13px;
+	float: left;
+}
+
+.content_background_mais_visualizadas_conteudo:hover{
+
+	width: 330px;
+	height: auto;
+	margin: 13px;
+	float: left;
+	background:url('/img/bg_houver_top.png'); background-repeat: repeat-x;
+}
+
+.content_background_mais_visualizadas_descricao{
+
+	width: 310px; height: auto; float: right; font-size: 13px; padding: 5px;
+
+}
+
+.content_background_icon_topico{
+
+	width: 16px;
+	height: 22px;
+	float: left;
+	margin-right: 10px;
+
+}
+
+.content_background_footer{
+
+	width: 330px;
+	height: 30px;
+	text-align: right;
+	float:right;
+	margin-top: 5px;
+	margin-right: 10px;
+}
+
+.content_background_box{
+
+	width: 800px;
+	height: auto;
+	float: left;
+
+}
+
+.content_background_box_content{
+
+	width: 775px;
+	height: auto;
+	float: left;
+
+}
+
+.content_background_box_content_titulo{
+
+	width: auto;
+	height: 30px;
+	background-color: #48A4FF;
+	float: left;
+
+}
+
+.content_background_box_content_titulo_txt{
+
+	width: auto;
+	height: 30px;
+	background-color: #48A4FF;
+	float: left;
+	font-size: 16px;
+	color: #FFF;
+	padding-top: 3px;
+	margin-right: 15px;
+
+}
+
+.content_background_box_content_descricao{
+
+	width: 775px;
+	height: auto;
+	padding: 10px;
+	color: #000;
+	float: left;
+	background-color: #FFF;
+	text-align: left;
+
+}
+
+.content_background_box_content_titulo_icon{
+
+	width: 32px;
+	height: 38px;
+	float: left;
+	margin-right: 3px;
+	padding:2px;
+}
+
+.content_background_box_content_titulo_separador{
+	width: 15px;
+	height: 38px;
+	font-size: 22px;
+	color: #fff;
+	float: left;
+	margin-right: 10px;
+}
+
+.content_background_box_visualizacoes{
+
+	width: 180px;
+	height: 30px;
+	float: right;
+	margin:5px;
+	margin-top: 0px;
+	background-color: #212A60;
+	color: #FFF;
+	padding: 3px;
+	margin-top: 4px;
+	margin-bottom: 15px;
+
+}
+
+.content_background_box_ver_box_completo{
+
+	width: 151px;
+	height: 30px;
+	float: right;
+	color: #FFF;
+	padding: 3px;
+
+
+}
+
+.content_boxes{
+
+	width: 820px;
+	min-height: 100%;
+	float: left;
+	margin-left: 10px;
+	margin-top: -25px;
+	border-left: 1px solid #E3E3E3;
+
+}
+
+
+
+
+
+
+.content_publicacao{
+
+	width: 820px;
+	height: auto;
+	margin:5px;
+	background-color: #FFF;
+	float: left;
+	margin-bottom: 30px;
+	border-bottom: 1px solid #E3E3E3;
+
+}
+
+.content_publicacao_icon{
+
+	width: 137px;
+	height: 148px;
+	float: left;
+	background-color: #1F2960;
+
+}
+
+.content_publicacao_icon_img{
+
+	width: 88px;
+	height: 92px;
+	margin-top: 25px;
+
+}
+
+.content_publicacao_titulo{
+
+	width: auto;
+	max-width: 660px;
+	height: auto;
+	padding: 5px;
+	color: #5F5F5F;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	float: left;
+	margin-left: 20px;
+	font-size: 20px;
+
+}
+
+
+.content_publicacao_preview_conteudo{
+
+	width:660px;
+	height: auto;
+	margin-left:20px;
+	margin-top: 15px;
+	float: left;
+	color: #858585;
+	text-align: left;
+	margin-bottom: 10px;
+
+}
+
+
+.content_bt_seguir{
+
+	width: 350px;
+	height: 50px;
+	float: left;
+	margin-top: 8px;
+	border-bottom: 1px solid #E3E3E3;
+
+}
+
+.bt_seguir{
+
+	width: 300px;
+	height: 38px;
+	text-align: center;
+	color: #fff;
+	border: none;
+	background-color: #1E2762;
+
+	-moz-border-radius: 5px; /* Para Firefox */
+	-webkit-border-radius: 5px; /*Para Safari e Chrome */
+	border-radius: 5px; /* Para Opera 10.5+*/
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 15px;
+
+}
+
+.alert_security{
+
+	width: 300px;
+	height: 71px;
+	text-align: center;
+	color: #fff;
+	border: none;
+	background-color: #8D1D1D;
+
+	-moz-border-radius: 5px; /* Para Firefox */
+	-webkit-border-radius: 5px; /*Para Safari e Chrome */
+	border-radius: 5px; /* Para Opera 10.5+*/
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 15px;
+
+	padding: 15px;
+
+}
+
+.bt_seguir:hover{
+
+	width: 300px;
+	height: 38px;
+	text-align: center;
+	color: #fff;
+	border: none;
+	background-color: #0B0F26;
+
+	-moz-border-radius: 5px; /* Para Firefox */
+	-webkit-border-radius: 5px; /*Para Safari e Chrome */
+	border-radius: 5px; /* Para Opera 10.5+*/
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 15px;
+
+}
+
+a:link, a:visited {
+text-decoration: none;
+color: #0B0F26;
+}
+a:hover {
+text-decoration: none;
+color: #1E2762;
+}
+a:active {
+text-decoration: none;
+}
+
+
+.content_box_scroll_follow{
+
+	width: 360px;
+	height: auto;
+	position: fixed;
+	top:300px;
+}
+
+.modal-backdrop{position:inherit !important; margin-top:220px !important;}
+
+.fade {}
+
+.in{}
+
+
+
+</style>
+
+<center>
+
+	<div class="content_background"> 
+
+		<div class="content_background_header">
+
+			<div class="content_background_capa_sidebar">
+
+				<div class="content_background_capa">	
+
+					<div class="content_background_capa_picture">
+
+						<img src="{{grupoCapa|raw}}" width="340">
+
+					</div>
+
+				</div>
+
+			<div class="content_box_scroll_follow">
+
+
+				<div class="content_bt_seguir">
+
+					{% if seguir|raw == 0 %}
+
+						<form name="SeguirGrupo" id="SeguirGrupo" action="" method="POST">
+
+							<input type="hidden" name="grupoID" value="{{grupoID|raw}}">
+
+							<input type="submit" class="bt_seguir" value="+ Seguir este Grupo">
+
+						</form>
+
+					{% endif %}
+
+					{% if grupoPrivilegios|raw == 'security' %}
+
+						<div class="alert_security">
+
+							Atenção, este grupo será dasativado em até 2 horas!
+
+						</div>
+						 
+					{% endif %}
+
+				</div>
+
+				<div class="content_menu_sidebar">
+				
+					<ul>
+
+						<a href="#"> <li class="selected"> Feed de Publicações</li> </a>
+						<a href="#"> <li>Mídias Publicadas </li> </a>
+						{% if grupoPrivilegios|raw == 'security' %} {% else %}
+						
+							<a href="#"> <li>Seguidores </li> </a>
+							<a href="#"> <li>(Deixar Grupo) </li> </a>
+
+						{% endif %}
+
+			<!-- Button trigger modal -->
+			<button class="bt_seguir" style="width:150px;" data-toggle="modal" data-target="#myModal234">
+				Adicionar Box
+			</button>
+
+<!-- Model Conteúdo Box !-->
+				<div class="modal fade" id="myModal234" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+				  <div class="modal-dialog modal-lg" style="margin-top:100px !important;">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				        <h4 class="modal-title" id="myModalLabel">Adicionar Box </h4>
+				      </div>
+				      <div class="modal-body">
+				       	
+						<form method="post" action="/grupo-temporario/InsertBox/" id="ajax_form" enctype="multipart/form-data">
+
+							<input type="hidden" name="grupoID" value="{{grupoID|raw}}">
+
+							<input type="text" class="form-control" id="titulo" name="titulo" placeholder="Insira o Título do Box"> <br>
+
+							<textarea class="form-control"  name="descricao" rows="8"></textarea><br>
+
+							<label> Midia : <input type="file" name="file[]" multiple="multiple"/> </label><br>
+						     		
+
+				      </div>
+				      <div class="modal-footer">
+				       <input type="submit" class="bt_seguir" style="width:150px;" value="Criar Box"> <button type="button" class="btn btn-default" data-dismiss="modal">Sair do Box</button>
+				      </div>
+
+				      </form>				 
+				    </div>
+				  </div>
+				</div>
+<!-- Model Conteúdo Box !-->	
+
+					</ul>
+
+				</div>
+
+			</div>
+
+			</div>
+
+
+			<div class="content_background_titulo">
+
+				{{grupoNome|raw}}
+
+			</div>
+
+			<div class="content_background_grupo_dados">
+
+				<div class="content_background_grupo_box">
+
+					<div class="content_background_grupo_box_icon">
+
+						<img src="/img/icon_participantes.png" width="51">
+
+					</div>
+
+					<div class="content_background_grupo_box_titulo">
+						Participantes
+					</div>
+
+					<div class="content_background_grupo_box_value">
+						{{grupoNumeroParticipantes|raw}}
+					</div>
+
+				</div>
+
+				<div class="content_background_grupo_box">
+
+					<div class="content_background_grupo_box_icon">
+
+						<img src="/img/icon_boxes.png" width="51">
+
+					</div>
+
+					<div class="content_background_grupo_box_titulo">
+						Boxes
+					</div>
+
+					<div class="content_background_grupo_box_value">
+						{{grupoNumeroBoxes|raw}}
+					</div>
+
+				</div>
+
+				<div class="content_background_grupo_box">
+
+					<div class="content_background_grupo_box_icon">
+
+						<img src="/img/icon_interacoes.png" width="51">
+
+					</div>
+
+					<div class="content_background_grupo_box_titulo">
+						Interações
+					</div>
+
+					<div class="content_background_grupo_box_value">
+						{{grupoNumeroParticipantes|raw}}
+					</div>
+
+				</div>
+
+			</div>
+
+
+
+		</div>
+
+	</div>
+
+	<div class="content_boxes">
+
+		<div class="content_background_box">
+			
+			{% autoescape %}
+
+				{% for dadosBox in arrayPreviewGrupo %}
+
+				<div class="element content_publicacao">
+
+					<div class="content_publicacao_icon">
+						<div class="content_publicacao_icon_img">
+
+							<img src="/img/publicacao_icon_box.png"> 
+
+						</div>
+					</div>
+
+					<div class="content_publicacao_titulo">
+
+							{{dadosBox.titulo|raw}}
+
+					</div>
+
+					<div class="content_publicacao_preview_conteudo">
+
+						{{dadosBox.descricao|raw}}...	
+
+					</div>
+
+					{% for visualizacoes in grupoBoxQuantidadeVisualizacoes %}
+
+						{% if visualizacoes.id|raw == dadosBox.id|raw %}
+
+						 <div class="content_background_box_ver_box_completo">
+						    	
+						    	   <a class="btn btn-default" style="padding:5px !important;" href="/grupo-temporario/box/{{dadosBox.id|raw}}" target="blanck">Ver box Completo ></a>
+
+						    </div>
+
+						    
+
+							    {% if dadosBox.box_tipo|raw == 'compartilhamento' %}
+
+									<div class="content_background_box_visualizacoes"> Box Compartilhado! </div>
+
+								{% endif %}
+
+
+							<div class="content_background_box_visualizacoes">
+						    	
+						    	<img src="/img/icon_interacoes_small.png" width="24">  {{visualizacoes.quantidade|raw}}
+
+						    	{% if visualizacoes.quantidade|raw == 0 %}
+
+						    	 Visualização
+
+						    	 {% elseif visualizacoes.quantidade|raw == 1 %}
+
+						    	 Visualização
+
+						    	 {% else %}
+
+						    	 Visualizações
+
+						    	 {% endif %}
+
+						    </div>
+
+
+						{% endif %}
+
+					{% endfor %}
+
+				</div>
+
+				{% endfor %}
+
+					
+				</div>
+
+			{% endautoescape %}
+
+		</div>
+	
+	</div>
+
+</center>
+
+ <nav id="page_nav">
+    <a href="/grupo-temporario/autoloader/{{grupoID|raw}}/2/"></a>
+  </nav>
+
+  <script src="http://www.ymic3dworld.com/lightwindow2/isotope-site/jquery.isotope.min.js"></script>
+  <script src="http://www.ymic3dworld.com/lightwindow2/isotope-site/js/jquery.infinitescroll.min.js"></script>
+  <script>
+    $(function(){
+
+      var $container = $('.content_boxes');
+
+      //$container.isotope({ layoutMode: 'masonry' })
+      
+      $container.infinitescroll({
+        navSelector  : '#page_nav',    // selector for the paged navigation 
+        nextSelector : '#page_nav a',  // selector for the NEXT link (to page 2)
+        itemSelector : '.element',     // selector for all items you'll retrieve
+        loading: {
+            finishedMsg: 'Não existem mais box neste Grupo!',
+            img: 'http://i.imgur.com/qkKy8.gif'
+          }
+        },
+        // call Isotope as a callback
+        function( newElements ) {
+          
+        }
+      );
+
+        // Add exponential z-index for dropdown cropping
+	    $elems.each(function(e){
+	        $(this).css({ 
+	            zIndex: ($elems.length - e) 
+	        });
+	    });
+      
+    
+    });
+  </script>
+    
+  </section> <!-- #content -->
+
+	<script src="/assets/js/jquery.gritter.min.js"></script>
+	<script src="/assets/js/chosen.jquery.min.js"></script>
+
+	<script src="/assets/js/bootbox.min.js"></script>
+	<script src="/assets/js/chosen.jquery.min.js"></script>
+	<script src="/assets/js/jquery.gritter.min.js"></script>
+
+	<script src="/assets/js/jquery-ui-1.10.3.full.min.js"></script>
+	<script src="/assets/js/jquery.ui.touch-punch.min.js"></script>
+
+	{% if return|raw == 'publicacao' %}
+
+		<script>
+			 // DADOS INSERIDOS COM SUCESSO
+            $.gritter.add({
+              title: 'Box Postado com sucesso!',
+              text: '' ,
+              time: 2000,
+              class_name: 'gritter-success'
+            });
+
+		</script>
+
+	{% endif %}
+
+		{% if return|raw == 'republicacao' %}
+
+		<script>
+			 // DADOS INSERIDOS COM SUCESSO
+            $.gritter.add({
+              title: 'Box compartilhado com sucesso!',
+              text: '' ,
+              time: 2000,
+              class_name: 'gritter-success'
+            });
+
+		</script>
+
+	{% endif %}
+
+	{% if return|raw == 'false' %}
+
+		<script>
+			 // DADOS INSERIDOS COM SUCESSO
+            $.gritter.add({
+              title: 'Você não tem permissão para postar/compartilhar um box neste grupo!',
+              text: '' ,
+               time: 2000,
+              class_name: 'gritter-success'
+            });
+
+		</script>
+
+	{% endif %}
+
+{% endblock %}
+
+	
+
+

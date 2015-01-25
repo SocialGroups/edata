@@ -1,0 +1,265 @@
+<!-- Latest compiled and minified CSS -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
+
+
+ <link rel="stylesheet" href="/assets/css/style_isotope.css" />
+
+  <script src="/playground/demo/tweet_to_enter/jquery.tweetToEnter.js"></script>
+
+  <link rel="stylesheet" href="/assets/css/jquery.gritter.css" />
+  <link rel="stylesheet" href="/assets/css/jquery.gritter.css" />
+  
+  <link rel="stylesheet" href="/assets/css/jquery-ui-1.10.3.full.min.css" />  
+  <script src="/assets/js/jquery.gritter.min.js"></script>
+  <script src="/assets/js/chosen.jquery.min.js"></script>
+
+  <script src="/assets/js/bootbox.min.js"></script>
+  <script src="/assets/js/chosen.jquery.min.js"></script>
+  <script src="/assets/js/jquery.gritter.min.js"></script>
+
+  <script src="/assets/js/jquery-ui-1.10.3.full.min.js"></script>
+  <script src="/assets/js/jquery.ui.touch-punch.min.js"></script>
+
+<style>	
+
+
+body {
+  padding-top: 70px;
+  background-color: #E1E1E0;
+}
+
+#content_search{ border: none !important; 
+    margin-top:25px;
+    width:1200px; 
+    min-height:100%;
+    height:auto; 
+}
+
+
+.content_grupo{
+
+	width: 375px;
+	height: auto;
+	margin: 10px;
+	background-color: #FFF;
+	float: left;
+}
+
+.grupo_capa{
+
+	width: 375px;
+	height: auto;
+	top :0;
+	float: left;
+
+}
+
+.grupo_titulo{
+
+	width: 375px;
+	height: 40px;
+	padding-top: 12px;
+	padding-left: 22px;
+	font-size: 21px;
+	text-align: left;
+	background-color: #FFF;
+	float: left;
+	color: #525252;
+	font-style: normal;
+}
+
+.grupo_descricao{
+
+	width: 375px;
+	height: auto;
+	padding-bottom: 17px;
+	padding-left: 12px;
+	padding-right: 12px;
+	padding-top: 12px;
+	text-align: left;
+	float: left;
+	font-size: 13px;
+	color: #525252;
+
+}
+
+.content_grupo_footer{
+
+	width: 200px;
+	height: 40px;
+	float: right;
+
+}
+
+.btn_participar{
+
+	-webkit-box-shadow:inset 0 3px 5px rgba(0,0,0,.125);box-shadow:inset 0 3px 5px rgba(0,0,0,.125)
+
+}
+
+.content_preview_box{
+
+	width: 845px;
+	height: auto;
+	background-color: #EEEEEE;
+	margin-bottom: 15px;
+	padding: 15px;
+
+}
+
+.content_preview_titulo{
+
+	width: 830px;
+	float: left;
+	text-align: center;
+	font-size: 22px;
+	color: #333;
+	height: auto;
+	background-color: #EEEEEE;
+
+}
+
+
+.content_preview_conteudo{
+
+	width: 830px;
+	text-align: left;
+	color:#333;
+	height: auto;
+	background-color: #EEEEEE;
+
+}
+
+</style>
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Social Groups</a> <a class="navbar-brand" style="font-size:14px;" href="#">/ Grupos Temporários</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            
+            	<form class="navbar-form navbar-left" role="search">
+			        <div class="form-group">
+			        	O que você Procura ?
+			          <input type="text" class="form-control" style="width:400px;" placeholder="Interesses, Pessoas, Perguntas, Macacos etc...">
+			        </div>
+			        <button type="submit" class="btn btn-default">Buscar</button>
+      			</form>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+<center>
+
+	<div id="content_search">
+		{% autoescape %}
+
+				    {% for key, user in arrayGrupos %}
+
+				    <div class="element content_grupo">
+
+				    	<div class="grupo_capa">
+
+				    			<img src="{{user.grupoCapa|raw}}" width="375">
+
+				    	</div>
+
+				    	<div class="grupo_titulo">
+				    		{{ user.grupoNome|raw }} 
+				    	</div>
+
+				    	<div class="grupo_descricao">
+
+				    		{{ user.grupoDescricao|raw }}
+
+				    	</div>
+
+				    	<div class="content_grupo_footer">
+
+				    		<button type="submit" class="btn btn-primary" style="padding:5px !important;">Participar</button>
+
+				    		<a data-toggle="modal" class="btn btn-default" style="padding:5px !important;" href="/grupo-temporario/preview/{{ user.grupoID|raw}}/" target="blanck">Preview</a>
+				    	</div>
+
+				    </div>
+
+				  
+
+				    {% endfor %}
+
+
+
+			
+
+	 	{% endautoescape %}
+	</div>
+
+</center>
+
+
+  <nav id="page_nav">
+    <a href="/grupo-temporario/search-grupo-temporario/2/"></a>
+  </nav>
+
+  <script src="http://www.ymic3dworld.com/lightwindow2/isotope-site/jquery.isotope.min.js"></script>
+  <script src="http://www.ymic3dworld.com/lightwindow2/isotope-site/js/jquery.infinitescroll.min.js"></script>
+  <script>
+    $(function(){
+
+      var $container = $('#content_search');
+
+      //$container.isotope({ layoutMode: 'masonry' })
+    
+      $container.isotope({
+        
+      });
+      
+      $container.infinitescroll({
+        navSelector  : '#page_nav',    // selector for the paged navigation 
+        nextSelector : '#page_nav a',  // selector for the NEXT link (to page 2)
+        itemSelector : '.element',     // selector for all items you'll retrieve
+        loading: {
+            finishedMsg: 'No more pages to load.',
+            img: 'http://i.imgur.com/qkKy8.gif'
+          }
+        },
+        // call Isotope as a callback
+        function( newElements ) {
+          $container.isotope( 'appended', $( newElements ) ); 
+        }
+      );
+
+        // Add exponential z-index for dropdown cropping
+	    $elems.each(function(e){
+	        $(this).css({ 
+	            zIndex: ($elems.length - e) 
+	        });
+	    });
+      
+    
+    });
+  </script>
+    
+  </section> <!-- #content -->
+
+ 
+

@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	{{ block('headerhtml') }}
+
+	<body>
+		
+		{{ block('notificationbar') }}
+
+		<div class="main-container" id="main-container">
+			<script type="text/javascript">
+				try{ace.settings.check('main-container' , 'fixed')}catch(e){}
+			</script>
+
+			<div class="main-container-inner">
+				<a class="menu-toggler" id="menu-toggler" href="#">
+					<span class="menu-text"></span>
+				</a>
+
+				{{ block('menulateral') }}
+
+				<div class="main-content">
+					{{ block('navigationbar') }}
+
+					<div class="page-content">
+						
+
+						<div class="row">
+							<div class="col-xs-12">
+								<!-- PAGE CONTENT BEGINS -->
+
+								{% block content %}
+	
+	
+									<link rel="stylesheet" href="/assets/css/ace-rtl.min.css" />
+									<link rel="stylesheet" href="/assets/css/ace-skins.min.css" />
+									<link rel="stylesheet" href="/assets/css/jquery-ui-1.10.3.custom.min.css" />
+									<link rel="stylesheet" href="/assets/css/jquery.gritter.css" />
+									<link rel="stylesheet" href="/assets/css/jquery-ui-1.10.3.full.min.css" />
+									<style>
+										.id_table {
+											width: 75px;
+										}
+										.filter_id {
+											width: 60px;
+										}
+										.filter_nome {
+											width: 300px;
+										}
+
+										.btn_button_edit {
+											float: right;
+											cursor: pointer;
+											width: 10px;
+										}
+
+										.divEdit {
+											float: left;
+											width: 90%;
+										}
+									</style>
+
+								    <!-- LISTA DE REGISTROS //-->
+								    <table class="table table-striped table-bordered table-hover dataTable" id="table_results">
+								        <thead>
+								            <tr>
+								                <th class="id_table">#</th>
+								                <th>Nome</th>
+								                <th>Ativo</th>
+								            </tr>
+								        </thead>
+								        <tbody>
+								            
+								        </tbody>
+								        <tfoot>
+								        	<tr>
+								        		<th><input type="text" name="search_id" placeholder="Procurar ID" class="input-sm filter_id"></th>
+								        	
+								        		<th><input type="text" name="search_nome" placeholder="Procurar Nome" class="input-sm filter_nome"></th>
+								        	
+								        		<th>
+								        			<select name="search_ativo">
+								        				<option value="">Todos</option>
+								        				<option value="1">Ativo</option>
+								        				<option value="0">Inativo</option>
+								        			</select>
+								        		</th>
+								        	</tr>
+								        </tfoot>
+								    </table>
+
+
+								    <div id="dialog-confirm" class="hide">
+										<div class="alert alert-info bigger-110" id='msgDialog'>
+											These items will be permanently deleted and cannot be recovered.
+										</div>
+
+										<div class="space-6"></div>
+
+										<p class="bigger-110 bolder center grey">
+											<i class="icon-hand-right blue bigger-120"></i>
+											Você tem certeza?
+										</p>
+									</div><!-- #dialog-confirm -->
+
+								{% endblock %}
+
+								<!-- PAGE CONTENT ENDS -->
+							</div><!-- /.col -->
+						</div><!-- /.row -->
+					</div><!-- /.page-content -->
+				</div><!-- /.main-content -->
+				
+				<!-- /#ace-settings-container -->
+			</div><!-- /.main-container-inner -->
+
+			<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+				<i class="icon-double-angle-up icon-only bigger-110"></i>
+			</a>
+		</div><!-- /.main-container -->
+
+		<!-- basic scripts -->
+
+		<!--[if !IE]> -->
+
+		<script type="text/javascript">
+			window.jQuery || document.write("<script src='/assets/js/jquery-2.0.3.min.js'>"+"<"+"/script>");
+		</script>
+
+		<!-- <![endif]-->
+
+		<!--[if IE]>
+}
+}
+<script type="text/javascript">
+ window.jQuery || document.write("<script src='assets/js/jquery-1.10.2.min.js'>"+"<"+"/script>");
+</script>
+<![endif]-->
+
+		<script type="text/javascript">
+			if("ontouchend" in document) document.write("<script src='/assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+		</script>
+		<script src="/assets/js/bootstrap.min.js"></script>
+
+		<!-- page specific plugin scripts -->
+
+		<!--[if lte IE 8]>
+		  <script src="assets/js/excanvas.min.js"></script>
+		<![endif]-->
+
+		<!-- ace scripts -->
+
+		<script src="/assets/js/ace-elements.min.js"></script>
+		<script src="/assets/js/ace.min.js"></script>
+
+		<!-- inline scripts related to this page -->
+		
+
+
+			<script src="/assets/js/bootbox.min.js"></script>
+			<script src="/assets/js/date-time/bootstrap-datepicker.min.js"></script>
+			<script src="/assets/js/date-time/moment.min.js"></script>
+			<script src="/assets/js/date-time/daterangepicker.min.js"></script>
+			<script src="/assets/js/chosen.jquery.min.js"></script>
+			<script src="/assets/js/jquery.gritter.min.js"></script>
+			<script src="/assets/js/jquery.dataTables.min.js"></script>
+			<script src="/assets/js/jquery.dataTables.bootstrap.js"></script>
+			<script src="/assets/js/jquery.jeditable.mini.js"></script>
+
+			<script src="/assets/js/jquery-ui-1.10.3.full.min.js"></script>
+			<script src="/assets/js/jquery.ui.touch-punch.min.js"></script>
+			
+
+			<script type="text/javascript">
+
+				var asInitVals = new Array();
+				var nomeController = "/{% block nomecontroller %}{% endblock %}";
+
+				ativarDesativar = function(id, valor, e, item) {
+
+					e.preventDefault();
+
+					var mensagem = 'Essa ação irá ';
+					if(valor == false) {
+						mensagem += 'desativar';
+					} else {
+						mensagem += 'ativar';
+					}
+					mensagem += ' esse registro?';
+					$( "#msgDialog" ).html(mensagem);
+						
+					$( "#dialog-confirm" ).removeClass('hide').dialog({
+						resizable: false,
+						modal: true,
+						title_html: true,
+						title: "<div class='widget-header' style='width: 100% !important;'><h4 class='smaller'><i class='icon-warning-sign red'></i> ATENÇÃO</h4></div>",
+						buttons: [
+							{
+								html: "<i class='icon-trash bigger-110'></i>&nbsp; Confirmar",
+								"class" : "btn btn-danger btn-xs",
+								click: function() {
+									
+									
+
+									$.ajax({
+										url: nomeController,
+										type: 'DELETE',
+										data: { idItem: id },
+										dataType: 'json'
+									}).done(function(retorno) {
+
+										// oTable1.fnDraw();
+										// console.log(retorno);
+
+										if(retorno.result == true) {
+											item.context.checked = valor;
+											//$('#table_results').fnDraw();
+
+											if(retorno.tipo == 1) {
+												msg = "Registro ativado com sucesso";
+											} else {
+												msg = "Registro desativado com sucesso";
+											}
+
+											// DADOS EDITADOS COM SUCESSO
+											$.gritter.add({
+												title: msg,
+												text: '' ,
+												class_name: 'gritter-success'
+											});
+										
+										} else {
+
+											// ERRO AO INSERIR OS DADOS
+											var display_errors = "";
+											$.each(retorno.errors, function(i, val) {
+												if(val != "") {
+													display_errors += val+"<br />";
+												}
+											});
+
+											$.gritter.add({
+												title: 'Dados não alterados:',
+												text: display_errors ,
+												sticky: true,
+												class_name: 'gritter-error'
+											});
+										}
+										
+									});
+
+									
+									$( this ).dialog( "close" );
+								}
+							}
+							,
+							{
+								html: "<i class='icon-remove bigger-110'></i>&nbsp; Cancelar",
+								"class" : "btn btn-xs",
+								click: function() {
+									$( this ).dialog( "close" );
+								}
+							}
+						]
+					});
+				};
+
+				$( document ).ready( function() {
+					//override dialog's title function to allow for HTML titles
+
+					// console.log(nomeController);
+					$.widget("ui.dialog", $.extend({}, $.ui.dialog.prototype, {
+						_title: function(title) {
+							var $title = this.options.title || '&nbsp;'
+							if( ("title_html" in this.options) && this.options.title_html == true )
+								title.html($title);
+							else title.text($title);
+						}
+					}));
+
+					
+					$('input[name=date-range-picker]').daterangepicker().prev().on(ace.click_event, function(){
+						$(this).next().focus();
+					});
+
+					var oTable1 = $('#table_results').dataTable( {
+						"bFilter": true,
+						"bProcessing": true,
+		        		"bServerSide": true,
+		        		"sAjaxSource": nomeController+"/ajax/",
+		        		"fnDrawCallback": function () {
+		        			$("#table_results tbody td .btnAtivar").on("click", function(e) {
+		        				// e.preventDefault()
+						    	ativarDesativar($(this).attr('itemID'), $(this).context.checked, e, $(this));
+						    	
+						    	
+						    });
+
+							$("#table_results_filter").hide();	
+						    $('.btn_button_edit').on("click", function() {  // an action to trigger editing
+						    	var idButton = $(this).attr("idEditar");
+
+							    $('#table_results tbody td .editable'+idButton).editable(nomeController+'/editAjax', {
+							        id   : 'elementid',
+			         				name : 'newvalue',
+					                "callback": function( retorno, y ) {
+					                    /* Redraw the table from the new data on the server */
+					                    
+					                    oTable1.fnDraw();
+					                    $("#table_results_filter").hide();
+					                    
+					                    retorno = $.parseJSON(retorno);
+					                    
+					                    if(retorno.result == true) {
+											
+											// DADOS INSERIDOS COM SUCESSO
+											$.gritter.add({
+												title: 'Dados editados com sucesso',
+												text: '' ,
+												class_name: 'gritter-success'
+											});
+										
+										} else {
+
+											// ERRO AO INSERIR OS DADOS
+											var display_errors = "";
+											$.each(retorno.errors, function(i, val) {
+												if(val != "") {
+													display_errors += val+"<br />";
+												}
+											});
+
+											$.gritter.add({
+												title: 'Corrija os erros abaixo:',
+												text: display_errors ,
+												sticky: true,
+												class_name: 'gritter-error'
+											});
+										}
+
+					                    // 
+					                },
+					                "height": "25px",
+					                "width": "100%",
+
+							        // when the editing is done, make this element uneditable
+							        onreset: function() { $(this).parent().editable('destroy'); }
+							    })
+							    // pseudo click the editable element, so it is in the "editable" mode
+							    .click(); 
+							});
+
+				        },
+		        		"oLanguage": {
+				            "sUrl": "/assets/js/dataTable_ptBR.js"
+				        },
+						"aoColumns": [
+					      
+						      null, null,
+							  { "bSortable": false }
+							] 
+						}
+						
+					);
+
+					$("tfoot input").keyup( function () {
+				        /* Filter on the column (the index) of this element */
+				        oTable1.fnFilter( this.value, $("tfoot input").index(this) );
+
+				        // console.log($("tfoot input").index(this));
+				    } );
+
+				    $("tfoot select").on("change", function () {
+				        /* Filter on the column (the index) of this element */
+				        oTable1.fnFilter( this.value, 2 );
+				    } );
+
+				    $("tfoot input").each( function (i) {
+				        asInitVals[i] = this.value;
+				    } );
+
+				    //alert($("#table_results_filter"));
+				    
+
+				    
+
+					$("#buttonNew").on(ace.click_event, function() {
+						bootbox.prompt("Nome", function(result) {
+							if (result !== null) {
+								if(result != '') {
+
+									$.ajax({
+										url: nomeController,
+										type: 'PUT',
+										data: { nome: result},
+										dataType: 'json'
+									}).done(function(retorno) {
+										if(retorno.result == true) {
+											$('#table_results').dataTable().fnAddData( [
+										        retorno.item.id,
+										        retorno.item.nome,
+										        '' ] 
+										    );
+
+											// DADOS INSERIDOS COM SUCESSO
+											$.gritter.add({
+												title: 'Dados inseridos com sucesso',
+												text: '' ,
+												class_name: 'gritter-success'
+											});
+										
+										} else {
+
+											// ERRO AO INSERIR OS DADOS
+											var display_errors = "";
+											$.each(retorno.errors, function(i, val) {
+												if(val != "") {
+													display_errors += val+"<br />";
+												}
+											});
+
+											$.gritter.add({
+												title: 'Corrija os erros abaixo:',
+												text: display_errors ,
+												sticky: true,
+												class_name: 'gritter-error'
+											});
+										}
+										
+									});
+									
+								}
+							}
+						});
+					});
+
+					$(".chosen-select").chosen(); 
+
+					//chosen plugin inside a modal will have a zero width because the select element is originally hidden
+					//and its width cannot be determined.
+					//so we set the width after modal is show
+					$('#modal-form').on('shown.bs.modal', function () {
+						$(this).find('.chosen-container').each(function(){
+							$(this).find('a:first-child').css('width' , '210px');
+							$(this).find('.chosen-drop').css('width' , '210px');
+							$(this).find('.chosen-search input').css('width' , '200px');
+						});
+					});
+
+					$("#table_results_filter").hide();
+					/**
+					//or you can activate the chosen plugin after modal is shown
+					//this way select element becomes visible with dimensions and chosen works as expected
+					$('#modal-form').on('shown', function () {
+						$(this).find('.modal-chosen').chosen();
+					})
+					*/
+
+				});
+			</script>
+
+
+		
+	</body>
+</html>

@@ -1,0 +1,413 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+
+{% autoescape %}
+
+<!-- Adicionar Box Ajax !-->
+<script src="/assets/js/ajax-upload.js"></script>
+<!-- Adicionar Box Ajax !-->
+
+<style>
+.chosen-container {width: 300px !important;}
+.chosen-container-single{width: 300px !important;}
+</style>
+
+	<!-- BEGIN PAGE CONTAINER-->
+	<div class="page-content"> 
+		<div class="content">  
+
+    <!-- Div responsável por resceber o append com uma notificação pendente selecionada !-->
+    <div class="col-md-6 col-vlg-4 col-sm-12 appendNotificacaoPendente" style="width:100%; margin-bottom:15px; float:left;"> </div>
+    <!-- Div responsável por resceber o append com uma notificação pendente selecionada !-->
+
+
+<!-- Grupos Recomendados !-->
+<h4 style="margin-left:15px;">Grupos Recomendados</span></h4>
+
+	<div class="col-md-6 col-vlg-4 col-sm-12 " style="float:left;">
+ 
+<div class="tiles overflow-hidden tiles-overlay-hover m-b-20 widget-item">
+<div class="overlayer tiles-overlay auto blue">
+<div class="overlayer-wrapper  p-t-20 p-l-20 p-r-20 p-b-20"> 
+<h3 class="text-white"> {{grupoRecomendado.nome|raw}} <br>
+<p class="p-t-20"><span class="bold">teste</span> Seguidores <span class="m-l-10 bold">teste</span> Boxes</p>
+</div>
+</div>
+<div class="overlayer bottom-left fullwidth">
+<div class="overlayer-wrapper">
+<div class="tiles gradient-grey p-l-20 p-r-20 p-b-20 p-t-20"> 
+<p class="p-t-10 p-b-10 ">
+
+
+<a href="/profile/teste"> <div class="profile-img-wrapper inline m-r-5"> <img src="teste" alt="" data-src="teste" data-src-retina="teste" width="35" height="35"> </div> </a>
+
+<a href="/grupos/get/{{grupoRecomendado.id|raw}}"><button type="button" class="btn btn-primary">Acessar Grupo</button></a>
+</div>
+</div>
+</div>
+<img src="{{grupoRecomendado.capa|raw}}" data-src="{{grupoRecomendado.capa|raw}}" data-src-retina="{{grupoRecomendado.capa|raw}}" alt="" class="image-responsive-width hover-effect-img">
+ 
+</div>
+</div>
+
+<!-- Grupos Recomendados !-->
+
+			<!-- BEGIN PAGE TITLE -->
+			<div class="page-title">	
+				<h3>Feed de notícias</h3>		
+			</div>
+			<!-- END PAGE TITLE -->
+
+<!-- Content Boxes !-->
+
+<div class="rightContent" style="float:left; min-height: 100%;">
+
+<div class="element ol-md-6 col-vlg-4 col-sm-12" style="margin-top:20px;" id="boxID{{feed.id|raw}}">
+<div class="widget-item narrow-margin">
+<div class="tiles white ">
+<div class="tiles-body">
+<div class="row">
+<div class="user-comment-wrapper pull-left">
+<a href="/profile/{{feed.nick_name|raw}}">
+<div class="profile-wrapper"> <img src="{{feed.foto_perfil|raw}}" alt="" data-src="{{feed.foto_perfil|raw}}" data-src-retina="{{feed.foto_perfil|raw}}" width="35" height="35"> </div>
+</a>
+<div class="comment">
+<div class="preview-wrapper" style="font-size:22px; margin-top:5px;">  @{{feed.nick_name|raw}} <h5> Grupo : <a href="/grupos/get/{{feed.grupo_id|raw}}">{{feed.GrupoTitulo|raw}}</a></h5> </div>
+</div>
+<div class="clearfix"></div>
+</div>
+<div class="clearfix"></div>
+<div class="p-l-15 p-t-10 p-r-20">
+<p>{{feed.descricao|raw}}</p>
+  <!-- Vídeo !-->
+    <!-- Vídeo !--> 
+
+    
+  <!-- Mídia !-->
+
+    <div class="photoset-grid-custom" >
+
+
+      <img src="{{midias.midia_url|raw}}" style="max-width:600px !important;">
+              
+    </div>
+
+    <!-- Mídia !-->
+
+    <!-- Vídeo !-->
+
+
+        <div class="videos">
+          
+          <div class="youtube-video"> <a href="http://www.youtube.com/watch?v={{video.youtube|raw}}"> <img src="http://img.youtube.com/vi/{{video.youtube|raw}}/1.jpg" title="Play" alt="Play"/> </a> </div>
+          <div class="details">
+            <h6>{{video.videoTitulo|raw}}</h6>
+            <p class="desc">{{video.videoDescricao|raw}}</p>
+          </div>
+        </div>
+
+  <!-- Vídeo !--> 
+
+
+
+        <!-- Excluir Box !-->
+
+          <form name="deletar" method="POST" action="" class="deletar" id="{{feed.id|raw}}" style="float:right; margin:15px;">
+                
+                    <input type="hidden" name="tipoExclusao" value="box" class="tipoExclusao{{feed.id|raw}}">
+
+                    <input type="submit" class="btn btn-danger" value="Excluir">
+
+                </form> 
+
+        <!-- Excluir Box !-->
+
+
+    <!-- Compartilhar Box !-->
+
+      <a data-toggle="modal" class="btn btn-info" href="/compartilhar/{{feed.boxID|raw}}" data-target="#myModal{{feed.boxID|raw}}" style="float:right; margin:15px; margin-right:0px;">Compartilhar</a>
+ 
+      <!-- Modal Compartilhar -->
+      <div class="modal fade" id="myModal{{feed.boxID|raw}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+              <div class="modal-content">
+              </div> <!-- /.modal-content -->
+          </div> <!-- /.modal-dialog -->
+      </div> <!-- /.modal -->
+      <!-- Modal Compartilhar !-->
+
+    <!-- Compartilhar Box !-->
+
+  <!-- Mídia !-->     
+<div class="post p-t-10 p-b-10">
+
+<div class="clearfix"></div>
+</div>
+</div>
+</div>
+</div>
+
+
+<!-- Comentários !-->
+<div class="appendcomentario{{feed.id|raw}}" style="width:100%; height:auto; margin-bottom:15px;"> 
+
+      <p class="p-t-10 p-b-10 p-l-15 p-r-15"><span class="bold">Comentários:</span>
+
+            <div class="notification-messages success labelComentario{{comentario.id|raw}}" id="{{feed.id|raw}}">
+
+              <div class="user-profile"> 
+
+              <img src="{{comentario.foto_perfil|raw}}" alt="" data-src="" data-src-retina="{{comentario.foto_perfil|raw}}" width="35" height="35"> 
+              </div>
+
+              <div class="message-wrapper">
+                <div class="heading"> 
+                  {{comentario.nome|raw}}
+                </div>
+                <div class="description">
+                  {{comentario.conteudo|raw}}
+                </div>
+              </div>
+
+              <div class="date pull-right">
+                
+                {{comentario.dataHora|date("d/m/Y H:i")}}
+
+              </div>
+              <div class="clearfix">
+              </div>
+
+              {% if usuarioID|raw == comentario.usuario_id|raw %}
+
+               <form name="deletaComentario" class="deletaComentario deletaComentario{{comentario.id|raw}}" id="{{comentario.id|raw}}" action="" method="POST" style="font-size:12px;">
+
+                  <input type="hidden" name="comentarioID" value="{{comentario.id|raw}}">
+
+                  <input type="submit" class="btn btn-link btn-cons" value="Excluir Comentário">
+
+              </form>
+
+
+
+            </div>
+
+</div>
+<!-- Comentários !-->
+
+
+<div class="clearfix"></div>
+<div class="p-b-10 p-l-10 p-r-10">
+
+      <form name="LoadMore" class="loadMoreComentarios loadMoreComentarios{{feed.id|raw}}" id="{{feed.id|raw}}" style="float:left; width:100%;">
+
+
+        <input type="hidden" name="feedID" id="feedID" value="{{feed.id|raw}}" >
+        <input type="hidden" name="boxID" value="{{feed.boxID|raw}}">
+
+        <input type="hidden" name="pagina" value="2">
+        <input type="submit" class="btn btn-white btn-sm btn-small" style="width:25%; margin:5px; float:right;" value="Carregar mais comentários">
+
+      </form>
+
+<form name="adicionaComentario" class="adicionaComentatio" id="{{feed.id|raw}}" method="POST" action="">
+ <input type="hidden" name="grupoID" value="{{feed.grupo_id|raw}}">
+                  <input type="hidden" name="boxID" value="{{feed.boxID|raw}}">
+
+                  <input type="hidden" name="fotoAutor" value="{{dadosUsuario.foto_perfil|raw}}" id="fotoAutor{{feed.id|raw}}">
+                   <input type="hidden" name="nomeAutor" value="{{dadosUsuario.nome|raw}}" id="nomeAutor{{feed.id|raw}}">
+
+                
+                <div class="profile-img-wrapper pull-left"> <img src="{{dadosUsuario.foto_perfil|raw}}" alt="" data-src="{{dadosUsuario.foto_perfil|raw}}" data-src-retina="{{dadosUsuario.foto_perfil|raw}}" width="35" height="35"> </div>
+                <div class="inline pull-right" style="width:94%">
+                  <div class="input-group transparent ">
+                    <input type="text" class="form-control" name="conteudo" id="conteudoComentarioBox{{feed.id|raw}}" placeholder="Adicionar um comentário a este box">
+                    <span class="input-group-addon">  </span> </div>
+                </div>
+                {% endfor %}
+                <div class="clearfix"></div>
+
+              </form>
+              
+      </div>
+<div class="clearfix"></div>
+</div>
+</div>
+</div>
+
+</div>
+
+<!-- Content Boxes !-->
+
+
+
+
+			<!-- END PLACE PAGE CONTENT HERE -->
+		</div>
+	</div>
+	<!-- END PAGE CONTAINER -->
+</div>
+<!-- END CONTENT --> 
+
+
+<!-- InfinityLoop !-->
+ <nav id="page_nav">
+    <a href="/home/2"></a>
+  </nav>
+
+ <script src="/assets/js/jquery.isotope.js"></script>
+  <script src="/assets/js/jquery.infinitescroll.min.js"></script>
+
+
+  <script>
+
+    $(function(){
+
+      var $container = $('.rightContent');
+
+      //$container.isotope({ layoutMode: 'masonry' })
+      
+      $container.infinitescroll({
+        navSelector  : '#page_nav',    // selector for the paged navigation 
+        nextSelector : '#page_nav a',  // selector for the NEXT link (to page 2)
+        itemSelector : '.element',     // selector for all items you'll retrieve
+        loading: {
+            finishedMsg: 'Não existem mais box neste Grupo!',
+            img: '/new-theme/assets/plugins/jquery-craftmap/img/loader.gif',
+            msgText: "<em>Carregando mais conteúdo...</em>",
+          }
+        },
+        // call Isotope as a callback
+        function( newElements ) {
+
+                  // Photoset Grid Basic
+      $('.photoset-grid-basic').photosetGrid({
+        onComplete: function(){
+          $('.photoset-grid-basic').attr('style', '');
+        }
+      });
+
+      // Photoset Grid Custom
+      $('.photoset-grid-custom').photosetGrid({
+        gutter: '5px',
+        layout: '234',
+        highresLinks: true,
+        rel: 'print-gallery',
+
+        onComplete: function(){
+          $('.photoset-grid-custom').attr('style', '');
+        }
+      });
+
+     $('.photoset-grid-lightbox').photosetGrid({
+      highresLinks: true,
+      rel: 'withhearts-gallery',
+      gutter: '2px',
+
+      onComplete: function(){
+        $('.photoset-grid-lightbox').attr('style', '');
+        $('.photoset-grid-lightbox a').colorbox({
+          photo: true,
+          scalePhotos: true,
+          maxHeight:'90%',
+          maxWidth:'90%'
+        });
+      }
+    });
+    // Photoset Grid Basic
+          
+        }
+      );
+
+        // Add exponential z-index for dropdown cropping
+	    $elems.each(function(e){
+	        $(this).css({ 
+	            zIndex: ($elems.length - e) 
+	        });
+	    });
+      
+    
+    });
+  </script>
+
+
+  	<script>
+
+        // Método videos youtube
+       	jQuery(".videos .youtube-video a").live("click",function (){
+		var videoID = jQuery(this).attr("href").split("=");
+		var videoWidth = parseInt(jQuery(this).parent().parent().css("width"));
+		var videoHeight = Math.ceil(videoWidth*(0.56)+1);
+
+        jQuery(this).parent().hide();
+		jQuery(this).parent().next().css('margin-left', '0');
+		jQuery(this).parent().parent().prepend('<iframe width="'+videoWidth+'" height="'+videoHeight+'" src="http://www.youtube.com/embed/'+(videoID[1])+'?rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe>');
+		return false;
+});
+		// Método videos youtube
+
+		</script>
+
+<!-- Grid Images !-->
+
+  <script src="/assets/js/jquery.photoset-grid.js"></script>
+  <script src="/assets/js/js/jquery.colorbox.js"></script>
+  <script type="text/javascript">
+
+  $("button").live("click",function(){
+
+});
+
+  // Photoset Grid Basic
+  $('.photoset-grid-basic').photosetGrid({
+    onComplete: function(){
+      $('.photoset-grid-basic').attr('style', '');
+    }
+  });
+
+  // Photoset Grid Custom
+  $('.photoset-grid-custom').photosetGrid({
+    gutter: '5px',
+    layout: '234',
+    highresLinks: true,
+    rel: 'print-gallery',
+
+    onComplete: function(){
+      $('.photoset-grid-custom').attr('style', '');
+    }
+  });
+
+ $('.photoset-grid-lightbox').photosetGrid({
+  highresLinks: true,
+  rel: 'withhearts-gallery',
+  gutter: '2px',
+
+  onComplete: function(){
+    $('.photoset-grid-lightbox').attr('style', '');
+    $('.photoset-grid-lightbox a').colorbox({
+      photo: true,
+      scalePhotos: true,
+      maxHeight:'100%',
+      maxWidth:'100%'
+    });
+  }
+});
+  </script>
+ <!--Grid Images !--> 
+
+   <script>
+           $('#grupoIDCompartilhamento').ajaxChosen({
+                   dataType: 'json',
+                   type: 'POST',
+                   url:'/ajax/'
+           },{
+                   loadingImg: 'loading.gif'
+           });
+    </script>
+
+</body>
+</html>
+
+{% endautoescape %}
+
+{% endblock %}

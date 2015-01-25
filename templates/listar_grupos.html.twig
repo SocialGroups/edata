@@ -1,0 +1,620 @@
+{% extends "layouts/layout_responsivo.html.twig" %}
+
+{% block title %}CRM PróCorpo{% endblock %}
+{% block navigationtitle %}Cadastro de Grupos {% endblock %}
+{% block buttonnew %}<button class="btn btn-xs" id="buttonNew"><i class="icon-mail-reply"></i> Adicionar Grupo</button>{% endblock %}
+{% block content %}
+
+	<link rel="stylesheet" href="/assets/css/ace-rtl.min.css" />
+	<link rel="stylesheet" href="/assets/css/ace-skins.min.css" />
+	<link rel="stylesheet" href="/assets/css/jquery-ui-1.10.3.custom.min.css" />
+	<link rel="stylesheet" href="/assets/css/jquery.gritter.css" />
+	<link rel="stylesheet" href="/assets/css/jquery-ui-1.10.3.full.min.css" />
+	<style>
+		.id_table {
+			width: 75px;
+		}
+		.filter_id {
+			width: 60px;
+		}
+		.filter_nome {
+			width: 300px;
+		}
+
+		.btn_button_edit {
+			float: right;
+			cursor: pointer;
+			width: 10px;
+		}
+
+		.divEdit {
+			float: left;
+			width: 90%;
+		}
+	</style>
+	
+	<style>
+		.100p {
+			width: 100%;
+		}
+		/*.row {
+			padding-bottom: 5px;
+		}*/
+		.ajaxloader {
+			margin-top: 8px;
+			margin-left: 5px;
+		}
+		.input-group {
+			margin-bottom: 5px;
+		}
+		.popover {
+			width: 200px;
+			left: -150px !important;
+		}
+		.btn_button_edit {
+			float: left;
+			cursor: pointer;
+			margin-right: 5px;
+		}
+
+		.btn_button_delete {
+			margin-left: 5px;
+			cursor: pointer;
+		}
+	</style>
+	<link rel="stylesheet" href="/assets/css/jquery.gritter.css" />
+	<link rel="stylesheet" href="/assets/css/chosen.css" />
+
+	<link rel="stylesheet" href="/assets/css/ace.min.css" />
+
+
+	<link rel="stylesheet" href="/assets/css/ace-rtl.min.css" />
+	<link rel="stylesheet" href="/assets/css/ace-skins.min.css" />
+	<link rel="stylesheet" href="/assets/css/jquery-ui-1.10.3.custom.min.css" />
+	
+	<link rel="stylesheet" href="/assets/css/jquery-ui-1.10.3.full.min.css" />	
+
+
+	<link rel="stylesheet" href="/assets/css/bootstrap-timepicker.css" />
+
+	<div class="tabbable">
+		<ul class="nav nav-tabs" id="myTab">
+			<li class="active">
+				<a data-toggle="tab" href="#maquina" class="botaoAba">
+					Listar Grupos
+				</a>
+			</li>
+		</ul>
+
+		<div class="tab-content">
+			<div id="maquina" class="tab-pane in active">
+				<!-- LISTA DE REGISTROS //-->
+			    <table class="table table-striped table-bordered table-hover dataTable" id="table_results">
+			        <thead>
+			            <tr>
+			                <th class="id_table">ID</th>
+			                <th>Nome</th>
+			                <th>Ativo</th>
+			            </tr>
+			        </thead>
+			        <tbody>
+			            
+			        </tbody>
+			        <tfoot>
+			        	<tr>
+			        		<th><input type="text" name="search_id" placeholder="Procurar ID" class="input-sm filter_id"></th>
+			        	
+			        		<th><input type="text" name="search_nome" placeholder="Procurar Nome" class="input-sm filter_nome"></th>
+			        	
+			        		<th>
+			        			<select name="search_ativo">
+			        				<option value="">Todos</option>
+			        				<option value="1">Ativo</option>
+			        				<option value="0">Inativo</option>
+			        			</select>
+			        		</th>
+			        	</tr>
+			        </tfoot>
+			    </table>
+			</div>
+
+	<div id="errorContainer">
+		
+		<div class="data_inicio"></div>
+		<div class="hora_inicio"></div>
+		<div class="tipo"></div>
+		<div class="quantidade"></div>
+	</div>
+
+	<div id="dialog-confirm" class="hide">
+		<div class="alert alert-info bigger-110" id='msgDialog'>
+			Ao mudar de página você perderá as informações digitadas.
+		</div>
+
+		<div class="space-6"></div>
+
+		<p class="bigger-110 bolder center grey">
+			<i class="icon-hand-right blue bigger-120"></i>
+			Deseja continuar?
+		</p>
+	</div><!-- #dialog-confirm -->
+
+    <div id="dialog-confirm-apagar" class="hide">
+		<div class="alert alert-info bigger-110" id='msgDialog-apagar'>
+			These items will be permanently deleted and cannot be recovered.
+		</div>
+
+		<div class="space-6"></div>
+
+		<p class="bigger-110 bolder center grey">
+			<i class="icon-hand-right blue bigger-120"></i>
+			Você tem certeza?
+		</p>
+	</div><!-- #dialog-confirm -->
+
+{% endblock %}
+
+{% block jsfooter %}
+	
+	<script src="/assets/js/date-time/moment.min.js"></script>
+	<script src="/assets/js/jquery.maskedinput.min.js"></script>
+	<script src="/assets/js/jquery.gritter.min.js"></script>
+	<script src="/assets/js/chosen.jquery.min.js"></script>
+
+	<script src="/assets/js/jquery-ui-1.10.3.full.min.js"></script>
+	<script src="/assets/js/jquery.ui.touch-punch.min.js"></script>
+
+	<script src="/assets/js/jquery.validate.min.js"></script>
+
+	<script src="/assets/js/date-time/bootstrap-datepicker.min.js"></script>
+	<script src="/assets/js/date-time/locales/bootstrap-datepicker.pt-BR.js"></script>
+
+
+	<script src="/assets/js/jquery.dataTables.min.js"></script>
+	<script src="/assets/js/jquery.dataTables.bootstrap.js"></script>
+	<script src="/assets/js/jquery.jeditable.mini.js"></script>
+	<script src="/assets/js/date-time/bootstrap-timepicker.min.js"></script>
+	<script>
+		var id_unidade = '{{ unidade.id|raw }}';
+	</script>
+
+	<script src="/assets/js/bootbox.min.js"></script>
+	<script src="/assets/js/date-time/bootstrap-datepicker.min.js"></script>
+	<script src="/assets/js/date-time/moment.min.js"></script>
+	<script src="/assets/js/date-time/daterangepicker.min.js"></script>
+	<script src="/assets/js/chosen.jquery.min.js"></script>
+	<script src="/assets/js/jquery.gritter.min.js"></script>
+	<script src="/assets/js/jquery.dataTables.min.js"></script>
+	<script src="/assets/js/jquery.dataTables.bootstrap.js"></script>
+	<script src="/assets/js/jquery.jeditable.mini.js"></script>
+
+	<script src="/assets/js/jquery-ui-1.10.3.full.min.js"></script>
+	<script src="/assets/js/jquery.ui.touch-punch.min.js"></script>
+	
+
+	<script type="text/javascript">
+
+		var asInitVals = new Array();
+
+
+		Cadastrar = function() {
+
+            e.preventDefault();
+
+            var mensagem = '<center><form name="reagendar" action="/agendar/reagendar" method="post"><input type="text" name="data" id="dataBuscar"><div id="horariosRetornados"> <input type="hidden" name="idItem" value="'+id+'"><input type="submit" value="Buscar Horários Disponíveis"> </form> </div></center>';
+
+            $( "#msgDialog" ).html(mensagem);
+                
+            $( "#dialog-confirm" ).removeClass('hide').dialog({
+                resizable: false,
+                modal: true,
+                title_html: true,
+                title: "<div class='widget-header' style='width: 100% !important;'><h4 class='smaller'><i class='icon-warning-sign red'></i> ATENÇÃO</h4></div>",
+                buttons: [
+                    {
+                        
+                        click: function() {
+
+                             dataSelecionada = $("#dataBuscar").val();
+                           
+                            $.ajax({
+                                url: "/agendar/reagendar",
+                                type: 'POST',
+                                data: { idItem: id, data: dataSelecionada},
+                                dataType: 'json'
+                            }).done(function(retorno) {
+                                $("#horariosRetornados").append(select);
+
+
+                            });
+
+                            
+                          //  $( this ).dialog( "close" );
+                        }
+                    }
+                    ,
+                    {
+                        html: "<i class='icon-remove bigger-110'></i>&nbsp; Cancelar",
+                        "class" : "btn btn-xs",
+                        click: function() {
+                            $( this ).dialog( "close" );
+                        }
+                    }
+                ]
+            });
+
+
+
+        };
+
+
+		ativarDesativar = function(id, valor, e, item) {
+
+			e.preventDefault();
+
+			var mensagem = 'Essa ação irá ';
+			if(valor == false) {
+				mensagem += 'desativar';
+			} else {
+				mensagem += 'ativar';
+			}
+			mensagem += ' esse registro?';
+			$( "#msgDialog" ).html(mensagem);
+				
+			$( "#dialog-confirm" ).removeClass('hide').dialog({
+				resizable: false,
+				modal: true,
+				title_html: true,
+				title: "<div class='widget-header' style='width: 100% !important;'><h4 class='smaller'><i class='icon-warning-sign red'></i> ATENÇÃO</h4></div>",
+				buttons: [
+					{
+						html: "<i class='icon-trash bigger-110'></i>&nbsp; Confirmar",
+						"class" : "btn btn-danger btn-xs",
+						click: function() {
+							
+							
+
+							$.ajax({
+								url: "/produtos/?acao=delete&metodo=listarGrupos",
+								type: 'DELETE',
+								data: { idItem: id },
+								dataType: 'json'
+							}).done(function(retorno) {
+
+								// oTable1.fnDraw();
+								// console.log(retorno);
+
+								if(retorno.result == true) {
+									item.context.checked = valor;
+									//$('#table_results').fnDraw();
+
+									if(retorno.tipo == 1) {
+										msg = "Registro ativado com sucesso";
+									} else {
+										msg = "Registro desativado com sucesso";
+									}
+
+									// DADOS EDITADOS COM SUCESSO
+									$.gritter.add({
+										title: msg,
+										text: '' ,
+										class_name: 'gritter-success'
+									});
+								
+								} else {
+
+									// ERRO AO INSERIR OS DADOS
+									var display_errors = "";
+									$.each(retorno.errors, function(i, val) {
+										if(val != "") {
+											display_errors += val+"<br />";
+										}
+									});
+
+									$.gritter.add({
+										title: 'Dados não alterados:',
+										text: display_errors ,
+										sticky: true,
+										class_name: 'gritter-error'
+									});
+								}
+								
+							});
+
+							
+							$( this ).dialog( "close" );
+						}
+					}
+					,
+					{
+						html: "<i class='icon-remove bigger-110'></i>&nbsp; Cancelar",
+						"class" : "btn btn-xs",
+						click: function() {
+							$( this ).dialog( "close" );
+						}
+					}
+				]
+			});
+
+
+
+		};
+
+		$( document ).ready( function() {
+			//override dialog's title function to allow for HTML titles
+			$.widget("ui.dialog", $.extend({}, $.ui.dialog.prototype, {
+				_title: function(title) {
+					var $title = this.options.title || '&nbsp;'
+					if( ("title_html" in this.options) && this.options.title_html == true )
+						title.html($title);
+					else title.text($title);
+				}
+			}));
+
+			
+			$('input[name=date-range-picker]').daterangepicker().prev().on(ace.click_event, function(){
+				$(this).next().focus();
+			});
+
+			var oTable1 = $('#table_results').dataTable( {
+				"bFilter": true,
+				"bProcessing": true,
+        		"bServerSide": true,
+        		"sAjaxSource": "/produtos/ajax/?acao=listar",
+        		"fnDrawCallback": function () {
+        			$("#table_results tbody td .btnAtivar").on("click", function(e) {
+        				// e.preventDefault()
+				    	ativarDesativar($(this).attr('itemID'), $(this).context.checked, e, $(this));
+				    	
+				    	
+				    });
+
+				    	// Inicio - Monta função de edição
+
+     $(".editarProduto .icon-edit").on('click', function(evento){
+
+     	tabelaEditar 	= $(this).attr('tabela');
+
+     	campoEditar    	= $(this).attr('campo');
+
+     	idEditar 		= $(this).attr('idEditar');
+
+     	tipoCampo 		= $(this).attr('tipoCampo');
+
+     	idSelect		= $(this).attr('idselect');
+
+     	acaoSelect 		= $(this).attr('grupoProcedimento');
+
+     	tipoCampo       = $(this).attr('tipocampo');
+
+     	acaoselect 		= $(this).attr('acaoselect');
+
+
+
+		// Cria Formulário para digiitar o novo campo
+
+		if(tipoCampo == 'text'){
+
+			var mensagem = '<center><input type="text" name="text" id="valor"><div id="horariosRetornados"></center>';
+
+		}else{
+
+
+
+			var mensagem = '<center><select name="valor" class=" chosen-select" style="width:200px;" id="'+idSelect+'"><option value=""></option> </select></center>';
+
+		}
+	
+
+        $( "#msgDialog" ).html(mensagem);
+
+		$( "#dialog-confirm" ).removeClass('hide').dialog({
+				resizable: false,
+				modal: true,
+				title_html: true,
+				title: "<div class='widget-header' style='width: 100% !important;'><h4 class='smaller'><i class='icon-warning-sign red'></i> ATENÇÃO</h4></div>",
+				buttons: [
+					{
+						html: "<i class='icon-trash bigger-110'></i>&nbsp; Confirmar",
+						"class" : "btn btn-danger btn-xs",
+						click: function() {
+
+							if(tipoCampo == 'text'){
+								
+								novovalor = $("#valor").val();
+
+							}else{
+
+								novovalor = $("#"+idSelect+"").val();
+
+							}
+
+							$.ajax({
+								type      : 'post',
+					                    url       : '/ajax/ajaxclientes/ajaxEditaCampo',
+					                    data: { id: idEditar, campo: campoEditar, tabela: tabelaEditar, valor: novovalor},
+					                    dataType: 'json'
+							}).done(function(retorno) {
+
+								// oTable1.fnDraw();
+								// console.log(retorno);
+
+								if(retorno.result == true) {
+								
+										msg = "Registro Alterado com sucesso";
+
+									// DADOS EDITADOS COM SUCESSO
+									$.gritter.add({
+										title: msg,
+										text: '' ,
+										class_name: 'gritter-success'
+									});
+								
+								} else {
+
+									// ERRO AO INSERIR OS DADOS
+									var display_errors = "";
+									$.each(retorno.errors, function(i, val) {
+										if(val != "") {
+											display_errors += val+"<br />";
+										}
+									});
+
+									$.gritter.add({
+										title: 'Dados não alterados:',
+										text: display_errors ,
+										sticky: true,
+										class_name: 'gritter-error'
+									});
+								}
+								
+							});
+
+							
+							$( this ).dialog( "close" );
+						}
+					}
+					,
+					{
+						html: "<i class='icon-remove bigger-110'></i>&nbsp; Cancelar",
+						"class" : "btn btn-xs",
+						click: function() {
+							$( this ).dialog( "close" );
+						}
+					}
+				]
+			});
+
+			$(".chosen-select").chosen();
+
+				$('#'+idSelect+'').ajaxChosen({
+	                   dataType: 'json',
+	                   type: 'POST',
+	                   url:'http://crmprocorpo.com.br/ajax/ajaxclientes/?acao=grupoProcedimento'
+	           },{
+	                   loadingImg: 'loading.gif'
+	           });
+
+		});
+
+	// Final - Monta função de edição
+
+					$("#table_results_filter").hide();	
+				    $('.btn_button_edit').on("click", function() {  // an action to trigger editing
+				    	var idButton = $(this).attr("idEditar");
+				    	// alert(idButton);
+				    	// console.log($("#idUnidadeEditar"));
+				    	$("#idUnidadeEditar").val(idButton);
+				    	// alert($("#idUnidadeEditar").val());
+				    	$("#frmEditar").submit();
+					    
+					    // pseudo click the editable element, so it is in the "editable" mode
+					    // .click(); 
+					});
+
+		        },
+        		"oLanguage": {
+		            "sUrl": "/assets/js/dataTable_ptBR.js"
+		        },
+				"aoColumns": [
+			      
+				      null, null,
+					  null
+					] 
+				}
+				
+			);
+
+			$("tfoot input").keyup( function () {
+		        /* Filter on the column (the index) of this element */
+		        oTable1.fnFilter( this.value, $("tfoot input").index(this) );
+
+		        // console.log($("tfoot input").index(this));
+		    } );
+
+		    $("tfoot select").on("change", function () {
+		        /* Filter on the column (the index) of this element */
+		        oTable1.fnFilter( this.value, 2 );
+		    } );
+
+		    $("tfoot input").each( function (i) {
+		        asInitVals[i] = this.value;
+		    } );
+
+		    //alert($("#table_results_filter"));
+		    
+
+		    
+
+					$("#buttonNew").on(ace.click_event, function() {
+						bootbox.prompt("Nome", function(result) {
+							if (result !== null) {
+								if(result != '') {
+
+									$.ajax({
+										url: '/produtos/adicionarGrupo',
+										type: 'POST',
+										data: { nome: result},
+										dataType: 'json'
+									}).done(function(retorno) {
+										if(retorno.result == true) {
+											// DADOS INSERIDOS COM SUCESSO
+											$.gritter.add({
+												title: 'Dados inseridos com sucesso',
+												text: '' ,
+												class_name: 'gritter-success'
+											});
+										
+										} else {
+
+											// ERRO AO INSERIR OS DADOS
+											var display_errors = "";
+											$.each(retorno.errors, function(i, val) {
+												if(val != "") {
+													display_errors += val+"<br />";
+												}
+											});
+
+											$.gritter.add({
+												title: 'Corrija os erros abaixo:',
+												text: display_errors ,
+												sticky: true,
+												class_name: 'gritter-error'
+											});
+										}
+										
+									});
+									
+								}
+							}
+						});
+					});
+			$(".chosen-select").chosen(); 
+
+			//chosen plugin inside a modal will have a zero width because the select element is originally hidden
+			//and its width cannot be determined.
+			//so we set the width after modal is show
+			$('#modal-form').on('shown.bs.modal', function () {
+				$(this).find('.chosen-container').each(function(){
+					$(this).find('a:first-child').css('width' , '210px');
+					$(this).find('.chosen-drop').css('width' , '210px');
+					$(this).find('.chosen-search input').css('width' , '200px');
+				});
+			});
+
+			$("#table_results_filter").hide();
+			/**
+			//or you can activate the chosen plugin after modal is shown
+			//this way select element becomes visible with dimensions and chosen works as expected
+			$('#modal-form').on('shown', function () {
+				$(this).find('.modal-chosen').chosen();
+			})
+			*/
+
+		});
+	</script>
+
+
+
+	
+{% endblock %}

@@ -1,0 +1,86 @@
+<html>
+<head>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script type="text/javascript">
+	jQuery(document).ready(function(){
+		jQuery('#ajax_form').submit(function(){
+			var dados = jQuery( this ).serialize();
+ 
+			jQuery.ajax({
+				type: "POST",
+				url: "/crud/InsertGrupo",
+				data: dados,
+				success: function( data )
+				{
+					//alert(  );
+
+					if(data == 'true'){
+
+						// DADOS INSERIDOS COM SUCESSO
+						$.gritter.add({
+							title: 'Dados inseridos com sucesso',
+							text: '' ,
+							class_name: 'gritter-success'
+						});
+
+					}else{
+
+						$.gritter.add({
+										title: 'Erro ao tentar criar um grupo',
+										text: '' ,										
+										class_name: 'gritter-error'
+						});
+					}
+				}
+			});
+			
+			return false;
+		});
+	});
+	</script>
+</head>
+
+	<link rel="stylesheet" href="/assets/css/jquery.gritter.css" />
+	<link rel="stylesheet" href="/assets/css/jquery.gritter.css" />
+	<link rel="stylesheet" href="/assets/css/ace.min.css" />
+	
+	<link rel="stylesheet" href="/assets/css/jquery-ui-1.10.3.full.min.css" />	
+	<script src="/assets/js/jquery.gritter.min.js"></script>
+	<script src="/assets/js/chosen.jquery.min.js"></script>
+
+	<script src="/assets/js/bootbox.min.js"></script>
+	<script src="/assets/js/chosen.jquery.min.js"></script>
+	<script src="/assets/js/jquery.gritter.min.js"></script>
+
+	<script src="/assets/js/jquery-ui-1.10.3.full.min.js"></script>
+	<script src="/assets/js/jquery.ui.touch-punch.min.js"></script>
+
+
+<body>
+	<form method="post" enctype="multipart/form-data" action="" id="ajax_form">
+
+			Nome : <input type="text" name="nome"> <br>
+
+			Descrição : <textarea name="descricao"></textarea> <br>
+
+			Privilégios : <select name="privilegios">
+					<option value="publico"> Público </option>
+					<option value="privado"> Privado </option>
+				  </select> <br>
+
+			Grupo Tipo : <select name="tipo">
+					<option value="permanente"> Permanente </option>
+					<option value="temporario"> Temporário </option>
+				 </select> <br>
+
+				<input type="hidden" name="tabela" value="grupo">
+
+				<input type="hidden" name="metodo_auciliar" value="grupo_usuario">
+
+		<label><input type="submit" name="enviar" value="Criar Grupo" /></label>
+	</form>
+</body>
+</html>
+
+
+

@@ -1,0 +1,60 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+
+<style>
+
+body{background: #e9eaed;}
+
+.content{width:600px; height: 200px; margin-top: 88px; background: #FFF;
+
+	-moz-border-radius: 4px; /* Para Firefox */
+-webkit-border-radius: 4px; /*Para Safari e Chrome */
+border-radius: 4px; /* Para Opera 10.5+*/
+
+padding: 10px;
+
+}
+
+</style>
+	
+
+<center>
+	<div class="content">
+		
+		<form name="editarPerfil" action="" method="POST">
+
+			<div class="form-group" style="float:left; width:100%;">
+
+			    <label for="exampleInputEmail1" style="float:left; margin-top:8px; margin-right:20px; margin-left:20px;">Nome : </label>
+			    
+			    <input type="text" name="nome" class="form-control" placeholder="{{nome|raw}} {{sobreNome|raw}}" style="width:480px; float:left;">
+
+  			</div>
+
+  			<div class="form-group" style="float:left; width:100%;">
+
+			    <label for="exampleInputEmail1" style="float:left; margin-top:8px; margin-right:20px; margin-left:20px;">Foto perfil : </label>
+			    
+			    <input type="file" name="foto_perfil" style="float:left; margin-top:8px;">
+
+  			</div>
+			
+  			<div class="form-group" style="float:left; width:100%;">
+
+			    <label for="exampleInputEmail1" style="float:left; margin-top:8px; margin-right:20px; margin-left:20px;">Capa Perfil : </label>
+			    
+			    <input type="file" name="capa_perfil" style="float:left; margin-top:8px;">
+
+  			</div>
+
+  			<input type="submit" class="btn btn-success" value="Alterar Dados" style="float:right;">
+
+
+		</form>
+
+	</div>
+</center>
+
+
+{% endblock %}

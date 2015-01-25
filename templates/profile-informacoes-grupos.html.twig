@@ -1,0 +1,886 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+
+<!-- Evita Conflitos no Javascript !-->
+<script type="text/javascript">
+  var $j = jQuery.noConflict();
+</script>
+<!-- Evita Conflitos no Javascript !-->
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="/assets/css/reset.css" type="text/css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="/assets/css/demo.css" type="text/css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="/assets/Source/assets/css/simplemodal.css" type="text/css" media="screen" title="no title" charset="utf-8">
+    <script src="/assets/javascript/mootools-core-1.3.1.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/assets/javascript/mootools-more-1.3.1.1.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/assets/Source/simple-modal.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+
+
+
+<script>
+// Modal de Alterar Nome
+  window.addEvent("domready", function(e){
+
+    jQuery('.AlterarNome').live("click",function(){
+
+        // ID do box
+        var ID = $j(this).attr("id");
+
+        // Título do box
+        var boxTitulo = $j('.boxID'+ID).val();
+
+        var SM = new SimpleModal({"btn_ok":"Confirm button", "width":"700"});
+              // Aggiunge Bottone annulla
+              SM.show({
+                "model":"modal-ajax",
+                height:"auto",
+                "title":"<center> Editar Nome :</center> ",
+                "param":{
+                  "url":"/editar-profile/nome/",
+                  "onRequestComplete": function(){ }
+                }
+           });
+
+          return false;
+
+    });
+
+  }); 
+// Modal de Alterar Nome
+</script>
+
+<script>
+// Modal de Alterar Foto Perfil
+  window.addEvent("domready", function(e){
+
+    jQuery('#AlterarFotoPerfil').live("click",function(){
+
+        // ID do box
+        var ID = $j(this).attr("id");
+
+        // Título do box
+        var boxTitulo = $j('.boxID'+ID).val();
+
+        var SM = new SimpleModal({"btn_ok":"Confirm button", "width":"700"});
+              // Aggiunge Bottone annulla
+              SM.show({
+                "model":"modal-ajax",
+                height:"auto",
+                "title":"<center> Editar Foto Perfil :</center> ",
+                "param":{
+                  "url":"/editar-profile/foto-perfil/",
+                  "onRequestComplete": function(){ }
+                }
+           });
+
+          return false;
+
+    });
+
+  }); 
+// Modal de Foto Perfil
+</script>
+
+<script>
+// Modal de Alterar Foto Capa
+  window.addEvent("domready", function(e){
+
+    jQuery('#AlterarFotoCapa').live("click",function(){
+
+        // ID do box
+        var ID = $j(this).attr("id");
+
+        // Título do box
+        var boxTitulo = $j('.boxID'+ID).val();
+
+        var SM = new SimpleModal({"btn_ok":"Confirm button", "width":"700"});
+              // Aggiunge Bottone annulla
+              SM.show({
+                "model":"modal-ajax",
+                height:"auto",
+                "title":"<center> Editar Foto Perfil :</center> ",
+                "param":{
+                  "url":"/editar-profile/foto-capa/",
+                  "onRequestComplete": function(){ }
+                }
+           });
+
+          return false;
+
+    });
+
+  }); 
+// Modal de Alterar Foto Capa
+</script>
+
+
+<style>
+
+.simple-modal{border:none; width: 650px  !important; height: auto; top:5px; top:5px !important; padding:0px;}
+
+.simple-modal {padding:0px !important;}
+.simple-modal-body{padding:0px !important;}
+
+body{background-color: #e9eaed;}
+
+#content{width: 1100px; height: auto; min-height: 100%; margin-top: 66px; text-align: left;}
+
+.LeftSidebar{
+
+  width: 400px;
+  height: 122px;
+  float: right;
+  position:fixed; 
+  top:50px;
+  background-color: #FFF;
+
+}
+
+
+
+.boxDadosUser{
+
+  width: 400px;
+  height:570px;
+  float: left;
+  background-color: #FFF;
+  -moz-border-radius: 10px; /* Para Firefox */
+-webkit-border-radius: 10px; /*Para Safari e Chrome */
+border-radius: 10px; /* Para Opera 10.5+*/
+}
+
+.boxDadosUserCapa{
+
+  width: 400px;
+  height:450px;
+  float: left;
+  background: url('{{ ProfileFotoCapa|raw }}'); 
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size:400px auto;
+
+}
+
+.boxDadosNome{
+
+  width: 250px;
+  float: left;
+  text-align: left;
+  color: #333;
+  margin-top: 15px;
+  margin-left: 15px;
+  font-size: 19px;
+}
+
+.boxDadosNomeProfiles{
+
+  width: 250px;
+  float: left;
+  text-align: left;
+  color: #333;
+  margin-top: 461px;
+  margin-left: 15px;
+  font-size: 19px;
+}
+}
+
+.boxDadosDiv1{
+
+  width: 90px;
+  height: 50px;
+  float: left;
+
+}
+
+.boxDadosDiv2{
+
+  width: 110px;
+  height: 50px;
+  float: left;
+  margin-left: 5px;
+}
+
+.boxDadosDiv3{
+
+  width: 90px;
+  height: 50px;
+  float: left;
+  margin-left: 5px;
+}
+
+.boxDadosTitulo1{
+
+  width: 90px;
+  height: 25px;
+  float: left;
+  color: #EBECF0;
+  text-align: center;
+  font-size: 15px;
+}
+
+.boxDadosTitulo2{
+
+  width:110px;
+  height: 25px;
+  float: left;
+  color: #8C9BAA;
+  text-align: center;
+  font-size: 15px;
+}
+
+.boxDadosValor1{
+
+  width: 90px;
+  height: 40px;
+  float: left;
+  color: #202862;
+  text-align: center;
+  font-size: 18px;
+}
+
+.boxDadosValor2{
+
+  width: 110px;
+  height: 40px;
+  float: left;
+  color: #202862;
+  text-align: center;
+  font-size: 18px;
+}
+
+.rightContent{
+
+  width: 670px;
+  height: auto;
+  margin: 15px;
+  float: right;
+
+}
+
+.rightContentBox{
+
+  width: 640px;
+  height: auto;
+  margin: 15px;
+  padding:15px;
+  margin-top: 0px;
+  float: right;
+  background-color: #FFF;
+
+}
+
+.rightContentBoxTitulo{
+
+  width: auto;
+  height: 35px;
+  padding:5px;
+  margin-left: 15px;
+  float: left;
+  background-color: #212A60;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #FFF;
+  padding-left: 155px;
+
+}
+
+.boxDadosUsuario{
+
+  width: 300px;
+  height: 55px;
+  float: right;
+  margin-top: 30px;
+  margin-right: 10px;
+}
+
+.foto_perfil {
+    width: 85px;
+    height: 85px;
+    border-radius: 150px;
+    -webkit-border-radius: 150px;
+    -moz-border-radius: 150px;
+    background: url(http://link-to-your/image.jpg) no-repeat; 
+
+    border: 3px solid #FFF;
+    float: left;
+    z-index: 9999; 
+    margin-top: 410px;
+    margin-left: 15px;
+  }
+
+
+.editarPerfil{
+
+
+
+}
+
+.editarPerfil:hover{
+    
+    width: 85px;
+    height: 85px;
+    border-radius: 150px;
+    -webkit-border-radius: 150px;
+    -moz-border-radius: 150px;
+    background: url('/img/bg_hover_alterar_foto_perfil.png');
+
+    border: 3px solid #FFF;
+    float: left;
+    z-index: 9999; 
+    margin-top: 410px;
+    margin-left: 15px;
+
+}
+
+  .foto_perfil_loop {
+    width: 60px;
+    height: 60px;
+    border-radius: 150px;
+    -webkit-border-radius: 150px;
+    -moz-border-radius: 150px;
+    background: url(http://link-to-your/image.jpg) no-repeat; 
+
+    border: 3px solid #e9eaed;
+    float: left;
+    z-index: 9999; 
+    margin-left: 15px;
+    margin-top:-25px;
+  }
+
+ .contenttSidebar{
+
+  width: 655px;
+  height: auto;
+  float: right;
+  top:65px;
+  background-color: #FFF;
+  margin-bottom: 20px;
+  margin-top: -20px;
+
+}
+
+.contenttSidebarTitulo{
+
+  width: auto;
+  max-width: 350px;
+  float: left;
+  text-align: left;
+  color: #333;
+  margin-top: 5px;
+  margin-left: 9px;
+  font-size: 15px;
+  font-weight: bold;
+  font-family:  "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.boxDadosTitulo{
+
+  width: 100%;
+  height:46px;
+  float: left;
+  background-color: #FFF;
+  -moz-border-radius:4px;
+  -webkit-border-radius:4px;
+  border-radius:4px;
+
+}
+
+.boxDadosConteudo{
+
+  width: 640px;
+  height: auto;
+  background-color: #FFF;
+  float: right;
+  margin-bottom:20px;
+}
+
+.boxDadosTxt{
+
+  width: 630px;
+  min-height: 30px;
+  height: auto;
+  float: right;
+  margin-top: 15px;
+  margin-right: 10px;
+  font-size: 13px;
+}
+
+.content_midia{
+
+  width: 600px;
+  height: auto;
+  float: left;
+  margin-left: 15px;
+
+}
+
+.video{
+
+  width: 570px;
+  height: auto;
+  margin-top: 10px;
+  background-color: #E3E3E3;
+  padding:5px;
+  margin-top: 20px;
+
+}
+
+.videos {
+
+
+  padding:5px;
+  display:block;
+  padding-top:124px;
+}
+.videos .youtube-video {
+  float:left;
+  height:102px;
+  width:132px;
+  border:solid 1px #dedede;
+  padding:5px;
+}
+.videos .youtube-video img {
+  box-shadow:inset 0px 0px 0px 1px rgba(0, 0, 0, 0.2);
+}
+.details {
+  margin-left:130px;
+  min-height:93px;
+  word-wrap:break-word;
+    overflow:hidden;
+  padding:5px;
+  display:block;
+}
+.videos h6 {
+  color:#070E38;
+  padding:0;
+  margin:0;
+  font-size:11px;
+  font-weight:bold;
+}
+.videos p.link, .videos p.desc {
+  color:#999;
+  padding:0;
+  margin:0;
+  font-size:11px;
+  padding:3px;
+}
+
+.topBoxesContentSiderbar{
+
+  width: 400;
+  height: 600px;
+  position:fixed;
+  top:180px;
+
+}
+
+.topBoxes{
+
+  width: 400;
+  height: auto;
+  background-color: #FFF;
+  float: left;
+  margin-bottom: 20px;
+  padding: 15px;
+  -moz-border-radius: 10px; /* Para Firefox */
+-webkit-border-radius: 10px; /*Para Safari e Chrome */
+border-radius: 10px; /* Para Opera 10.5+*/
+
+}
+
+.topBoxes2{
+
+  width: 400;
+  height: auto;
+  float: left;
+  background-color: #FFF;
+    -moz-border-radius: 10px; /* Para Firefox */
+-webkit-border-radius: 10px; /*Para Safari e Chrome */
+border-radius: 10px; /* Para Opera 10.5+*/
+
+}
+
+.topBoxesTitulo{
+
+  width: 100%;
+  float: left;
+  font-size: 19px;
+  color: #66757f;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  padding:10px;
+}
+
+.topBoxesContent{
+
+  width: auto;
+  float: left;
+  font-size: 15px;
+  color: #009999;
+}
+
+.topBoxesContent ul{
+
+  font-size: 15px;
+  color: #212A60;
+}
+
+.topBoxesContent li{
+  font-size: 15px;
+  color: #212A60;
+}
+
+.topBoxesContent li a{
+  font-size: 15px;
+  color: #212A60;
+}
+
+.bt_seguir{
+
+  width: 120px;
+  height: 38px;
+  text-align: center;
+  color: #fff;
+  border: none;
+  background-color: #1E2762;
+
+  -moz-border-radius: 5px; /* Para Firefox */
+  -webkit-border-radius: 5px; /*Para Safari e Chrome */
+  border-radius: 5px; /* Para Opera 10.5+*/
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 15px;
+  float: right;
+  margin-top:82px;
+
+}
+
+.comentar{
+
+width: 100%;
+height: auto;
+background-color: #000;
+float: left;
+
+}
+
+#target {
+      font-family: arial;
+      font-size: 20px;
+      border:1px solid #00F;
+      max-width: 400px;
+      min-width: 400px;
+      min-height:50px;
+      resize:none;
+      
+    }
+
+</style>
+
+
+  <link rel="stylesheet" href="/assets/css/chosen.css" />
+  <link rel="stylesheet" href="/assets/css/chosen.min.css" />
+  <script src="/assets/js/chosen.jquery.min.js"></script>
+  <script type="text/javascript" src="/assets/js/chosen.ajaxaddition.jquery.js"></script>
+
+
+<center>
+
+  <div id="content">
+
+       <div class="LeftSidebar">
+
+      <div class="boxDadosUser">
+
+
+
+          <div class="boxDadosUserCapa">
+
+          {% if usuarioLogadoID|raw ==  ProfileID|raw %}
+
+          <a href="#"  id="AlterarFotoCapa" class="btn btn-primary" style="color:#FFF; float:right; margin-top:410px; margin-right:5px;">
+            Alterar Capa
+          </a>
+
+          <a href="#" class="editarPerfil" id="AlterarFotoPerfil">
+            <img src="{{ ProfileFotoPerfil|raw }}" class="foto_perfil">
+          </a>
+
+          {% else %}
+
+             <img src="{{ ProfileFotoPerfil|raw }}" class="foto_perfil">
+
+          {% endif %}
+
+
+          {% if usuarioLogadoID|raw ==  ProfileID|raw %}
+              
+              <div class="boxDadosNome"> 
+
+          {% else %}
+
+            <div class="boxDadosNomeProfiles">
+
+          {% endif %}
+
+
+              {{ ProfileNome|raw }} {{ ProfileSobreNome|raw }} 
+
+            {% if usuarioLogadoID|raw == ProfileID|raw %}
+
+              <a href="" class="AlterarNome" style="float:right; font-size:12px; margin-top:5px;"> (editar) </a> 
+
+            {% endif %}
+
+            </div>
+
+        </div>
+
+
+      <div class="boxUserInfo" style="width:400px; height:70px; margin-top:50px; float:left;">
+
+        <center>
+
+          <button type="button" class="btn btn-primary" style="margin-right:10px;">
+            Grupos <br>
+            {{NumeroGrupo|raw}}
+          </button>
+
+          <button type="button" class="btn btn-primary" style="margin-right:10px;">
+            Boxes <br>
+            {{NumeroBoxes|raw}}
+          </button>
+
+          <button type="button" class="btn btn-primary">
+            Interações <br>
+            {{NumeroInteracoes|raw}}
+          </button>
+
+      {% if ProfileID|raw != usuarioLogadoID|raw %}
+
+      {% if StatusFollow|raw == 0 %}
+          
+          <form name="seguir" id="formSeguir" action="" method="POST" style="float:left; margin-left:10px; margin-top:12px;">
+
+            <input type="hidden" name="followID" value="{{ ProfileID|raw }}" />
+            <input type="submit" name="Seguir" value="Seguir +" class="btn btn-success">
+
+          </form>
+
+      {% else %}
+
+         <form name="unfollow" id="unfollow" action="" method="POST" style="float:left; margin-left:10px; margin-top:12px;">
+
+            <input type="hidden" name="usuarioID" value="{{ ProfileID|raw }}" />
+            <input type="hidden" name="tipoExclusao" value="usuarioUnfollow">
+            <input type="submit" name="unfoolw" value="Deixar" class="btn btn-danger" >
+
+          </form>
+
+      {% endif %}
+
+      {% endif %}
+
+       </center>
+
+      </div>
+
+      
+
+      </div>
+
+    </div>
+
+    <style>
+
+      .ContentGrupo{width: 610px; height: auto; float: left; margin-bottom: 20px;}
+
+      .grupo{
+
+        width: 610px;
+        min-height: 110px;
+        height: auto;
+        background: #FFF;
+        -moz-border-radius: 4px; /* Para Firefox */
+        -webkit-border-radius: 4px; /*Para Safari e Chrome */
+        border-radius: 4px; /* Para Opera 10.5+*/
+        border: 1px solid #DBDBDB;
+        float: left;
+
+      }
+
+      .grupoAvatar{
+
+        width: 200px;
+        height: auto;
+        float: left;
+        background: #000;
+        margin-left: -1px;
+
+      }
+
+
+      .grupoTitulo{
+
+        width: 380px;
+        height: auto;
+        float: left;
+        margin:10px;
+        font-size:19px;
+      }
+
+      .grupoDescricao{
+
+        width:380px; 
+        float:left;
+        height: auto;
+        margin: 10px;
+        text-align:justify;
+        line-height:14px;
+
+      }
+
+      .numeroSeguidores{
+        width: 300px;
+        float: right;
+        margin-top: 5px;
+      }
+
+    </style>
+
+    <div class="rightContent">
+
+      {% for dadosGrupo in arrayGrupos %}
+
+      <a href="/grupos/get/{{dadosGrupo.id|raw}}">
+
+      <div class="element ContentGrupo">
+
+        <div class="grupo">
+
+          <img src="{{dadosGrupo.grupo_avatar|raw}}" class="grupoAvatar">
+
+          <div class="grupoTitulo">
+
+            {{dadosGrupo.nome|raw}}
+
+          </div>
+
+          <div class="grupoDescricao" >
+            {{dadosGrupo.descricao|raw}}
+          </div>
+        
+        </div>
+
+        <div class="numeroSeguidores">
+
+          <a href="/grupos/get/{{dadosGrupo.id|raw}}" style=" color:#428bca; float:right; margin-right:5px;">
+           <strong>( Acessar )</strong>
+          </a>
+
+          <p id="AlterarFotoCapa" style="color:#4B4B4B; float:right; margin-right:5px;">
+           <strong> {{dadosGrupo.numero_seguidores|raw}} Seguidores </strong>
+          </p>
+        
+          <p  style="color:#4B4B4B; float:right; margin-right:15px;">
+            <strong> {{dadosGrupo.numero_boxes|raw}} Boxes </strong>
+          </p>
+
+        </div>
+
+      </div>
+
+      </a>
+
+      {% endfor %}
+
+    </div>
+
+</center>
+
+
+ <nav id="page_nav">
+   <a href="/profile-dados/grupos/{{nickName|raw}}/2"></a>
+  </nav>
+
+  <script src="http://www.ymic3dworld.com/lightwindow2/isotope-site/jquery.isotope.min.js"></script>
+  <script src="http://www.ymic3dworld.com/lightwindow2/isotope-site/js/jquery.infinitescroll.min.js"></script>
+
+
+  <script>
+
+    $j(function(){
+
+      var $container = $j('.rightContent');
+
+      //$container.isotope({ layoutMode: 'masonry' })
+      
+      $container.infinitescroll({
+        navSelector  : '#page_nav',    // selector for the paged navigation 
+        nextSelector : '#page_nav a',  // selector for the NEXT link (to page 2)
+        itemSelector : '.element',     // selector for all items you'll retrieve
+        loading: {
+            finishedMsg: 'Não existem mais box neste Grupo!',
+            img: 'http://i.imgur.com/qkKy8.gif'
+          }
+        },
+        // call Isotope as a callback
+        function( newElements ) {
+
+          // Esconde div de comentário
+          $j('.footerBox').hide();
+
+          $j('.fechar').hide();
+
+            // Photoset Grid Basic
+  $j('.photoset-grid-basic').photosetGrid({
+    onComplete: function(){
+      $j('.photoset-grid-basic').attr('style', '');
+    }
+  });
+
+  // Photoset Grid Custom
+  $j('.photoset-grid-custom').photosetGrid({
+    gutter: '5px',
+    layout: '134',
+    highresLinks: true,
+    rel: 'print-gallery',
+
+    onComplete: function(){
+      $j('.photoset-grid-custom').attr('style', '');
+    }
+  });
+
+ $j('.photoset-grid-lightbox').photosetGrid({
+  highresLinks: true,
+  rel: 'withhearts-gallery',
+  gutter: '2px',
+
+  onComplete: function(){
+    $j('.photoset-grid-lightbox').attr('style', '');
+    $j('.photoset-grid-lightbox a').colorbox({
+      photo: true,
+      scalePhotos: true,
+      maxHeight:'90%',
+      maxWidth:'90%'
+    });
+  }
+});
+          
+        }
+      );
+
+        // Add exponential z-index for dropdown cropping
+      $elems.each(function(e){
+          $j(this).css({ 
+              zIndex: ($elems.length - e) 
+          });
+      });
+      
+    
+    });
+  </script>
+
+{% endblock %}

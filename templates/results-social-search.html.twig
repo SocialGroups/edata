@@ -1,0 +1,507 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+
+<style>
+#field2{visibility: hidden;}
+
+#content_results{
+
+	width: 900px;
+	height: auto;
+	min-height: 50px;
+	margin-top: 70px;
+
+}
+
+.content_row{
+
+	width: 100%;
+	height: auto;
+	min-height: 50px;
+	float: left;
+	border-bottom:1px solid #F8F8F8;
+	padding: 10px;
+	text-align: left;
+	margin-bottom: 15px; 
+}
+
+.content_row_usuario{
+
+	width: 450px;
+	height: auto;
+	min-height: 50px;
+	float: left;
+	border-bottom:1px solid #F8F8F8;
+	padding: 10px;
+	text-align: left;
+	margin-bottom: 15px; 
+}
+
+.content_row_img{
+
+	width: 125px;
+	height: auto;
+	max-height: 100px;
+	float: left;
+	background-color: #FFF;
+	overflow:hidden;
+	-moz-border-radius: 4px; /* Para Firefox */
+	-webkit-border-radius: 4px; /*Para Safari e Chrome */
+	border-radius: 4px; /* Para Opera 10.5+*/
+}
+
+.content_titulo{
+
+	width: 430px;
+	float: left;
+	height: auto;
+	font-size: 17px;
+	margin-left: 15px;
+}
+
+.content_descricao{
+
+	width: 430px;
+	float: left;
+	height: auto;
+	margin-left: 15px;
+	line-height:1.4;
+	font-size: 13px;
+	color: #414141;
+}
+
+.content_dados_grup{
+
+	width: 300px;
+	float: right;
+	height: 80px;
+	margin-top: -17px;
+}
+
+.content_dados_usuario{
+
+	width: 300px;
+	float: left;
+	height: 80px;
+	margin-top: 10px;
+}
+
+.content_dados_box_foto_perfil{
+
+    width: 75px;
+    height: 75px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    background: url(http://link-to-your/image.jpg) no-repeat; 
+
+    border: 3px solid #FFF;
+    float: left;
+    z-index: 9999; 
+    margin-top: 0px;
+    margin-left: 15px;
+    margin-bottom: -20px;
+}
+
+a:visited { /* estado com link já visitado */
+    color:#333;
+    text-decoration: none;
+}
+ 
+a:hover { /* estado com mouse em cima */
+    color:#186D9C;
+    text-decoration: none;
+}
+ 
+a:active { /* estado quando clicado */
+    color:#333;
+    text-decoration: none;
+}
+
+.chamada_tipo_busca{
+
+	width: 100%;
+	height: 50px;
+	float: left;
+	font-size: 27px;
+}
+
+.ilustracao_solicitacao{
+
+	width: 160px;
+	height: 125px;
+	float: left;
+
+}
+
+.grupo_foto{
+
+	width: 92px;
+	height: auto;
+	max-height: 95px;
+	background-color: #FFF;
+	padding: 5px;
+	overflow:hidden;
+	float: left;
+	border: 1px solid #CCC;
+	-moz-border-radius: 4px; /* Para Firefox */
+	-webkit-border-radius: 4px; /*Para Safari e Chrome */
+	border-radius: 4px;  /* Para Opera 10.5+*/
+}
+
+.solicitante_avatar{
+
+	width: 92px;
+	height: auto;
+	max-height: 95px;
+	background-color: #FFF;
+	padding: 5px;
+	overflow:hidden;
+	float: left;
+	border: 1px solid #CCC;
+	margin-top: 30px;
+	margin-left: -30px;
+	-moz-border-radius: 4px; /* Para Firefox */
+	-webkit-border-radius: 4px; /*Para Safari e Chrome */
+	border-radius: 4px;  /* Para Opera 10.5+*/
+}
+
+</style>
+
+<center>
+<div id="content_results" class="rightContent">
+
+{# Retorna array com o tipo e o array de resultados #}
+
+	<div class="chamada_tipo_busca">
+
+		Você esta pesquisando por : 
+		{% if searchResult.tipo|raw == 'GruposBoxes' %} 
+
+			Grupos & Boxes 
+
+		{% elseif searchResult.tipo|raw == 'pessoa' %} 
+
+			Pessoas 
+
+		{% else %}
+
+			{{searchResult.tipo|raw}} 
+
+		{% endif %}
+
+	</div>
+
+	{# Verifica o tipo do resultado #}
+
+		{% if searchResult.tipo|raw == 'GruposBoxes' %}
+
+			{# Recupera resultados grupos #}
+
+				{% for grupos in searchResult.grupos|raw %}
+
+					<div class="element content_row">
+						
+						<a href="/grupos/get/{{grupos.id|raw}}" style="color:#333;">
+							<div class="content_row_img">
+								<img src="{{grupos.grupo_avatar|raw}}" width="125">
+							</div>
+						</a>
+
+						<a href="/grupos/get/{{grupos.id|raw}}">
+							<div class="content_titulo">
+
+								{{grupos.nome|raw}}
+
+							</div>
+						</a>
+
+						<a href="/grupos/get/{{grupos.id|raw}}">
+						<div class="content_descricao">
+
+							{% autoescape %}
+
+								{{grupos.descricao|raw}}
+
+							{% endautoescape %}
+
+						</div>
+
+						</a>
+
+								<a href="/grupos/get/{{grupos.id|raw}}">
+
+									<div class="content_dados_grup">
+
+										<button type="button" class="btn btn-default" style="width:95px; background:none;">Seguidores <br> {{grupos.numero_seguidores|raw}}</button>
+
+										<button type="button" class="btn btn-default" style="width:90px; background:none;">Boxes <br> {{grupos.numero_boxes|raw}}</button>
+
+										<button type="button" class="btn btn-default" style="width:90px; background:none;">Interações <br> {{grupos.numero_interacoes|raw}}</button>
+
+									</div>
+
+								</a>
+
+
+						{% for arrayNumeroBoxes in searchResult.numerosGrupo|raw %}
+
+						{% endfor %}
+
+
+					</div>
+
+				{% endfor %}
+
+			{# Recupera Resultados grupos #}
+
+			{# Recupera Resultados boxes #}
+			{% autoescape %}
+
+				{% for boxes in searchResult.boxes|raw %}
+
+					<div class="element content_row">
+
+						
+
+						<div class="ilustracao_solicitacao">
+
+						<a href="/grupos/get/{{boxes.grupoID|raw}}">
+					      
+					      <span class="grupo_foto">
+					        <img height="80" src="{{boxes.grupo_avatar|raw}}" style="-moz-border-radius: 4px; /* Para Firefox */
+-webkit-border-radius: 4px; /*Para Safari e Chrome */
+border-radius: 4px;  /* Para Opera 10.5+*/" width="80">
+					      </span>
+
+					    </a>
+
+					      <a href="/profile/{{boxes.nick_name|raw}}">
+
+					      <span class="solicitante_avatar">
+					        <img alt="SocialGroups" class="avatar js-avatar" data-user="7438479" height="80" src="{{boxes.foto_perfil}}" width="80" style="-moz-border-radius: 4px; /* Para Firefox */
+-webkit-border-radius: 4px; /*Para Safari e Chrome */
+border-radius: 4px;  /* Para Opera 10.5+*/">
+					      </span>
+
+					      </a>
+
+    					</div>
+
+
+						<div class="content_titulo" style="width:700px;">
+
+						<a href="/grupos/box/{{boxes.grupoBoxID|raw}}">
+
+							{{boxes.titulo|raw}}
+
+						</a>
+
+						</div>
+
+						<div class="content_descricao" style="width:700px;">
+
+							<a href="/grupos/box/{{boxes.grupoBoxID|raw}}">
+								{{boxes.descricao|raw}}
+							</a>
+
+						</div>
+
+					</div>
+
+				{% endfor %}
+				{% endautoescape %}				
+
+			{# Recupera Resultados boxes #}
+
+		{% elseif searchResult.tipo|raw == 'pessoa' %}
+
+			{# Recupera Resultados pessoas #}
+			{% autoescape %}
+
+				{% for pessoas in searchResult.result|raw %}
+
+					<div class="element content_row">
+						
+						<a href="/profile/{{pessoas.nick_name|raw}}">
+						<div class="content_row_img">
+							<img src="{{pessoas.foto_perfil}}" width="100">
+						</div>
+						</a>
+
+						<a href="/profile/{{pessoas.nick_name|raw}}">
+						<div class="content_titulo">
+
+							{{pessoas.nome|raw}} {{pessoas.sobre_nome|raw}} - @{{pessoas.nick_name|raw}}
+
+						</div>
+					</a>
+
+					{% for dadosPessoas in searchResult.dadosPessoas|raw %}
+
+					{% if pessoas.id|raw == dadosPessoas.pessoaID|raw %}
+
+					<a href="/profile/{{pessoas.nick_name|raw}}">
+						<div class="content_descricao">
+
+							<div class="content_dados_usuario">
+
+								<button type="button" class="btn btn-default" style="width:95px; background:none;">Grupos <br> {{dadosPessoas.numeroGrupos|raw}}</button>
+
+								<button type="button" class="btn btn-default" style="width:90px; background:none;">Boxes <br> {{dadosPessoas.numeroBoxes|raw}}</button>
+
+								<button type="button" class="btn btn-default" style="width:90px; background:none;">Interações <br> {{dadosPessoas.numeroInteracoes|raw}}</button>
+
+							</div>	
+
+						</div>
+
+					</a>
+
+					{% endif %}
+
+					{% endfor %}
+
+					</div>
+
+				{% endfor %}
+				{% endautoescape %}				
+
+			{# Recupera Resultados pessoas #}
+
+		{% else %}
+
+			{# Recupera Resultados hashtags #}
+			{% autoescape %}
+
+				{% for hashtags in searchResult.result|raw %}
+
+					<div class="element content_row">
+						
+						{% if hashtags.tipo|raw == 'box' %}
+
+							<a href="/grupos/box/{{hashtags.meta_value|raw}}">
+
+						{% else %}
+
+							<a href="/grupos/box/{{hashtags.grupo_box_id|raw}}">
+
+						{% endif %}
+
+
+						<div class="content_row_img" style="width:50px;">
+							<p style="font-size:80px;"> # </p>
+						</div>
+
+						</a>
+
+						<div class="content_titulo">
+
+
+						{% if hashtags.tipo|raw == 'box' %}
+
+							<a href="/grupos/box/{{hashtags.meta_value|raw}}">
+
+						{% else %}
+
+							<a href="/grupos/box/{{hashtags.grupo_box_id|raw}}">
+
+						{% endif %}
+
+							{{hashtags.topic|raw}} -> {{hashtags.titulo|raw}} 
+
+							{% if hashtags.conteudo|raw > '' %} 
+
+								Interação
+
+							{% endif %}
+
+						</a>
+
+						</div>
+
+						<div class="content_descricao" style="width:800px !important;">
+
+
+						{% if hashtags.tipo|raw == 'box' %}
+
+							<a href="/grupos/box/{{hashtags.meta_value|raw}}">
+
+						{% else %}
+
+							<a href="/grupos/box/{{hashtags.grupo_box_id|raw}}">
+
+						{% endif %}
+
+								{{hashtags.descricao|raw}}
+
+								{{hashtags.conteudo|raw}}
+
+							</a>
+
+						</div>
+
+					</div>
+
+				{% endfor %}
+				{% endautoescape %}				
+
+			{# Recupera Resultados hashtags #}
+
+		{% endif %}
+
+	{# Verifica o tipo do resultado #}
+
+{# Retorna array com o tipo e o array de resultados #}
+
+</div>
+</center>
+
+
+ <!-- InfinityLoop !-->
+ <nav id="page_nav">
+    <a href="/socialsearch/?q={{q|raw}}&tipoBusca={{tipoBusca|raw}}&p={{pagina|raw}}"></a>
+  </nav>
+
+ <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/1.5.25/jquery.isotope.js"></script>
+  <script src="/assets/js/jquery.infinitescroll.min.js"></script>
+
+
+  <script>
+
+    $(function(){
+
+      var $container = $('.rightContent');
+
+      //$container.isotope({ layoutMode: 'masonry' })
+      
+      $container.infinitescroll({
+        navSelector  : '#page_nav',    // selector for the paged navigation 
+        nextSelector : '#page_nav a',  // selector for the NEXT link (to page 2)
+        itemSelector : '.element',     // selector for all items you'll retrieve
+        loading: {
+            finishedMsg: 'Não existem mais {{tipoBusca|raw}} com este dado de pesquisa!',
+            img: 'http://www.poll-maker.com/images/block-loading.gif'
+          }
+        },
+        // call Isotope as a callback
+        function( newElements ) {
+
+          
+        }
+      );
+
+        // Add exponential z-index for dropdown cropping
+	    $elems.each(function(e){
+	        $(this).css({ 
+	            zIndex: ($elems.length - e) 
+	        });
+	    });
+      
+    
+    });
+  </script>
+
+
+{% endblock %}

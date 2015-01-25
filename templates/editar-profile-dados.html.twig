@@ -1,0 +1,45 @@
+<style>
+.modal-header .close{margin-top:-10px !important;}
+</style>
+<!-- Cadastra comentário via Ajax !-->
+<form action="#" enctype="multipart/form-data" method="post" id="AlterarDadosPessoais" class="AlterarDadosPessoais">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+<br>
+<i class="fa fa-user fa-7x"></i>
+<h4 id="myModalLabel" class="semi-bold">Alterar dados pessoas.</h4>
+<p class="no-margin">Atenção, os campos que permanecerem em branco não seram alterados!</p>
+<br>
+</div>
+      
+      <div class="modal-body">
+        <div class="row form-row">
+      <p>
+        
+        <div class="col-md-6">
+          <input type="text" class="form-control" placeholder="Nome" name="nome" value="" id="nome">
+        </div>
+
+        <div class="col-md-6">
+          <input type="text" class="form-control" placeholder="Sobre Nome" name="sobreNome" value="" id="sobreNome">
+        </div>
+
+        <div class="col-md-12">
+          <input type="password" class="form-control" placeholder="Senha" name="senha" value="">
+        </div>
+      
+      </p>
+    </div>
+      </div>
+      <!-- /modal-body -->
+
+       <input type="hidden" name="grupoID" value="{{grupoID|raw}}">
+
+      <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Voltar</button>
+               
+                <input type="submit" class="btn btn-primary" style="float:right; margin-bottom:5px;" value="Alterar">
+            </div>   
+
+  </form>  
+

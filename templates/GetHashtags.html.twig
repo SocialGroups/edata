@@ -1,0 +1,947 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+
+<script type="text/javascript">
+jQuery(document).ready(function(){
+jQuery('#formSeguir').submit(function(){
+  var dados = jQuery( this ).serialize();
+
+  jQuery.ajax({
+    type: "POST",
+    url: "/profile/acaoseguir/",
+    data: dados,
+    success: function( data )
+    {
+      //alert(  );
+
+      if(data == 'true'){
+
+        setTimeout(function () { location.reload(true); }, 1000);
+
+        // DADOS INSERIDOS COM SUCESSO
+        $.gritter.add({
+          title: 'Parabéns você agora esta seguindo : {{ ProfileNome|raw }} {{ ProfileSobreNome|raw }} ',
+          text: '' ,
+          class_name: 'gritter-success'
+        });
+
+      }else{
+
+        $.gritter.add({
+                title: 'Você já esta Seguindo : {{ ProfileNome|raw }} {{ ProfileSobreNome|raw }}',
+                text: '' ,                    
+                class_name: 'gritter-error'
+        });
+      }
+    }
+  });
+  
+  return false;
+});
+});
+</script>
+
+<!-- Comentário !-->
+<script type="text/javascript">
+jQuery(document).ready(function(){
+jQuery('#formComent').live("submit",function(){
+  var dados = jQuery( this ).serialize();
+
+  jQuery.ajax({
+    type: "POST",
+    url: "/postcomentarios/",
+    data: dados,
+    success: function( data )
+    {
+      //alert(  );
+
+      if(data == 'true'){
+
+        setTimeout(function () { location.reload(true); }, 1000);
+
+        // DADOS INSERIDOS COM SUCESSO
+        $.gritter.add({
+          title: 'Comentário inserido com sucesso! ',
+          text: '' ,
+          class_name: 'gritter-success'
+        });
+
+      }else{
+
+        $.gritter.add({
+                title: 'Erro ao tentar inserir comentário!',
+                text: '' ,                    
+                class_name: 'gritter-error'
+        });
+      }
+    }
+  });
+  
+  return false;
+});
+});
+</script>
+<!-- Comentário !-->
+
+<style>
+
+body{background-color: #e9eaed;}
+
+#content{width: 1100px; height: auto; min-height: 100%; margin-top: 66px; text-align: left;}
+
+.LeftSidebar{
+
+  width: 400px;
+  height: 122px;
+  float: right;
+  position:fixed; 
+  top:50px;
+  background-color: #FFF;
+
+}
+
+
+
+.boxDadosUser{
+
+  width: 400px;
+  height:570px;
+  float: left;
+  background-color: #FFF;
+  -moz-border-radius: 10px; /* Para Firefox */
+-webkit-border-radius: 10px; /*Para Safari e Chrome */
+border-radius: 10px; /* Para Opera 10.5+*/
+}
+
+.boxDadosUserCapa{
+
+  width: 400px;
+  height:450px;
+  float: left;
+  background: url('{{ ProfileFotoCapa|raw }}'); 
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size:400px auto;
+
+}
+
+.boxDadosNome{
+
+  width: 250px;
+  float: left;
+  text-align: left;
+  color: #333;
+  margin-top: 453px;
+  margin-left: 15px;
+  font-size: 19px;
+}
+}
+
+.boxDadosDiv1{
+
+  width: 90px;
+  height: 50px;
+  float: left;
+
+}
+
+.boxDadosDiv2{
+
+  width: 110px;
+  height: 50px;
+  float: left;
+  margin-left: 5px;
+}
+
+.boxDadosDiv3{
+
+  width: 90px;
+  height: 50px;
+  float: left;
+  margin-left: 5px;
+}
+
+.boxDadosTitulo1{
+
+  width: 90px;
+  height: 25px;
+  float: left;
+  color: #EBECF0;
+  text-align: center;
+  font-size: 15px;
+}
+
+.boxDadosTitulo2{
+
+  width:110px;
+  height: 25px;
+  float: left;
+  color: #8C9BAA;
+  text-align: center;
+  font-size: 15px;
+}
+
+.boxDadosValor1{
+
+  width: 90px;
+  height: 40px;
+  float: left;
+  color: #202862;
+  text-align: center;
+  font-size: 18px;
+}
+
+.boxDadosValor2{
+
+  width: 110px;
+  height: 40px;
+  float: left;
+  color: #202862;
+  text-align: center;
+  font-size: 18px;
+}
+
+.rightContent{
+
+  width: 670px;
+  height: auto;
+  margin: 15px;
+  float: right;
+
+}
+
+.rightContentBox{
+
+  width: 640px;
+  height: auto;
+  margin: 15px;
+  padding:15px;
+  margin-top: 0px;
+  float: right;
+  background-color: #FFF;
+
+}
+
+.rightContentBoxTitulo{
+
+  width: auto;
+  height: 35px;
+  padding:5px;
+  margin-left: 15px;
+  float: left;
+  background-color: #212A60;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #FFF;
+  padding-left: 155px;
+
+}
+
+.boxDadosUsuario{
+
+  width: 300px;
+  height: 55px;
+  float: right;
+  margin-top: 30px;
+  margin-right: 10px;
+}
+
+.foto_perfil {
+    width: 85px;
+    height: 85px;
+    border-radius: 150px;
+    -webkit-border-radius: 150px;
+    -moz-border-radius: 150px;
+    background: url(http://link-to-your/image.jpg) no-repeat; 
+
+    border: 3px solid #FFF;
+    float: left;
+    z-index: 9999; 
+    margin-top: 410px;
+    margin-left: 15px;
+  }
+
+  .foto_perfil_loop {
+    width: 60px;
+    height: 60px;
+    border-radius: 150px;
+    -webkit-border-radius: 150px;
+    -moz-border-radius: 150px;
+    background: url(http://link-to-your/image.jpg) no-repeat; 
+
+    border: 3px solid #e9eaed;
+    float: left;
+    z-index: 9999; 
+    margin-left: 15px;
+    margin-top:-25px;
+  }
+
+ .contenttSidebar{
+
+  width: 655px;
+  height: auto;
+  float: right;
+  top:65px;
+  background-color: #FFF;
+  margin-bottom: 20px;
+  margin-top: -20px;
+
+}
+
+.contenttSidebarTitulo{
+
+  width: 600px;
+  float: left;
+  text-align: left;
+  color: #333;
+  margin-top: 5px;
+  margin-left: 9px;
+  font-size: 15px;
+  font-weight: bold;
+  font-family:  "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.contenttSidebarNomeUsuario{
+
+  width: 569px;
+  float: left;
+  text-align: left;
+  color: #666;
+  margin-top: 5px;
+  margin-left: 9px;
+  font-size: 14px;
+  font-family:  "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.boxDadosTitulo{
+
+  width: 100%;
+  height:28px;
+  float: left;
+  background-color: #FFF;
+  -moz-border-radius:4px;
+  -webkit-border-radius:4px;
+  border-radius:4px;
+
+}
+
+.boxDadosConteudo{
+
+  width: 640px;
+  height: auto;
+  background-color: #FFF;
+  float: right;
+  margin-bottom:20px;
+}
+
+.boxDadosTxt{
+
+  width: 630px;
+  min-height: 30px;
+  height: auto;
+  float: right;
+  margin-top: 15px;
+  margin-right: 10px;
+  font-size: 13px;
+}
+
+.content_midia{
+
+  width: 600px;
+  height: auto;
+  float: left;
+  margin-left: 15px;
+
+}
+
+.video{
+
+  width: 570px;
+  height: auto;
+  margin-top: 10px;
+  background-color: #E3E3E3;
+  padding:5px;
+  margin-top: 20px;
+
+}
+
+.videos {
+
+
+  padding:5px;
+  display:block;
+  padding-top:124px;
+}
+.videos .youtube-video {
+  float:left;
+  height:102px;
+  width:132px;
+  border:solid 1px #dedede;
+  padding:5px;
+}
+.videos .youtube-video img {
+  box-shadow:inset 0px 0px 0px 1px rgba(0, 0, 0, 0.2);
+}
+.details {
+  margin-left:130px;
+  min-height:93px;
+  word-wrap:break-word;
+    overflow:hidden;
+  padding:5px;
+  display:block;
+}
+.videos h6 {
+  color:#070E38;
+  padding:0;
+  margin:0;
+  font-size:11px;
+  font-weight:bold;
+}
+.videos p.link, .videos p.desc {
+  color:#999;
+  padding:0;
+  margin:0;
+  font-size:11px;
+  padding:3px;
+}
+
+.topBoxesContentSiderbar{
+
+  width: 400;
+  height: 600px;
+  position:fixed;
+  top:180px;
+
+}
+
+.topBoxes{
+
+  width: 400;
+  height: auto;
+  background-color: #FFF;
+  float: left;
+  margin-bottom: 20px;
+  padding: 15px;
+  -moz-border-radius: 10px; /* Para Firefox */
+-webkit-border-radius: 10px; /*Para Safari e Chrome */
+border-radius: 10px; /* Para Opera 10.5+*/
+
+}
+
+.topBoxes2{
+
+  width: 400;
+  height: auto;
+  float: left;
+  background-color: #FFF;
+    -moz-border-radius: 10px; /* Para Firefox */
+-webkit-border-radius: 10px; /*Para Safari e Chrome */
+border-radius: 10px; /* Para Opera 10.5+*/
+
+}
+
+.topBoxesTitulo{
+
+  width: 100%;
+  float: left;
+  font-size: 19px;
+  color: #66757f;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  padding:10px;
+}
+
+.topBoxesContent{
+
+  width: auto;
+  float: left;
+  font-size: 15px;
+  color: #009999;
+}
+
+.topBoxesContent ul{
+
+  font-size: 15px;
+  color: #212A60;
+}
+
+.topBoxesContent li{
+  font-size: 15px;
+  color: #212A60;
+}
+
+.topBoxesContent li a{
+  font-size: 15px;
+  color: #212A60;
+}
+
+.bt_seguir{
+
+  width: 120px;
+  height: 38px;
+  text-align: center;
+  color: #fff;
+  border: none;
+  background-color: #1E2762;
+
+  -moz-border-radius: 5px; /* Para Firefox */
+  -webkit-border-radius: 5px; /*Para Safari e Chrome */
+  border-radius: 5px; /* Para Opera 10.5+*/
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 15px;
+  float: right;
+  margin-top:82px;
+
+}
+
+.comentar{
+
+width: 100%;
+height: auto;
+background-color: #000;
+float: left;
+
+}
+
+#target {
+      font-family: arial;
+      font-size: 20px;
+      border:1px solid #00F;
+      max-width: 400px;
+      min-width: 400px;
+      min-height:50px;
+      resize:none;
+      
+    }
+
+</style>
+<script type="text/javascript">
+
+          $(document).ready(function(){
+                
+                 // Esconde div
+                 $('.footerBox').hide();
+
+                 $('.fechar').hide();
+
+                 // Mostra Div
+                 $('.mostrar').live("click",function(event){
+                    
+                    event.preventDefault();
+
+                    var ID = $(this).attr("id");
+
+                    $('.mostrar').hide();
+
+                    $(ID).show("1000");
+                    $('.fechar').show("1000");
+
+                 });
+
+                 // volta para o botão de comentar
+                 $('.fechar').live("click",function(event){
+
+                    event.preventDefault();
+
+                    var ID = $(this).attr("id");
+
+                    $('.mostrar').show("1000");
+                    $('.fechar').hide("1000");
+                    $(ID).hide("1000");
+                    
+
+                 });
+
+                 $('#ocultar').click(function(event){
+                 event.preventDefault();
+
+                    $("#conteudo{{feed.id|raw}}").hide("slow");
+
+                 });
+           });
+
+</script>
+
+
+  <link rel="stylesheet" href="/assets/css/chosen.css" />
+  <link rel="stylesheet" href="/assets/css/chosen.min.css" />
+  <script src="/assets/js/chosen.jquery.min.js"></script>
+  <script type="text/javascript" src="/assets/js/chosen.ajaxaddition.jquery.js"></script>
+
+
+<center>
+
+  {% autoescape %}
+
+  <div id="content">
+
+    <div class="LeftSidebar">
+
+      <div class="topBoxes2">
+
+          <div class="topBoxesTitulo"> Mais Falados </div>
+
+          <div class="topBoxesContent">
+
+            <ul>
+
+              {% for topics in TrendingTopics %}
+
+                <li> <a href="http://socialgroups.com.br/search/{{ topics.topic|replace({"#" : ""}) }}"> {{topics.topic|raw}} - {{topics.repeticoes|raw}} Citações </a> </li>
+
+              {% endfor %}
+
+            </ul>
+
+          </div>
+
+      </div>      
+
+    </div>
+
+    <div class="rightContent">
+
+      {% if resultNull|raw == 1 %}
+
+        <center> Não foi encontrado nenhum registro em nossas bases de dados =( </center>
+
+      {% endif %}
+
+    {% for feed in arrayGetHashtags %}
+
+      <div class="element content_box" style="width:655px; height:auto; padding-bottom:15px; background-color:#FFF; border:1px solid #ccc; margin:10px; float:right; margin-top:0px; margin-bottom:35px;  -moz-border-radius: 4px; /* Para Firefox */
+-webkit-border-radius: 4px; /*Para Safari e Chrome */
+border-radius: 4px; /* Para Opera 10.5+*/">
+
+        <div class="boxDadosTitulo">
+
+          <img src="{{feed.foto_perfil|raw}}" class="foto_perfil_loop" >
+
+          <div class="contenttSidebarNomeUsuario" style="float:left;">
+           <strong> {{feed.nome|raw}} {{feed.sobre_nome|raw}} </strong> - 
+
+            {% if date(feed.dataHora) > date("-1 days") %}
+
+              Hoje ás : {{ feed.dataHora|date("H:i") }}
+
+              {% else %}
+
+               {{ feed.dataHora|date("d/m/Y H:i") }}
+
+            {% endif %}
+
+
+          </div>
+
+        </div>
+
+        <div class="boxDadosTxt">
+
+          <div class="titulo" style="width:653px; float:left; font-size:14px; margin-left:-14px; border-bottom:1px solid #e9eaed">
+
+            {% if feed.tipo|raw == 'box' %}
+
+             <center> <p style="margin-bottom:10px;"> <strong> publicou : </strong> {{feed.titulo|raw}} </p>
+
+            {% else %}
+
+             <center> <p style="margin-bottom:10px;"> <strong> Comentou : </strong> {{feed.titulo|raw}} </p>
+
+            {% endif %} 
+
+          </center>
+
+          </div> 
+
+          <p style="padding-top:36px;">         
+
+            {% if feed.tipo|raw == 'box' %}
+
+              {{feed.descricao|raw}} 
+
+              <a href="http://socialgroups.com.br/grupo-temporario/box/{{feed.meta_value|raw}}" class="btn btn-default" style="width:120px; margin:10px; height:30px; padding:4px; float:right;" target="blanck"> Visualizar </a>
+
+            {% else %}
+
+              {{feed.conteudo|raw}}
+
+            {% endif %}
+
+          </p>
+        
+        </div>
+
+        {% for video in youtube %}
+
+          {% if feed.id|raw == video.boxID|raw %}
+
+           <div class="teste" style="height:auto;">
+
+               <div class="videos">
+              
+              <div class="youtube-video"> <a href="http://www.youtube.com/watch?v={{video.youtube|raw}}"> <img src="http://img.youtube.com/vi/{{video.youtube|raw}}/1.jpg" title="Play" alt="Play"/> </a> </div>
+              <div class="details">
+                <h6>{{video.videoTitulo|raw}}</h6>
+                <p class="desc">{{video.videoDescricao|raw}}</p>
+              </div>
+            </div>
+
+          </div>
+
+          {% endif %}
+        
+        {% endfor %}
+
+        <div class="content_midia">
+
+          <div class="photoset-grid-custom" style="visibility: hidden;">
+
+            {% for boxid in midias %}
+
+              {% if feed.id|raw == boxid.boxID|raw %}
+
+                {% for midias in boxid.midias|raw %}
+
+                  <img src="{{midias.midia_url|raw}}" data-highres="{{midias.midia_url|raw}}" style="max-width:600px !important;">
+
+                {% endfor %}
+
+              {% endif %}
+
+            {% endfor %}
+              
+          </div>
+
+        </div>
+
+      </div>
+
+    {% endfor %}
+
+    </div>
+
+    {% endautoescape %}
+
+</center>
+
+
+ <!-- Grid Images !-->
+
+  <script src="/assets/js/jquery.photoset-grid.js"></script>
+  <script src="/assets/js/js/jquery.colorbox.js"></script>
+  <script type="text/javascript">
+
+  $("button").live("click",function(){
+
+});
+
+  // Photoset Grid Basic
+  $('.photoset-grid-basic').photosetGrid({
+    onComplete: function(){
+      $('.photoset-grid-basic').attr('style', '');
+    }
+  });
+
+  // Photoset Grid Custom
+  $('.photoset-grid-custom').photosetGrid({
+    gutter: '5px',
+    layout: '134',
+    highresLinks: true,
+    rel: 'print-gallery',
+
+    onComplete: function(){
+      $('.photoset-grid-custom').attr('style', '');
+    }
+  });
+
+ $('.photoset-grid-lightbox').photosetGrid({
+  highresLinks: true,
+  rel: 'withhearts-gallery',
+  gutter: '2px',
+
+  onComplete: function(){
+    $('.photoset-grid-lightbox').attr('style', '');
+    $('.photoset-grid-lightbox a').colorbox({
+      photo: true,
+      scalePhotos: true,
+      maxHeight:'90%',
+      maxWidth:'90%'
+    });
+  }
+});
+  </script>
+  <!--Grid Images !--> 
+
+ <nav id="page_nav">
+   <a href="http://socialgroups.com.br/search/{{hashtag|raw}}/2"></a>
+  </nav>
+
+  <script src="http://www.ymic3dworld.com/lightwindow2/isotope-site/jquery.isotope.min.js"></script>
+  <script src="http://www.ymic3dworld.com/lightwindow2/isotope-site/js/jquery.infinitescroll.min.js"></script>
+
+
+  <script>
+
+    $(function(){
+
+      var $container = $('.rightContent');
+
+      //$container.isotope({ layoutMode: 'masonry' })
+      
+      $container.infinitescroll({
+        navSelector  : '#page_nav',    // selector for the paged navigation 
+        nextSelector : '#page_nav a',  // selector for the NEXT link (to page 2)
+        itemSelector : '.element',     // selector for all items you'll retrieve
+        loading: {
+            finishedMsg: 'Não existem mais box neste Grupo!',
+            img: 'http://www.poll-maker.com/images/block-loading.gif'
+          }
+        },
+        // call Isotope as a callback
+        function( newElements ) {
+
+          // Esconde div de comentário
+          $('.footerBox').hide();
+
+            // Photoset Grid Basic
+  $('.photoset-grid-basic').photosetGrid({
+    onComplete: function(){
+      $('.photoset-grid-basic').attr('style', '');
+    }
+  });
+
+  // Photoset Grid Custom
+  $('.photoset-grid-custom').photosetGrid({
+    gutter: '5px',
+    layout: '134',
+    highresLinks: true,
+    rel: 'print-gallery',
+
+    onComplete: function(){
+      $('.photoset-grid-custom').attr('style', '');
+    }
+  });
+
+ $('.photoset-grid-lightbox').photosetGrid({
+  highresLinks: true,
+  rel: 'withhearts-gallery',
+  gutter: '2px',
+
+  onComplete: function(){
+    $('.photoset-grid-lightbox').attr('style', '');
+    $('.photoset-grid-lightbox a').colorbox({
+      photo: true,
+      scalePhotos: true,
+      maxHeight:'90%',
+      maxWidth:'90%'
+    });
+  }
+});
+          
+        }
+      );
+
+        // Add exponential z-index for dropdown cropping
+      $elems.each(function(e){
+          $(this).css({ 
+              zIndex: ($elems.length - e) 
+          });
+      });
+      
+    
+    });
+  </script>
+
+    <script src="/assets/js/chosen.jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/js/chosen.ajaxaddition.jquery.js"></script>
+
+
+
+<script type="text/javascript">
+        $( document ).ready( function() {
+            $('input[name=date-range-picker]').daterangepicker().prev().on(ace.click_event, function(){
+                $(this).next().focus();
+            });
+
+            $(".chosen-select").chosen(); 
+
+            //chosen plugin inside a modal will have a zero width because the select element is originally hidden
+            //and its width cannot be determined.
+            //so we set the width after modal is show
+            $('#modal-form').on('shown.bs.modal', function () {
+                $(this).find('.chosen-container').each(function(){
+                    $(this).find('a:first-child').css('width' , '210px');
+                    $(this).find('.chosen-drop').css('width' , '210px');
+                    $(this).find('.chosen-search input').css('width' , '200px');
+                });
+            });
+            /**
+            //or you can activate the chosen plugin after modal is shown
+            //this way select element becomes visible with dimensions and chosen works as expected
+            $('#modal-form').on('shown', function () {
+                $(this).find('.modal-chosen').chosen();
+            })
+            */
+        });
+    </script> 
+
+  <script>
+           $('#grupoID').ajaxChosen({
+                   dataType: 'json',
+                   type: 'POST',
+                   url:'/ajax/'
+           },{
+                   loadingImg: 'loading.gif'
+           });
+    </script>
+    
+  </section> <!-- #content -->
+
+      {% if return|raw == 'true' %}
+
+    <script>
+       // DADOS INSERIDOS COM SUCESSO
+            $.gritter.add({
+              title: 'Box Adicionado com sucesso!',
+              text: '' ,
+              time: 2000,
+              class_name: 'gritter-success'
+            });
+
+    </script>
+
+  {% endif %}
+
+  {% if return|raw == 'false' %}
+
+    <script>
+       // DADOS INSERIDOS COM SUCESSO
+            $.gritter.add({
+              title: 'Erro, você tem que preencher ao menos um titulo e um conteudo!',
+              text: '' ,
+               time: 2000,
+              class_name: 'gritter-success'
+            });
+
+    </script>
+
+  {% endif %}
+
+
+  <script>
+
+        // Método videos youtube
+        jQuery(".videos .youtube-video a").live("click",function (){
+    var videoID = jQuery(this).attr("href").split("=");
+    var videoWidth = parseInt(jQuery(this).parent().parent().css("width"));
+    var videoHeight = Math.ceil(videoWidth*(0.56)+1);
+
+        jQuery(this).parent().hide();
+    jQuery(this).parent().next().css('margin-left', '0');
+    jQuery(this).parent().parent().prepend('<iframe width="'+videoWidth+'" height="'+videoHeight+'" src="http://www.youtube.com/embed/'+(videoID[1])+'?rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe>');
+    return false;
+});
+    // Método videos youtube
+
+    </script>
+
+{% endblock %}

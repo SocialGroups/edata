@@ -1,0 +1,23 @@
+{
+    "name": "procorpo/crm",
+    "description": "Novo sistema de CRM da Pró-Corpo",
+    "require": {
+        "respect/config": "dev-master",
+	"respect/data": "dev-master",
+        "respect/relational": "dev-develop",
+        "respect/rest": "dev-master",
+        "respect/validation": "dev-master",
+        "twig/twig": "1.*", 
+        "swiftmailer/swiftmailer" : "v5.0.2",
+	"doctrine/orm": "2.3.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*@dev",
+        "squizlabs/php_codesniffer": "1.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "ProCorpo": "src\/"
+        }
+    }
+}

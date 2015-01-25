@@ -1,0 +1,200 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+
+
+<!-- BEGIN SIDEBAR -->
+<link rel="stylesheet" href="/assets/css/isotope_style.css" />
+<div class="footer-widget" style="display:none">
+  <div class="progress transparent progress-small no-radius no-margin">
+    <div data-percentage="79%" class="progress-bar progress-bar-success animate-progress-bar" ></div>
+  </div>
+  <div class="pull-right">
+    <div class="details-status"> <span data-animation-duration="560" data-value="86" class="animate-number"></span>% </div>
+    <a href="lockscreen.html"><i class="fa fa-power-off"></i></a></div>
+</div>
+<!-- END SIDEBAR -->
+<!-- BEGIN PAGE CONTAINER-->
+<div class="page-content">
+  <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+  <div id="portlet-config" class="modal hide">
+    <div class="modal-header">
+      <button data-dismiss="modal" class="close" type="button"></button>
+      <h3>Widget Settings</h3>
+    </div>
+    <div class="modal-body"> Widget settings form goes here </div>
+  </div>
+  <div class="clearfix"></div>
+  <div class="content">
+
+      <!-- BEGIN PAGE TITLE -->
+      <div class="page-title">
+        <h3>Dashboard:</h3>
+      </div>
+      <!-- END PAGE TITLE -->
+
+    <div class="row" >
+
+<div class="rightContent" class="variable-sizes clearfix infinite-scrolling">
+
+<div class="element col-md-4 col-sm-7 hidden-sm" >
+<div class="row">
+
+<div class="col-md-12 m-b-20">
+<div class="widget-item narrow-margin">
+<div class="tiles green  overflow-hidden full-height" style="max-height:214px">
+<div class="overlayer bottom-right fullwidth">
+<div class="overlayer-wrapper">
+<div class="tiles gradient-black p-l-20 p-r-20 p-b-20 p-t-20">
+<div class="clearfix"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="tiles white ">
+<div class="tiles-body">
+<div class="row">
+<div class="user-profile-pic text-left">
+
+</div>
+
+<div class="col-md-10 no-padding" style="width:100%;">
+<div class="clearfix"></div>
+<div class="m-r-20 m-t-20 m-b-10  m-l-10">
+<p class="p-b-10">
+
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+    </div>
+  </div>
+
+</div>
+
+
+<!-- InfinityLoop !-->
+ <nav id="page_nav">
+    <a href="/grupos/2"></a>
+  </nav>
+
+ <script src="http://isotope.metafizzy.co/v1/jquery.isotope.min.js"></script>
+  <script src="http://isotope.metafizzy.co/v1/js/jquery.infinitescroll.min.js"></script>
+
+  <script>
+  $(function(){
+             var $container = $('.rightContent ');
+             $container.imagesLoaded(function(){
+                 $container.isotope({
+                     itemSelector: '.element'
+                 });
+             });
+             $container.infinitescroll({
+                 navSelector: '#page_nav',
+                 nextSelector: '#page_nav a',
+                 itemSelector: '.element',
+                 loading: {
+                 'finishedMsg': 'Carregando novos Grupos',
+                 'img': 'http://i.imgur.com/qkKy8.gif'
+                 }
+             },
+             function(newElements){
+                 console.log('Elements Retrieved:');
+                 var $newElems = $(newElements);
+                 $container.imagesLoaded(function(){
+                         $container.isotope('appended', $newElems, function(){console.log('Appended');});
+                 });
+             });
+         });
+  </script>
+
+  	<script>
+
+        // Método videos youtube
+       	jQuery(".videos .youtube-video a").live("click",function (){
+		var videoID = jQuery(this).attr("href").split("=");
+		var videoWidth = parseInt(jQuery(this).parent().parent().css("width"));
+		var videoHeight = Math.ceil(videoWidth*(0.56)+1);
+
+        jQuery(this).parent().hide();
+		jQuery(this).parent().next().css('margin-left', '0');
+		jQuery(this).parent().parent().prepend('<iframe width="'+videoWidth+'" height="'+videoHeight+'" src="http://www.youtube.com/embed/'+(videoID[1])+'?rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe>');
+		return false;
+});
+		// Método videos youtube
+
+		</script>
+
+<!-- Grid Images !-->
+
+  <script src="/assets/js/jquery.photoset-grid.js"></script>
+  <script src="/assets/js/js/jquery.colorbox.js"></script>
+  <script type="text/javascript">
+
+  $("button").live("click",function(){
+
+});
+
+  // Photoset Grid Basic
+  $('.photoset-grid-basic').photosetGrid({
+    onComplete: function(){
+      $('.photoset-grid-basic').attr('style', '');
+    }
+  });
+
+  // Photoset Grid Custom
+  $('.photoset-grid-custom').photosetGrid({
+    gutter: '5px',
+    layout: '234',
+    highresLinks: true,
+    rel: 'print-gallery',
+
+    onComplete: function(){
+      $('.photoset-grid-custom').attr('style', '');
+    }
+  });
+
+ $('.photoset-grid-lightbox').photosetGrid({
+  highresLinks: true,
+  rel: 'withhearts-gallery',
+  gutter: '2px',
+
+  onComplete: function(){
+    $('.photoset-grid-lightbox').attr('style', '');
+    $('.photoset-grid-lightbox a').colorbox({
+      photo: true,
+      scalePhotos: true,
+      maxHeight:'100%',
+      maxWidth:'100%'
+    });
+  }
+});
+  </script>
+ <!--Grid Images !--> 
+
+   <script>
+           $('#grupoIDCompartilhamento').ajaxChosen({
+                   dataType: 'json',
+                   type: 'POST',
+                   url:'/ajax/'
+           },{
+                   loadingImg: 'loading.gif'
+           });
+    </script>
+
+</body>
+</html>
+
+{% endblock %}

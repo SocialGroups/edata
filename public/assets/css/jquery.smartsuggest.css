@@ -1,0 +1,168 @@
+div.ss-wrap *
+{
+	border: none;
+	background: none;
+	background-color: transparent;
+	background-image: none;
+	background-position: 0 0;
+	text-decoration: none;
+	font-size: 1em;
+}
+
+input.ss-input
+{
+	display: block;
+}
+
+input.ss-input-thinking
+{
+	background-image: url(../images/indicator.gif);
+	background-repeat: no-repeat;
+	background-position: center right;
+}
+
+ul.ss-box
+{
+	/* Will be absolutely positioned in the JavaScript */
+	width: 500px;
+	z-index: 999999;
+	border: 1px solid #CCC;
+	font-size: 11px;
+	background: #fff;
+	-moz-box-shadow: 2px 2px 5px 0 #c5c5c5;
+	list-style: none;
+	position: absolute;
+	top: 60 !important; 
+	-moz-border-radius: 4px; /* Para Firefox */
+	-webkit-border-radius: 4px; /*Para Safari e Chrome */
+	border-radius: 4px; /* Para Opera 10.5+*/
+	left: 0 !important;
+	float: left;
+	text-align: left !important;
+
+}
+	
+	ul.ss-box li
+	{
+		float: left;
+		width: 100%;
+		clear: both;
+	}
+	
+	ul.ss-box li,
+	ul.ss-box li *
+	{
+		cursor: pointer;
+	}
+
+	ul.ss-box li.ss-header
+	{
+		height: 13px;
+		overflow: hidden;
+		padding: 5px 0;
+		color: #fff;
+		background: transparent url(../images/search-header-bg.gif) repeat-x bottom;
+	}
+
+		ul.ss-box li.ss-header p.ss-header-text
+		{
+			margin: 0 !important;
+			padding: 0 0 0 10px !important;
+			float: left;
+			font-size: 12px;
+			font-weight: bold;
+			margin-top: -20px !important;
+		}
+
+		ul.ss-box li.ss-header p.ss-header-limit
+		{
+			margin: 0 !important;
+			padding: 0 10px 0 0 !important;
+			float: right;
+			font-size: 11px;
+			font-weight: normal;
+		}
+
+	ul.ss-box li.ss-result
+	{
+		margin: 0 !important;
+		padding: 0 !important;
+		border-bottom: 1px solid #c5c5c5;
+	}
+
+		ul.ss-box li.ss-result a
+		{
+			display: block;
+			padding: 5px 10px;
+			text-decoration: none !important;
+			background: #fff;
+		}
+		
+		ul.ss-box li.ss-result a:hover
+		{
+			background: #2d6ca2 url(../images/search-item-hover.gif) repeat-x top;
+			color:#FFF; /* Also is set in JavaScript file for IE6 compatibility */
+		}
+
+		ul.ss-box li.ss-result img
+		{
+			margin-right: 12px;
+			width:100px;
+			height: auto;
+			overflow:hidden;
+			-moz-border-radius: 4px; /* Para Firefox */
+			-webkit-border-radius: 4px; /*Para Safari e Chrome */
+			border-radius: 4px; /* Para Opera 10.5+*/
+			float: left;
+		}
+
+		.tituloSearch{
+			width: 120px;
+			float: left;
+			margin-top: 0px !important;
+			background-color: #000;
+			height:20px;
+		}
+
+		ul.ss-box li.ss-result p
+		{
+			margin: 0 !important;
+			padding: 0 !important;
+			color: #444;
+			font-weight: normal;
+			font-size: 10px;
+		}
+
+		.resultImg{
+
+			width:100px;
+			height: auto;
+			max-height: 100px;
+			overflow:hidden;
+			-moz-border-radius: 4px; /* Para Firefox */
+			-webkit-border-radius: 4px; /*Para Safari e Chrome */
+			border-radius: 4px; /* Para Opera 10.5+*/
+			float: left;
+
+		}
+
+			.resultTitulo
+			{
+				
+				margin-top: 0px !important;
+				float: left;
+				width: 300px;
+				padding-left: 7px;
+				background-color: #000;
+				padding-top: 5px;
+				font-weight: bold;
+				margin-bottom: 5px;
+			}
+
+			.resultDescricao{
+
+				width: 300px;
+				margin-left: 7px;
+				float: left;
+
+			}

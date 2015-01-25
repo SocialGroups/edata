@@ -1,0 +1,827 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+<!-- Latest compiled and minified CSS -->
+
+  <script type="text/javascript" src="//use.typekit.net/tnk3ktt.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+  <link rel="stylesheet" href="http://yandex.st/highlightjs/7.3/styles/default.min.css">
+  <script src="http://yandex.st/highlightjs/7.3/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  <link rel="stylesheet" href="/assets/css/colorbox.css" />
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="_/js/libs/jquery-1.9.1.min.js"><\/script>')</script>
+
+  <script type="text/javascript">
+  var StyleHatch = window.StyleHatch || {};
+  </script>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+  jQuery(document).ready(function(){
+    jQuery('#deletar,#deletar3').submit(function(){
+      var dados = jQuery( this ).serialize();
+ 
+      jQuery.ajax({
+        type: "POST",
+        url: "/grupo-temporario/ExcluirInteracao",
+        data: dados,
+        success: function( data )
+        {
+          //alert(  );
+
+          if(data == 'true'){
+
+          	setTimeout(function () { location.reload(true); }, 1000);
+
+            // DADOS INSERIDOS COM SUCESSO
+            $.gritter.add({
+              title: 'Interação excluida com sucesso!',
+              text: '' ,
+              class_name: 'gritter-success'
+            });
+
+
+
+
+          }else{
+
+            $.gritter.add({
+                    title: 'Erro, você não tem permissão para excluir esta interação!',
+                    text: '' ,                    
+                    class_name: 'gritter-error'
+            });
+          }
+        }
+      });
+      
+      return false;
+    });
+  });
+</script>
+
+
+<script type="text/javascript">
+  jQuery(document).ready(function(){
+    jQuery('#addInteracao').submit(function(){
+      var dados = jQuery( this ).serialize();
+ 
+      jQuery.ajax({
+        type: "POST",
+        url: "/grupo-temporario/adicionarInteracao",
+        data: dados,
+        success: function( data )
+        {
+          //alert(  );
+
+          if(data == 'true'){
+
+          	setTimeout(function () { location.reload(true); }, 1000);
+
+            // DADOS INSERIDOS COM SUCESSO
+            $.gritter.add({
+              title: 'Comentário dicionado com sucesso!',
+              text: '' ,
+              class_name: 'gritter-success'
+            });
+
+
+
+
+          }else{
+
+            $.gritter.add({
+                    title: 'Erro ao tentar adicionar este comentário',
+                    text: '' ,                    
+                    class_name: 'gritter-error'
+            });
+          }
+        }
+      });
+      
+      return false;
+    });
+  });
+</script>
+
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+  <script src="/playground/demo/tweet_to_enter/jquery.tweetToEnter.js"></script>
+
+  <link rel="stylesheet" href="/assets/css/jquery.gritter.css" />
+  <link rel="stylesheet" href="/assets/css/jquery.gritter.css" />
+
+<link rel="stylesheet" href="/assets/css/chosen.css" />
+<link rel="stylesheet" href="/assets/css/chosen.min.css" />
+  
+  <link rel="stylesheet" href="/assets/css/jquery-ui-1.10.3.full.min.css" />  
+  <script src="/assets/js/jquery.gritter.min.js"></script>
+
+  <script src="/assets/js/bootbox.min.js"></script>
+  <script src="/assets/js/chosen.jquery.min.js"></script>
+  <script src="/assets/js/jquery.gritter.min.js"></script>
+
+  <script src="/assets/js/jquery-ui-1.10.3.full.min.js"></script>
+  <script src="/assets/js/jquery.ui.touch-punch.min.js"></script>
+  <script type="text/javascript" src="/assets/js/chosen.ajaxaddition.jquery.js"></script>
+
+
+<style>	
+
+body {
+  background-color: #FFF;
+  min-width: 100%; display: inline-block;
+}
+
+.content_background{
+
+	width: 100%;
+	height: 100px;
+	margin-top: 49px;
+	border-bottom:3px solid #160625;
+	background: url('/img/bg_box.jpg')
+}
+
+.content_box_content_titulo{
+
+	width: 1100px;
+	height: auto;
+	margin-top: 25px;
+	padding-top: 2	5px;
+	
+
+
+}
+
+.content_box_titulo{
+
+	width: auto;
+	height: auto;
+	margin-top: 12px;
+	font-size: 25px;
+	color: #FFF;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	float: left;
+
+	margin-left: 30px;
+	margin-top: 30px;
+
+}
+
+.content_box_icon{
+
+	width: 70px;
+	height: auto;
+	margin-top: 12px;
+	margin-left: 20px;
+	float: left;
+
+}
+
+
+.content_background_grupo_box{
+
+	width: 225px;
+	height: 125px;
+	float: right;
+	margin-right: 20px;
+	margin-top: 15px;
+
+}
+
+.content_background_grupo_box_icon{
+
+	width: 91px;
+	height: 95px;
+	float: left;
+	margin: 4px;
+
+}
+
+.content_background_grupo_box_titulo{
+
+	width: 100px;
+	height: 13px;
+	float: left;
+	color: #FFF;
+	font-size: 17px;
+
+}
+
+.content_background_grupo_box_value{
+
+	width: 100px;
+	height: 55px;
+	float: left;
+	color: #FFF;
+	font-size: 48px;
+
+}
+
+
+#content{
+
+	width: 1100px;
+	height: auto;
+	background-color: #CCC;
+	margin: 5px;
+
+}
+
+.content_block_left{
+
+	width: 700px;
+	height: auto;
+	float: left;
+	margin-right: 10px;
+	
+
+}
+
+.content_block_right{
+
+	width: 390px;
+	height: auto;
+	float: right;
+	border-left: 1px solid #E3E3E3;
+	padding-left: 20px;
+
+}
+
+.foto_perfil {
+    width: 65px;
+    height:65px;
+    border-radius: 150px;
+    -webkit-border-radius: 150px;
+    -moz-border-radius: 150px;
+    background: url(http://link-to-your/image.jpg) no-repeat; 
+
+    border: 3px solid #FFF;
+    float: left;
+    z-index: 9999; 
+  }
+
+  .foto_perfil_republicar {
+    width: 65px;
+    height:65px;
+    border-radius: 150px;
+    -webkit-border-radius: 150px;
+    -moz-border-radius: 150px;
+    background: url(http://link-to-your/image.jpg) no-repeat; 
+
+    border: 3px solid #FFF;
+    z-index: 9999; 
+  }
+
+.titulo{
+
+	width: 600px;
+	float: left;
+	height: 40px;
+	text-align: left;
+	font-size: 20px;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	color: #5F5F5F;
+	margin-top: 17px;
+	margin-left: 30px;
+	padding-top: 5px;
+	padding-left: 15px;
+	border-left: 5px solid #E7E7E7;
+
+}
+
+
+.conteudo{
+
+	width: 600px;
+	padding-left: 25px;
+	padding-top: 15px;
+	height: auto;
+	margin:5px;
+	text-align: left;
+	float: left;
+
+}
+
+.conteudo_republicacao{
+
+	width: 600px;
+	height: auto;
+	margin:5px;
+	text-align: left;
+
+}
+
+.video{
+
+	width: 570px;
+	height: auto;
+	margin-top: 10px;
+	background-color: #E3E3E3;
+	padding:5px;
+
+}
+
+.interacoes_titulo{
+
+	width: 390px;
+	float: left;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	color: #5F5F5F;
+	font-size: 19px;
+	text-align: center;
+	border
+}
+
+.interacao_box{
+
+	width: 390px;
+	height: auto;
+	float: left;
+	border-bottom: 1px solid #E3E3E3;
+
+}
+
+.interacao_foto_perfil{
+
+	width: 45px;
+    height:45px;
+    border-radius: 150px;
+    -webkit-border-radius: 150px;
+    -moz-border-radius: 150px;
+    background: url(http://link-to-your/image.jpg) no-repeat; 
+
+    border: 3px solid #FFF;
+    float: left;
+    z-index: 9999; 
+
+}
+
+.interacao_conteudo{
+
+	width: 300px;
+	height: auto;
+	float: left;
+	margin-left: 15px;
+	
+	color: #5F5F5F;
+	font-size: 13px;
+	text-align: left;
+	margin-top: 10px;
+	padding: 10px;
+	border-left: 4px solid #E7E7E7; margin-bottom: 15px;
+}
+
+
+.box_comentario {
+    color:#000;
+    width:400px;
+    background:#fff;
+    border-radius:3px;
+    padding-bottom: 20px;
+    border-bottom:4px solid #160625;
+}
+
+
+a:link, a:visited {
+text-decoration: none;
+color: #0B0F26;
+}
+a:hover {
+text-decoration: none;
+color: #1E2762;
+}
+a:active {
+text-decoration: none;
+}
+
+
+.content_box_scroll_follow{
+
+	width: 360px;
+	height: auto;
+	position: fixed;
+	top:300px;
+}
+
+.gritter-success{background-color: #160625;}
+
+.content_midia{
+
+	width: 600px;
+	height: auto;
+	float: left;
+	margin-left: 90px;
+	margin-bottom: 20px;
+
+}
+
+.bt_seguir{
+
+	width: 300px;
+	height: 38px;
+	text-align: center;
+	color: #fff;
+	border: none;
+	background-color: #1E2762;
+
+	-moz-border-radius: 5px; /* Para Firefox */
+	-webkit-border-radius: 5px; /*Para Safari e Chrome */
+	border-radius: 5px; /* Para Opera 10.5+*/
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 15px;
+
+}
+
+.chosen-container {width: 250px !important; text-align: left;}
+.chosen-container-single {width: 250px !important; text-align: left;}
+
+.chosen-drop{width: 250px !important; text-align: left;}
+
+.first-child{width: 250px !important; text-align: left;}
+
+.chosen-search input{width: 240px !important; text-align: left;}
+
+
+.button_compartilhar{
+
+	width: 120px;
+	height: 30px;
+	background: url('/img/icon_compartilhamento.png');
+	background-position: right;
+	border:none;
+	float: right;
+	background-repeat: no-repeat;
+	padding-right: 35px;
+	font-size: 13px;
+
+}
+
+</style>
+
+<center>
+
+	<div class="content_background"> 
+
+		<div class="content_box_content_titulo">
+
+			
+			<img class="content_box_icon" src="/img/icon_boxes.png" width="51">
+
+			<div class="content_box_titulo">
+
+				{{grupoNome|raw}} 
+
+			</div>
+
+			<div class="content_background_grupo_box">
+
+					<div class="content_background_grupo_box_icon">
+
+						<img src="/img/icon_interacoes.png" width="51">
+
+					</div>
+
+					<div class="content_background_grupo_box_titulo">
+						Interações
+					</div>
+
+					<div class="content_background_grupo_box_value">
+						{{NumeroInteracoes|raw}}
+					</div>
+
+				</div>
+
+				<div class="content_background_grupo_box">
+
+					<div class="content_background_grupo_box_icon">
+
+						<img src="/img/view.png" width="51">
+
+					</div>
+
+					<div class="content_background_grupo_box_titulo">
+						Visualizações
+					</div>
+
+					<div class="content_background_grupo_box_value">
+						{{Visualizacoes|raw}}
+					</div>
+
+				</div>
+
+		</div>
+
+	</div>
+
+	<div id="content">
+		
+		<div class="content_block_left">
+				
+				<img class="foto_perfil" src="{{AutorFotoPefil|raw}}">
+
+				{% autoescape %}
+
+
+
+				<div class="titulo">
+
+					{{boxTitulo|raw}} <!-- Button trigger modal -->
+			<button class="button_compartilhar" data-toggle="modal" data-target="#myModal234"> Republicar </button> 
+
+				</div>
+
+				<div class="conteudo">
+
+					{{boxConteudo|raw}} <br> 
+
+					{% if youtube|raw == true %}
+
+						<div class="video">
+					    
+							<iframe width="560" height="315" src="//www.youtube.com/embed/{{youtube|raw}}" frameborder="0" allowfullscreen></iframe>
+
+						</div>
+
+					{% endif %}
+
+					
+
+				</div>
+
+					<div class="content_midia">
+
+				      	<div class="photoset-grid-lightbox" data-layout="134" style="visibility: hidden; width:600px !important; max-width:600px !important;">
+
+				      		{% for midia in arrayBoxMidia %}
+
+						        <img src="{{midia.midia_url|raw}}" data-highres="{{midia.midia_url|raw}}" style="max-width:600px !important;">
+
+					        {% endfor %}
+
+
+					    </div>
+
+					</div>
+
+			{% endautoescape %}
+		</div>
+
+		<div class="content_block_right">
+
+			<div class="interacoes_titulo"> Interações <div>
+
+			{% autoescape %}
+
+				{% for interacoes in arrayBoxInteracao %}
+
+					<div class="interacao_box">
+
+						 <img class="interacao_foto_perfil" src="{{interacoes.AutorFotoPerfil|raw}}"> 
+
+						 <div class="interacao_conteudo">
+
+						 	{{interacoes.conteudo|raw}}
+
+						 </div>
+
+						{% if interacoes.AutorID|raw == session.usuario_id|raw  %}
+
+							<form id="deletar" name="ExcluirInteracao" method="POST">
+
+							 		<input type="hidden" name="interacaoID" id="{{interacoes.InteracaoID|raw}}" value="{{interacoes.InteracaoID|raw}}" >
+
+							 		<input type="submit" style="float:right; color:#d9534f;" class="btn btn-link" value="Excluir">
+
+							 	</form>
+
+						{% endif %}
+
+					</div>
+
+				{% endfor %}
+
+			{% endautoescape %}
+
+			<section class="box_comentario">
+				<form name="addInteracao" id="addInteracao" action="" method="POST">
+
+				    <textarea id="status" name="conteudo" rows="5" style="width:400px; heght:200px; height:130px; margin-bottom:14px; font-size:13px;"></textarea>
+
+				    <input type="hidden" name="grupoID" value="{{grupoID|raw}}">
+
+				    <input type="hidden" name="boxID" value="{{boxID|raw}}">
+
+				    <span id="text_counter"></span><input class="btn btn-large btn-primary pull-right" style="margin-top:3px;" type="submit"  value="Postar Interação" />
+
+				</form>
+  			</section>
+
+		</div>
+
+	</div>
+
+	
+
+</center>
+
+ <nav id="page_nav">
+    <a href="/grupo-temporario/autoloader/{{grupoID|raw}}/2/"></a>
+  </nav>
+
+  <script src="http://www.ymic3dworld.com/lightwindow2/isotope-site/jquery.isotope.min.js"></script>
+  <script src="http://www.ymic3dworld.com/lightwindow2/isotope-site/js/jquery.infinitescroll.min.js"></script>
+  <script>
+    $(function(){
+
+      var $container = $('.content_boxes');
+
+      //$container.isotope({ layoutMode: 'masonry' })
+      
+      $container.infinitescroll({
+        navSelector  : '#page_nav',    // selector for the paged navigation 
+        nextSelector : '#page_nav a',  // selector for the NEXT link (to page 2)
+        itemSelector : '.element',     // selector for all items you'll retrieve
+        loading: {
+            finishedMsg: 'Não existem mais box neste Grupo!',
+            img: 'http://i.imgur.com/qkKy8.gif'
+          }
+        },
+        // call Isotope as a callback
+        function( newElements ) {
+          
+        }
+      );
+
+        // Add exponential z-index for dropdown cropping
+	    $elems.each(function(e){
+	        $(this).css({ 
+	            zIndex: ($elems.length - e) 
+	        });
+	    });
+      
+    
+    });
+  </script>
+    
+  </section> 
+
+  <!-- Grid Images !-->
+
+  <script src="/assets/js/jquery.photoset-grid.js"></script>
+  <script src="/assets/js/js/jquery.colorbox.js"></script>
+  <script type="text/javascript">
+
+  // Photoset Grid Basic
+  $('.photoset-grid-basic').photosetGrid({
+    onComplete: function(){
+      $('.photoset-grid-basic').attr('style', '');
+    }
+  });
+
+  // Photoset Grid Custom
+  $('.photoset-grid-custom').photosetGrid({
+    gutter: '5px',
+    layout: '134',
+    highresLinks: true,
+    rel: 'print-gallery',
+
+    onComplete: function(){
+      $('.photoset-grid-custom').attr('style', '');
+    }
+  });
+
+ $('.photoset-grid-lightbox').photosetGrid({
+  highresLinks: true,
+  rel: 'withhearts-gallery',
+  gutter: '2px',
+
+  onComplete: function(){
+    $('.photoset-grid-lightbox').attr('style', '');
+    $('.photoset-grid-lightbox a').colorbox({
+      photo: true,
+      scalePhotos: true,
+      maxHeight:'90%',
+      maxWidth:'90%'
+    });
+  }
+});
+  </script>
+
+  <!--Grid Images !-->
+
+  <!-- #content -->
+
+  			
+
+<!-- Model Conteúdo Box !-->
+				<div class="modal fade" id="myModal234" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				  <div class="modal-dialog" style="margin-top:100px !important;">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				        <h4 class="modal-title" id="myModalLabel"> <img class="foto_perfil_republicar" src="{{AutorFotoPefil|raw}}"> Republicar Box -> {{boxTitulo|raw}}</h4>
+				      </div>
+				      <div class="modal-body">
+				       	
+						<form method="post" action="/grupo-temporario/republicarBox/" id="ajax_form" enctype="multipart/form-data">
+
+							<input type="hidden" name="boxID" value="{{boxID|raw}}">
+							<input type="hidden" name="grupoIDRetorno" value="{{grupoID|raw}}">
+
+							<div class="conteudo_republicacao" style="width:545px;">
+
+								{{boxConteudo|raw}} <br> 
+
+								{% if youtube|raw == true %}
+
+									<div class="video" style="width:545px !important;">
+								    
+										<iframe width="535" height="315" src="//www.youtube.com/embed/{{youtube|raw}}" frameborder="0" allowfullscreen></iframe>
+
+									</div>
+
+								{% endif %}
+
+							</div>
+
+				      </div>
+				      <div class="modal-footer">
+
+				      	<div class="grupoID" style="float:left; ">
+								
+								Grupo : <select name="grupoID" id="prestador-select" style="width:300px;">
+                        			<option value=''> Digite o nome do grupo </option>
+                   				 </select>
+
+
+					       </div>
+
+				       <input type="submit" class="bt_seguir" style="width:150px;" value="Republicar"> <button type="button" class="btn btn-default" data-dismiss="modal">Sair</button>
+				      </div>
+
+				      </form>				 
+				    </div>
+				  </div>
+				</div>
+
+				 
+<!-- Model Conteúdo Box !-->
+
+	<script src="/assets/js/date-time/bootstrap-datepicker.min.js"></script>
+    <script src="/assets/js/date-time/moment.min.js"></script>
+    <script src="/assets/js/date-time/daterangepicker.min.js"></script>
+    <script src="/assets/js/chosen.jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/js/chosen.ajaxaddition.jquery.js"></script>
+
+
+
+<script type="text/javascript">
+        $( document ).ready( function() {
+            $('input[name=date-range-picker]').daterangepicker().prev().on(ace.click_event, function(){
+                $(this).next().focus();
+            });
+
+            $(".chosen-select").chosen(); 
+
+            //chosen plugin inside a modal will have a zero width because the select element is originally hidden
+            //and its width cannot be determined.
+            //so we set the width after modal is show
+            $('#modal-form').on('shown.bs.modal', function () {
+                $(this).find('.chosen-container').each(function(){
+                    $(this).find('a:first-child').css('width' , '210px');
+                    $(this).find('.chosen-drop').css('width' , '210px');
+                    $(this).find('.chosen-search input').css('width' , '200px');
+                });
+            });
+            /**
+            //or you can activate the chosen plugin after modal is shown
+            //this way select element becomes visible with dimensions and chosen works as expected
+            $('#modal-form').on('shown', function () {
+                $(this).find('.modal-chosen').chosen();
+            })
+            */
+        });
+    </script>	
+
+ <script>
+           $('#prestador-select').ajaxChosen({
+                   dataType: 'json',
+                   type: 'POST',
+                   url:'/ajax/'
+           },{
+                   loadingImg: 'loading.gif'
+           });
+    </script>
+
+{% endblock %}

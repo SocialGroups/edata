@@ -1,0 +1,149 @@
+
+
+
+body{background: #e9eaed;}
+
+
+#content{
+
+	width: 1100px;
+	height: auto;
+	margin-top: 66px;
+}
+
+
+#content-left{
+
+	width: 325px;
+	float: left;
+	height: auto;
+	min-height: 400px;
+}
+
+#content-right{
+
+	width: 750px;
+	float: right;
+	height: auto;
+	min-height: 100%;
+	background: red;
+
+}
+
+.content-grupos-indicados{
+
+	width: 325px;
+	float: left;
+	height: auto;
+	margin-bottom: 25px;
+	border: 1px solid #DADADA;
+	-moz-border-radius: 2px; /* Para Firefox */
+	-webkit-border-radius: 2px; /*Para Safari e Chrome */
+	border-radius: 2px; /* Para Opera 10.5+*/
+	background: #FFF;
+
+
+}
+
+.content-usuarios-indicados{
+
+	width: 325px;
+	float: left;
+	height: auto;
+	min-height: 300px;
+	-moz-border-radius: 2px; /* Para Firefox */
+	-webkit-border-radius: 2px; /*Para Safari e Chrome */
+	border-radius: 2px; /* Para Opera 10.5+*/
+
+
+}
+
+.content-box-left-titulo{
+
+	width: 100%;
+	height: 30px;
+	float: left;
+	text-align: center;
+	padding-top: 5px;
+	font-size: 12px;
+	color: #5F5F5F;
+	font-weight:bold;
+
+}
+
+
+.content-box-left-list{
+
+	float: left;
+	width: 100%;
+	height: auto;
+}
+
+.content-box-left-list ul{
+
+	width: 100%;
+	height: auto;
+	float: left;
+	list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+
+}
+
+.content-box-left-list li{
+
+	width: 100%;
+	height: auto;
+	float: left;
+	min-width: 50px;
+	margin-bottom: 10px;
+	list-style: none;
+	margin-bottom: 10px;
+
+}
+
+.content-box-left-list-border-buttom{
+
+	border-bottom: 1px solid #DADADA;
+	width: 100%;
+	margin-bottom: 10px;
+	float: left;
+}
+
+.content-box-left-list-avatar{
+
+	width: 65px;
+	height: auto;
+	float: left;
+	margin: 5px;
+
+}
+
+.content-box-left-list-titulo{
+
+	width: 240px;
+	float: left;
+	height: auto;
+	text-align: center;
+	margin-top: 4px;
+	font-weight:bold;
+	margin-bottom: 5px;
+
+}
+
+.content-box-left-list-dados{
+
+	width: auto;
+	float: left;
+	height: auto;
+	text-align: left;
+	bottom: 0px !important;
+	font-size: 12px;
+	padding-left: 3px;
+	padding:3px !important; 
+	margin-left: 5px;
+
+
+}
+
+

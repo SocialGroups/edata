@@ -1,0 +1,342 @@
+<script type="text/javascript">
+  var $j = jQuery.noConflict();
+</script>
+
+<style>
+
+.simple-modal{border:none; width: 800px  !important; height: auto; top:5px; top:5px !important;}
+
+.gritter-success{position: absolute !important;
+width: 450px !important;
+height: 40px !important;
+float: left !important;
+z-index: 9999 !important; /* número máximo é 9999 */
+background-color: #0E852F;
+top:-20px !important;
+left: 50%;
+margin-left:-110px;
+padding-right: 15px !important;
+padding-right: 15px !important;
+margin-right: 15px !important;}
+
+.gritter-error{position: absolute !important;
+width: 450px !important;
+height: 40px !important;
+float: left !important;
+z-index: 9999 !important; /* número máximo é 9999 */
+background-color: #E41414;
+top:-20px !important;
+left: 50%;
+margin-left:-110px;
+padding-right: 15px !important;
+margin-right: 15px !important;}
+</style>
+
+
+  <link rel="stylesheet" href="/assets/css/chosen.css" />
+  <link rel="stylesheet" href="/assets/css/chosen.min.css" />
+  <script src="/assets/js/chosen.jquery.min.js"></script>
+  <script type="text/javascript" src="/assets/js/chosen.ajaxaddition.jquery.js"></script>
+
+
+<!-- bxSlider Javascript file -->
+<script src="/assets/js/jquery.bxslider.min.js"></script>
+<!-- bxSlider CSS file -->
+<link href="/assets/css/jquery.bxslider.css" rel="stylesheet" />
+
+<!-- Javascript !-->
+
+ <link rel="stylesheet" href="/assets/css/idangerous.swiper.css">
+ <script defer src="/assets/js/idangerous.swiper-2.x.min.js"></script>
+
+ <div class="swiper-container">
+  <div class="swiper-wrapper">
+      <!--First Slide-->
+      <div class="swiper-slide">
+        <!-- Any HTML content of the first slide goes here -->
+      </div>
+
+      <!--Second Slide-->
+      <div class="swiper-slide">
+        <!-- Any HTML content of the second slide goes here -->
+      </div>
+
+      <!--Third Slide-->
+      <div class="swiper-slide">
+        <!-- Any HTML content of the third slide goes here -->
+      </div>
+      <!--Etc..-->
+  </div>
+</div>
+
+<script type="text/javascript">
+/*======
+Use document ready or window load events
+For example:
+With jQuery: $(function() { ...code here... })
+Or window.onload = function() { ...code here ...}
+Or document.addEventListener('DOMContentLoaded', function(){ ...code here... }, false)
+=======*/
+
+window.onload = function() {
+  var mySwiper = new Swiper('.swiper-container',{
+    //Your options here:
+    mode:'horizontal',
+    loop: true
+    //etc..
+  });
+}
+
+/*
+Or with jQuery/Zepto
+*/
+$j(function(){
+  var mySwiper = $j('.swiper-container').swiper({
+    //Your options here:
+    mode:'horizontal',
+    loop: true
+    //etc..
+  });
+})
+
+</script>
+
+
+<style>
+
+.midia{
+
+	width:50%; display: inline-block;
+	height: auto;
+	max-height: 50% !important;
+	float: left;
+}
+
+</style>
+
+{% if numeroMidias|raw > 0 %}
+
+<style>
+.contentTxt{
+
+	position: relative;
+    height: auto;
+    width:50%; display: inline-block;
+    overflow: auto;
+    float: right;
+    min-height:480px;
+    background-color:#F3F3F3;
+
+}
+</style>
+
+{% elseif youtube|raw > '' %}
+
+<style>
+.contentTxt{
+
+	position: relative;
+    height: auto;
+    width:400px; display: inline-block;
+    overflow: auto;
+    float: right;
+    background-color:#F3F3F3;
+
+}
+</style>
+
+
+{% else %}
+
+<style>
+.contentTxt{
+
+	position: relative;
+    height: auto;
+    width:100%;
+    display: inline-block;
+    overflow: auto;
+    float: left;
+    background-color: #ccc;
+
+}
+</style>
+
+{% endif %}
+
+<style>
+
+.contentDados{
+
+	width: 100%;
+	height: auto;
+	max-height: 20%;
+	float: right;
+	padding: 10px;
+  background-color: #FFF;
+
+}
+
+.contentComment{
+
+	position: relative;
+    height: 100px;
+    width:100%;
+    display: inline-block;
+    overflow: auto;
+    float: right;
+    background-color: #F3F3F3;
+    bottom: 0px;
+
+}
+
+.contentComentarios{
+
+  width: 100%;
+  height: 300px;
+  position: fixed;
+  overflow: scroll;
+}
+
+.content_midia{
+
+  width: 600px;
+  height: auto;
+  float: left;
+}
+
+</style>
+
+{% if numeroMidias|raw > 0 %}
+
+<div class="leftSidebar" style="width:800px; float:left; height:500px; overflow:overlay;">
+
+<div class="midia">
+
+	<div class="photoset-grid-custom" style="visibility: hidden;">
+
+	{% for Midia in midias %}
+
+		<img src="{{Midia.midia_url|raw}}" data-highres="{{Midia.midia_url|raw}}" >
+
+	{% endfor %}
+
+	</div>
+
+</div>
+
+{% endif %}
+
+{% if youtube|raw > '' %}
+
+<div class="midia">
+
+	<iframe width="800" height="425" src="//www.youtube.com/embed/{{youtube|raw}}" frameborder="0" allowfullscreen></iframe>
+
+</div>
+
+  <div class="contentDados">
+
+    {% for dados in boxDados %}
+
+    {{dados.descricao|raw}}
+
+    {% endfor %}
+
+  </div>
+
+</div>
+
+{% endif %}
+
+
+		  {% for dadosUserLogado in dadosUsuarioLogado %}
+
+          {% for dados in boxDados %}
+
+             <form name="Compartilhou" method="POST" action="" class="Compartilhou" id="{{dados.id|raw}}">
+
+                <input type="hidden" name="boxTitulo" value="{{dados.titulo|raw}}" class="boxTitulo{{dados.id|raw}}">
+                <input type="hidden" name="modalTitulo" value="Visualizar" class="modalTitulo{{dados.id|raw}}">
+                <input type="submit" href="http://socialgroups.com.br/grupo-temporario/box/{{dados.id|raw}}" class="btn btn-default" style="width:120px; margin:10px; height:30px; padding:4px; float:right;" value="Compartilhar">
+
+            </form>
+
+            {% endfor %}
+
+            <form name="formComent" id="formComent" action="" method="POST" class="contentComment">
+
+            <div class="content_chamada" style="margin-left:74px; padding-top:6px; font-weight:bold; font-size:12px;">
+
+            	Olá {{dadosUserLogado.nome|raw}}, que tal dar a sua opinião sobre este box?
+
+            </div>
+
+             <img src="{{dadosUserLogado.foto_perfil|raw}}" class="foto_perfil_loop" style="width:45px; height:45px; margin-bottom:3px; margin-top:20px; margin-right:12px;" >
+
+             <input type="hidden" name="grupoID" value="{{dados.grupo_id|raw}}">
+             <input type="hidden" name="boxID" value="{{dados.id|raw}}">
+
+             <textarea class="form-control" name="conteudo" style="width:400px; height:55px; float:left; margin-top:10px;" rows="1"></textarea>
+
+             <input type="submit" class="btn btn-success" style="float:right; margin-right:5px; margin-top:8px; margin-bottom:10px; height:55px;" value="Comentar">
+
+          </form>
+
+          {% endfor %}
+
+
+<script>
+
+$j(document).ready(function(){
+  $j('.bxslider').bxSlider();
+});
+
+</script>
+
+<!-- Grid Images !-->
+
+  <script src="/assets/js/jquery.photoset-grid.js"></script>
+  <script src="/assets/js/js/jquery.colorbox.js"></script>
+  <script type="text/javascript">
+
+  $j("button").live("click",function(){
+
+});
+
+  // Photoset Grid Basic
+  $j('.photoset-grid-basic').photosetGrid({
+    onComplete: function(){
+      $j('.photoset-grid-basic').attr('style', '');
+    }
+  });
+
+  // Photoset Grid Custom
+  $j('.photoset-grid-custom').photosetGrid({
+    gutter: '5px',
+    layout: '134',
+    highresLinks: true,
+    rel: 'print-gallery',
+
+    onComplete: function(){
+      $j('.photoset-grid-custom').attr('style', '');
+    }
+  });
+
+ $j('.photoset-grid-lightbox').photosetGrid({
+  highresLinks: true,
+  rel: 'withhearts-gallery',
+  gutter: '2px',
+
+  onComplete: function(){
+    $j('.photoset-grid-lightbox').attr('style', '');
+    $j('.photoset-grid-lightbox a').colorbox({
+      photo: true,
+      scalePhotos: true,
+      maxHeight:'100%',
+      maxWidth:'100%'
+    });
+  }
+});
+  </script>
+ <!--Grid Images !-->

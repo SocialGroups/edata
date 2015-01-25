@@ -1,0 +1,628 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+
+{% autoescape %}
+
+<!-- Adicionar Box Ajax !-->
+<script src="/assets/js/ajax-upload.js"></script>
+<!-- Adicionar Box Ajax !-->
+
+<style>
+
+.content_midia_grid{
+
+  width: 600px;
+  height: auto;
+  float: left;
+  margin-left: 15px;
+
+}
+</style>
+
+<style>
+.chosen-container {width: 300px !important;}
+.chosen-container-single{width: 300px !important;}
+</style>
+
+<!-- BEGIN PAGE CONTAINER-->
+<div class="page-content"> 
+  <div class="content">
+
+        <!-- Div responsável por resceber o append com uma notificação pendente selecionada !-->
+    <div class="col-md-6 col-vlg-4 col-sm-12 appendNotificacaoPendente" style="width:100%; margin-bottom:15px; float:left;"> </div>
+    <!-- Div responsável por resceber o append com uma notificação pendente selecionada !-->
+
+<!-- Dados usuário !-->
+
+<div class=" tiles white col-md-12 no-padding">
+<div class="tiles green cover-pic-wrapper" style="max-height:350px !important;">
+<div class="overlayer bottom-right">
+<div class="overlayer-wrapper">
+<div class="padding-10 hidden-xs">
+
+  {% if ProfileID|raw != usuarioLogadoID|raw %}
+
+  <div class="formFollowUnfollow">
+
+  {% if StatusFollow|raw == 0 %}
+
+  <form name="SeguirUsuario" id="SeguirUsuario" action="" method="POST" class="SeguirUsuario" style="float:left; margin-right:15px; margin-bottom:5px;">
+
+        <input type="hidden" name="followID" id="followID" value="{{ProfileID|raw}}">
+
+        <input type="submit" class="btn btn-primary btn-small" id="unfollow" value="Seguir @{{nickName|raw}}">
+
+  </form>
+
+  {% else %}
+
+   <form name="unfollow" id="unfollow" action="" method="POST" class="unfollow" style="float:left; margin-right:15px; margin-bottom:5px;">
+        <input type="hidden" name="tipoExclusao" value="usuarioUnfollow">
+        <input type="hidden" name="unfollowID" id="unfollowID" value="{{ProfileID|raw}}">
+
+        <input type="submit" class="btn btn-primary btn-small" id="unfollow" value="Deixar de seguir">
+
+  </form>
+
+  {% endif %}
+  
+  </div>
+
+  {% endif %}
+
+</div>
+</div>
+</div>
+<center> <img src="{{ProfileFotoCapa|raw}}" alt=""> </center>
+</div>
+<div class="tiles white">
+<div class="row">
+<div class="col-md-12 col-sm-3">
+<div class="user-mini-description">
+
+<!-- BEGIN PAGE TITLE -->
+<div class="page-title" style="float:left; margin-top:30px; margin-left:15px; width:480px;"> 
+<img src="{{ProfileFotoPerfil|raw}}" width="65" height="65" style="float:left; margin-right: 15px;"> 
+  <div class="dadosUsuario" style="width:100%;">
+  <h3 id="dadosPessoasUsuario" style=" text-align:left;">{{ProfileNome|raw}} {{ProfileSobreNome|raw}} 
+
+    {% if usuarioLogadoID|raw == ProfileID|raw %}
+    <a data-toggle="modal" href="/editar-profile/dados" data-target="#EditarDados"><storng style="font-size:12px;">Editar </strong></a>
+    {% endif %}
+  </h3><br>
+  </div>
+  <h5 style=" text-align:left;">@{{nickName|raw}}</h5>      
+</div>
+<!-- END PAGE TITLE -->
+
+<!-- Modal Seguidores do grupo -->
+      <div class="modal fade" id="EditarDados" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+              <div class="modal-content">
+              </div> <!-- /.modal-content -->
+          </div> <!-- /.modal-dialog -->
+      </div> <!-- /.modal -->
+      <!-- Modal Seguidores do grupo !-->
+
+
+
+<div class="Followers btn btn-white btn-cons" style="float:right; margin-top:15px;">
+<h3 class="text-success semi-bold" style="color:636363 !important;">
+<center>
+{{NumeroInteracoes|raw}}
+</center>
+</h3>
+<h5 style="text-align:center;">Comentários</h5>
+</div>
+
+<div class="Followers btn btn-white btn-cons" style="float:right; margin-top:15px;">
+<h3 class="text-success semi-bold" style="color:636363 !important;">
+<center>
+{{NumeroBoxes|raw}}
+</center>
+</h3>
+<h5 style="text-align:center;">Boxes</h5>
+</div>
+
+<a data-toggle="modal" href="/listar-seguidores-profile/{{ProfileID|raw}}" data-target="#GetSeguidores">
+<div class="Followers btn btn-white btn-cons" style="float:right; margin-top:15px;">
+<h3 class="text-success semi-bold" style="color:636363 !important;">
+<center>
+{{NumeroSeguidores|raw}}
+</center>
+</h3>
+<h5 style="text-align:center;">Seguidores</h5>
+</div>
+</a>
+
+      <!-- Modal Seguidores do grupo -->
+      <div class="modal fade" id="GetSeguidores" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+              <div class="modal-content">
+              </div> <!-- /.modal-content -->
+          </div> <!-- /.modal-dialog -->
+      </div> <!-- /.modal -->
+      <!-- Modal Seguidores do grupo !-->
+
+</div>
+</div>
+
+  {% if usuarioLogadoID|raw == ProfileID|raw %}
+  <a data-toggle="modal" class="btn btn-info btn-small" href="/editar-profile/capa" data-target="#GrupoAvatar" style="float:right; margin-right:30px; margin-top:5px;">Alterar Foto de Capa</a>
+ 
+      <!-- Modal Alterar Capa Grupo -->
+      <div class="modal fade" id="GrupoAvatar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+              <div class="modal-content">
+              </div> <!-- /.modal-content -->
+          </div> <!-- /.modal-dialog -->
+      </div> <!-- /.modal -->
+      <!-- Modal Capa Grupo !-->
+    {% endif %}
+
+  
+</div>
+<div class="tiles-body">
+<div class="row">
+</div>
+</div>
+</div>
+</div>
+<!-- Dados usuário !-->
+
+<!-- Content Boxes !-->
+
+<div class="rightContent" style="float:left; min-height: 100%;">
+
+
+  {% for feed in arrayFeed %}
+
+<div class="element ol-md-6 col-vlg-4 col-sm-12" style="margin-top:20px;" id="boxID{{feed.id|raw}}">
+<div class="widget-item narrow-margin">
+<div class="controller overlay right"> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div>
+<div class="tiles white ">
+<div class="tiles-body">
+<div class="row">
+<div class="user-comment-wrapper pull-left">
+<div class="profile-wrapper"> <img src="{{feed.foto_perfil|raw}}" alt="" data-src="{{feed.foto_perfil|raw}}" data-src-retina="{{feed.foto_perfil|raw}}" width="35" height="35"> </div>
+<div class="comment">
+<div class="preview-wrapper" style="font-size:22px; margin-top:5px;">  @{{feed.nick_name|raw}} <h5> Grupo : <a href="/grupos/get/{{feed.grupoID|raw}}"> {{feed.GrupoTitulo|raw}} </a></h5> </div>
+</div>
+<div class="clearfix"></div>
+</div>
+<div class="clearfix"></div>
+<div class="p-l-15 p-t-10 p-r-20">
+<p>{{feed.descricao|raw}}</p>
+  <!-- Vídeo !-->
+    <!-- Vídeo !--> 
+
+    
+  <!-- Mídia !-->
+
+    <div class="photoset-grid-custom" >
+
+      {% for boxid in midias %}
+
+        {% if feed.id|raw == boxid.boxID|raw %}
+
+          {% for midias in boxid.midias|raw %}
+
+              <img src="{{midias.midia_url|raw}}" style="max-width:600px !important;">
+
+          {% endfor %}
+
+        {% endif %}
+
+      {% endfor %}
+              
+    </div>
+
+    <!-- Mídia !-->
+
+    <!-- Vídeo !-->
+  {% for video in youtube %}
+
+      {% if feed.id|raw == video.boxID|raw %}
+
+        <div class="videos">
+          
+          <div class="youtube-video"> <a href="http://www.youtube.com/watch?v={{video.youtube|raw}}"> <img src="http://img.youtube.com/vi/{{video.youtube|raw}}/1.jpg" title="Play" alt="Play"/> </a> </div>
+          <div class="details">
+            <h6>{{video.videoTitulo|raw}}</h6>
+            <p class="desc">{{video.videoDescricao|raw}}</p>
+          </div>
+        </div>
+
+      {% endif %}
+    
+  {% endfor %}
+  <!-- Vídeo !--> 
+
+
+    
+        {% if usuarioLogadoID|raw == feed.usuarioID|raw %}
+
+        <!-- Excluir Box !-->
+
+          <form name="deletar" method="POST" action="" class="deletar" id="{{feed.id|raw}}" style="float:right; margin:15px;">
+                
+                    <input type="hidden" name="tipoExclusao" value="box" class="tipoExclusao{{feed.id|raw}}">
+
+                    <input type="submit" class="btn btn-danger" value="Excluir">
+
+                </form> 
+
+        <!-- Excluir Box !-->
+
+          {% else %}
+
+
+        <!-- Denunciar Box !-->
+
+            <a data-toggle="modal" class="btn btn-danger" href="/denuncia/{{feed.boxID|raw}}" data-target="#denunciar{{feed.boxID|raw}}" style="float:right; margin:15px; margin-right:0px;">Denunciar</a>
+ 
+      <!-- Modal Denunciar Box -->
+      <div class="modal fade" id="denunciar{{feed.boxID|raw}}" tabindex="-1" role="dialog" aria-labelledby="denunciar" aria-hidden="true">
+          <div class="modal-dialog">
+              <div class="modal-content">
+              </div> <!-- /.modal-content -->
+          </div> <!-- /.modal-dialog -->
+      </div> <!-- /.modal -->
+      <!-- Modal Denunciar Box !-->
+
+
+        <!-- Denunciar Box !-->
+
+      {% endif %}
+
+    <!-- Compartilhar Box !-->
+
+      <a data-toggle="modal" class="btn btn-info" href="/compartilhar/{{feed.boxID|raw}}" data-target="#myModal{{feed.boxID|raw}}" style="float:right; margin:15px; margin-right:0px;">Compartilhar</a>
+ 
+      <!-- Modal Compartilhar -->
+      <div class="modal fade" id="myModal{{feed.boxID|raw}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+              <div class="modal-content">
+              </div> <!-- /.modal-content -->
+          </div> <!-- /.modal-dialog -->
+      </div> <!-- /.modal -->
+      <!-- Modal Compartilhar !-->
+
+    <!-- Compartilhar Box !-->
+
+  <!-- Mídia !-->     
+<div class="post p-t-10 p-b-10">
+
+<div class="clearfix"></div>
+</div>
+</div>
+</div>
+</div>
+
+
+<!-- Comentários !-->
+<div class="appendcomentario{{feed.id|raw}}" style="width:100%; height:auto; margin-bottom:15px;"> 
+
+      {% for getComentarios in comentarios %}
+
+        {% if feed.boxID|raw == getComentarios.boxID|raw %}
+
+        <p class="p-t-10 p-b-10 p-l-15 p-r-15"><span class="bold">Comentários:</span> 
+
+          {% for comentario in getComentarios.comentarios|raw %}
+
+            <div class="notification-messages success labelComentario{{comentario.id|raw}}" id="{{feed.id|raw}}">
+
+              <div class="user-profile"> 
+
+              <img src="{{comentario.foto_perfil|raw}}" alt="" data-src="" data-src-retina="{{comentario.foto_perfil|raw}}" width="35" height="35"> 
+              </div>
+
+              <div class="message-wrapper">
+                <div class="heading"> 
+                  {{comentario.nome|raw}}
+                </div>
+                <div class="description">
+                  {{comentario.conteudo|raw}}
+                </div>
+              </div>
+
+              <div class="date pull-right">
+
+               {% if comentario.dataHora|date("d/m/Y") == "now"|date('d/m/Y') %}
+
+                Hoje ás {{comentario.dataHora|date("H:i")}}
+
+               {% else %}
+                
+                {{comentario.dataHora|date("d/m/Y H:i")}}
+
+               {% endif %}
+
+              </div>
+              <div class="clearfix">
+              </div>
+
+              {% if usuarioLogadoID|raw == comentario.usuario_id|raw %}
+
+               <form name="deletaComentario" class="deletaComentario deletaComentario{{comentario.id|raw}}" id="{{comentario.id|raw}}" action="" method="POST" style="font-size:12px;">
+
+                  <input type="hidden" name="comentarioID" value="{{comentario.id|raw}}">
+
+                  <input type="submit" class="btn btn-link btn-cons" value="Excluir Comentário">
+
+              </form>
+
+              {% endif %}
+
+            </div>
+
+          {% endfor %}
+
+        {% endif %}
+
+      {% endfor %}
+
+</div>
+<!-- Comentários !-->
+
+
+<div class="clearfix"></div>
+<div class="p-b-10 p-l-10 p-r-10">
+
+      <form name="LoadMore" class="loadMoreComentarios loadMoreComentarios{{feed.id|raw}}" id="{{feed.id|raw}}" style="float:left; width:100%;">
+
+
+        <input type="hidden" name="feedID" id="feedID" value="{{feed.id|raw}}" >
+        <input type="hidden" name="boxID" value="{{feed.boxID|raw}}">
+
+        <input type="hidden" name="pagina" value="2">
+        <input type="submit" class="btn btn-white btn-sm btn-small" style="width:25%; margin:5px; float:right;" value="Carregar mais comentários">
+
+      </form>
+
+{% for dadosUsuario in dadosUsuarioLogado %}
+<form name="adicionaComentario" class="adicionaComentatio" id="{{feed.id|raw}}" method="POST" action="">
+ <input type="hidden" name="grupoID" value="{{feed.grupo_id|raw}}">
+                  <input type="hidden" name="boxID" value="{{feed.boxID|raw}}">
+
+                  <input type="hidden" name="fotoAutor" value="{{dadosUsuario.foto_perfil|raw}}" id="fotoAutor{{feed.id|raw}}">
+                   <input type="hidden" name="nomeAutor" value="{{dadosUsuario.nome|raw}}" id="nomeAutor{{feed.id|raw}}">
+
+                
+                <div class="profile-img-wrapper pull-left"> <img src="{{dadosUsuario.foto_perfil|raw}}" alt="" data-src="{{dadosUsuario.foto_perfil|raw}}" data-src-retina="{{dadosUsuario.foto_perfil|raw}}" width="35" height="35"> </div>
+                <div class="inline pull-right" style="width:94%">
+                  <div class="input-group transparent ">
+                    <input type="text" class="form-control" name="conteudo" id="conteudoComentarioBox{{feed.id|raw}}" placeholder="Adicionar um comentário a este box">
+                    <span class="input-group-addon">  </span> </div>
+                </div>
+                {% endfor %}
+                <div class="clearfix"></div>
+
+              </form>
+              
+      </div>
+<div class="clearfix"></div>
+</div>
+</div>
+</div>
+
+{% endfor %}
+
+</div>
+
+<!-- Content Boxes !-->
+
+  </div>
+</div>
+
+ <!-- Grid Images !-->
+
+  <script src="/assets/js/jquery.photoset-grid.js"></script>
+  <script src="/assets/js/js/jquery.colorbox.js"></script>
+  <script type="text/javascript">
+
+  $("button").live("click",function(){
+
+});
+
+  // Photoset Grid Basic
+  $('.photoset-grid-basic').photosetGrid({
+    onComplete: function(){
+      $('.photoset-grid-basic').attr('style', '');
+    }
+  });
+
+  // Photoset Grid Custom
+  $('.photoset-grid-custom').photosetGrid({
+    gutter: '5px',
+    layout: '234',
+    highresLinks: true,
+    rel: 'print-gallery',
+
+    onComplete: function(){
+      $('.photoset-grid-custom').attr('style', '');
+    }
+  });
+
+ $('.photoset-grid-lightbox').photosetGrid({
+  highresLinks: true,
+  rel: 'withhearts-gallery',
+  gutter: '2px',
+
+  onComplete: function(){
+    $('.photoset-grid-lightbox').attr('style', '');
+    $('.photoset-grid-lightbox a').colorbox({
+      photo: true,
+      scalePhotos: true,
+      maxHeight:'90%',
+      maxWidth:'90%'
+    });
+  }
+});
+  </script>
+ <!--Grid Images !--> 
+
+
+<!-- InfinityLoop !-->
+ <nav id="page_nav">
+    <a href="/profile/{{nickName|raw}}/2"></a>
+  </nav>
+
+ <script src="/assets/js/jquery.isotope.js"></script>
+  <script src="/assets/js/jquery.infinitescroll.min.js"></script>
+
+
+  <script>
+
+    $(function(){
+
+      var $container = $('.rightContent');
+
+      //$container.isotope({ layoutMode: 'masonry' })
+      
+      $container.infinitescroll({
+        navSelector  : '#page_nav',    // selector for the paged navigation 
+        nextSelector : '#page_nav a',  // selector for the NEXT link (to page 2)
+        itemSelector : '.element',     // selector for all items you'll retrieve
+
+        loading: {
+            finishedMsg: 'Não há mais box neste Grupo!',
+             img: '/new-theme/assets/plugins/jquery-craftmap/img/loader.gif',
+            msgText: "<em>Carregando mais conteúdo...</em>",
+          }
+        },
+        // call Isotope as a callback
+        function( newElements ) {
+
+        
+
+           $('#grupoIDCompartilhamento').ajaxChosen({
+                   dataType: 'json',
+                   type: 'POST',
+                   url:'/ajax/'
+           },{
+                   loadingImg: 'loading.gif'
+           });
+
+          // Esconde div de comentário
+          $('.footerBox').hide();
+          $('.fechar').hide();
+
+        // Photoset Grid Basic
+      $('.photoset-grid-basic').photosetGrid({
+        onComplete: function(){
+          $('.photoset-grid-basic').attr('style', '');
+        }
+      });
+
+      // Photoset Grid Custom
+      $('.photoset-grid-custom').photosetGrid({
+        gutter: '5px',
+        layout: '234',
+        highresLinks: true,
+        rel: 'print-gallery',
+
+        onComplete: function(){
+          $('.photoset-grid-custom').attr('style', '');
+        }
+      });
+
+     $('.photoset-grid-lightbox').photosetGrid({
+      highresLinks: true,
+      rel: 'withhearts-gallery',
+      gutter: '2px',
+
+      onComplete: function(){
+        $('.photoset-grid-lightbox').attr('style', '');
+        $('.photoset-grid-lightbox a').colorbox({
+          photo: true,
+          scalePhotos: true,
+          maxHeight:'90%',
+          maxWidth:'90%'
+        });
+      }
+    });
+    // Photoset Grid Basic
+          
+        }
+      );
+
+        // Add exponential z-index for dropdown cropping
+      $elems.each(function(e){
+          $(this).css({ 
+              zIndex: ($elems.length - e) 
+          });
+      });
+      
+    
+    });
+  </script>
+
+    <script src="/assets/js/chosen.jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/js/chosen.ajaxaddition.foto_perfil.jquery.js"></script>
+
+
+
+<script type="text/javascript">
+        $( document ).ready( function() {
+            $('input[name=date-range-picker]').daterangepicker().prev().on(ace.click_event, function(){
+                $j(this).next().focus();
+            });
+
+            $(".chosen-select").chosen(); 
+
+            //chosen plugin inside a modal will have a zero width because the select element is originally hidden
+            //and its width cannot be determined.
+            //so we set the width after modal is show
+            $('#modal-form').on('shown.bs.modal', function () {
+                $(this).find('.chosen-container').each(function(){
+                    $j(this).find('a:first-child').css('width' , '210px');
+                    $j(this).find('.chosen-drop').css('width' , '210px');
+                    $j(this).find('.chosen-search input').css('width' , '200px');
+                });
+            });
+            /**
+            //or you can activate the chosen plugin after modal is shown
+            //this way select element becomes visible with dimensions and chosen works as expected
+            $('#modal-form').on('shown', function () {
+                $(this).find('.modal-chosen').chosen();
+            })
+            */
+        });
+    </script> 
+    
+  </section> <!-- #content -->
+
+
+  <script>
+
+        // Método videos youtube
+        jQuery(".videos .youtube-video a").live("click",function (){
+    var videoID = jQuery(this).attr("href").split("=");
+    var videoWidth = parseInt(jQuery(this).parent().parent().css("width"));
+    var videoHeight = Math.ceil(videoWidth*(0.56)+1);
+
+        jQuery(this).parent().hide();
+    jQuery(this).parent().next().css('margin-left', '0');
+    jQuery(this).parent().parent().prepend('<iframe width="'+videoWidth+'" height="'+videoHeight+'" src="http://www.youtube.com/embed/'+(videoID[1])+'?rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe>');
+    return false;
+});
+    // Método videos youtube
+
+    </script>
+
+      <script>
+           $('#mencionaUsuarios').ajaxChosen({
+                   dataType: 'json',
+                   type: 'POST',
+                   url:'/mention/'
+           },{
+                   loadingImg: 'loading.gif'
+           });
+    </script>
+
+   {% endautoescape %}
+
+{% endblock %}

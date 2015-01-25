@@ -1,0 +1,618 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="46f43849-0fff-4f03-8472-2440eb1f23ea" name="Default" comment="" />
+    <ignored path="medcenter.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="medcenter" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="214" column="0" selection-start="8115" selection-end="8115" vertical-scroll-proportion="-15.166667" vertical-offset="2846" max-vertical-offset="3315">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ZendeskController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Medcenter/Application/Controller/ZendeskController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="22" column="0" selection-start="380" selection-end="380" vertical-scroll-proportion="-11.875" vertical-offset="0" max-vertical-offset="450">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Router.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/respect/rest/library/Respect/Rest/Router.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="208" column="0" selection-start="6900" selection-end="6900" vertical-scroll-proportion="-6.5" vertical-offset="2859" max-vertical-offset="3840">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Request.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/respect/rest/library/Respect/Rest/Request.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="51" column="0" selection-start="1417" selection-end="1417" vertical-scroll-proportion="-6.5" vertical-offset="474" max-vertical-offset="1590">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ClassName.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/respect/rest/library/Respect/Rest/Routes/ClassName.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="52" column="0" selection-start="1517" selection-end="1517" vertical-scroll-proportion="-13.291667" vertical-offset="401" max-vertical-offset="870">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GetZendesckData.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Medcenter/Application/Model/GetZendesckData.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="106" column="5" selection-start="2532" selection-end="2532" vertical-scroll-proportion="0.2947977" vertical-offset="1335" max-vertical-offset="4230">
+              <folding>
+                <element signature="e#47#73#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HelperData.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Medcenter/Application/Helper/HelperData.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="55" column="49" selection-start="1850" selection-end="1850" vertical-scroll-proportion="-19.958334" vertical-offset="286" max-vertical-offset="1125">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" />
+        <option value="$PROJECT_DIR$/src/Medcenter/Application/MedcenterMapper.php" />
+        <option value="$PROJECT_DIR$/src/Medcenter/Application/Routine/Auth.php" />
+        <option value="$PROJECT_DIR$/src/Medcenter/Application/Routine/Json.php" />
+        <option value="$PROJECT_DIR$/src/Medcenter/Application/Routine/Twig.php" />
+        <option value="$PROJECT_DIR$/src/Medcenter/Application/Controller/Login.php" />
+        <option value="$PROJECT_DIR$/src/Medcenter/Application/Controller/LoginController.php" />
+        <option value="$PROJECT_DIR$/src/Medcenter/Application/Controller/Logout.php" />
+        <option value="$PROJECT_DIR$/public/assets/js/AJAX_login.js" />
+        <option value="$PROJECT_DIR$/templates/login-novo.html.twig" />
+        <option value="$PROJECT_DIR$/config/config.ini" />
+        <option value="$PROJECT_DIR$/src/Medcenter/Application/Model/Login.php" />
+        <option value="$PROJECT_DIR$/src/Medcenter/Application/Controller/DashboardController.php" />
+        <option value="$PROJECT_DIR$/templates/box_view.html.twig" />
+        <option value="$PROJECT_DIR$/templates/new-feed.html.twig" />
+        <option value="$PROJECT_DIR$/templates/base.html.twig" />
+        <option value="$PROJECT_DIR$/templates/dashboard.html.twig" />
+        <option value="$PROJECT_DIR$/src/Medcenter/Application/Model/Dashboard.php" />
+        <option value="$PROJECT_DIR$/src/Medcenter/Application/Helper/CurlWrap.php" />
+        <option value="$PROJECT_DIR$/src/Medcenter/Application/Helper/Data.php" />
+        <option value="$PROJECT_DIR$/src/Medcenter/Application/Helper/UpdateFieldDate.php" />
+        <option value="$PROJECT_DIR$/src/Medcenter/Application/Helper/HelperData.php" />
+        <option value="$PROJECT_DIR$/public/index.php" />
+        <option value="$PROJECT_DIR$/src/Medcenter/Application/Controller/ZendesckController.php" />
+        <option value="$PROJECT_DIR$/src/Medcenter/Application/Controller/ZendeskController.php" />
+        <option value="$PROJECT_DIR$/src/Medcenter/Application/Model/GetZendesckData.php" />
+      </list>
+    </option>
+  </component>
+  <component name="PhpServers">
+    <option name="servers">
+      <server host="dev.edata.com.br" name="edata" port="9000" use_path_mappings="true">
+        <path_mappings>
+          <path_mapping local_path="$PROJECT_DIR$" remote_path="/var/www/edata" />
+        </path_mappings>
+      </server>
+    </option>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds">
+    <option name="width" value="1680" />
+    <option name="height" value="1050" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="medcenter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="medcenter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="edata" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="medcenter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="edata" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Medcenter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="medcenter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="edata" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Medcenter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="options.lastSelected" value="Errors" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="SearchEverywhereHistory" value="" />
+    <property name="recentsLimit" value="5" />
+    <property name="restartRequiresConfirmation" value="true" />
+    <property name="FullScreen" value="true" />
+  </component>
+  <component name="RunManager" selected="PHP Remote Debug.edata">
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpRemoteDebugRunConfigurationType" factoryName="PHP Remote Debug" server_name="edata" session_id="xdebug">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
+      <method />
+    </configuration>
+    <configuration default="false" name="edata" type="PhpRemoteDebugRunConfigurationType" factoryName="PHP Remote Debug" server_name="edata" session_id="xdebug">
+      <RunnerSettings RunnerId="PhpRemoteDebugRunner" />
+      <ConfigurationWrapper RunnerId="PhpRemoteDebugRunner" />
+      <method />
+    </configuration>
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="PHP Remote Debug.edata" />
+    </list>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="46f43849-0fff-4f03-8472-2440eb1f23ea" name="Default" comment="" />
+      <created>1421558300670</created>
+      <updated>1421558300670</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39907727" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="MagicentoScripts" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26495728" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="myTodoPanelSettings">
+      <TodoPanelSettings />
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="12" />
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/public/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="79" selection-start="832" selection-end="849" vertical-scroll-proportion="0.0" vertical-offset="41" max-vertical-offset="3315">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Medcenter/Application/Controller/ZendeskController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="0" selection-start="289" selection-end="289" vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="495">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Medcenter/Application/Model/GetZendesckData.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="35" selection-start="1125" selection-end="1448" vertical-scroll-proportion="0.0" vertical-offset="735" max-vertical-offset="3855">
+          <folding>
+            <element signature="e#47#73#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Medcenter/Application/Helper/HelperData.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="70" column="5" selection-start="2060" selection-end="2060" vertical-scroll-proportion="0.0" vertical-offset="1050" max-vertical-offset="1185">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Medcenter/Application/Model/Login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="91" selection-start="753" selection-end="836" vertical-scroll-proportion="0.0" vertical-offset="525" max-vertical-offset="945">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Medcenter/Application/Model/GetZendesckData.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="233" column="60" selection-start="5468" selection-end="5468" vertical-scroll-proportion="0.0" vertical-offset="3495" max-vertical-offset="3855">
+          <folding>
+            <element signature="e#47#73#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Medcenter/Application/Model/Login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="91" selection-start="753" selection-end="836" vertical-scroll-proportion="0.0" vertical-offset="525" max-vertical-offset="945">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Medcenter/Application/Model/GetZendesckData.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="60" selection-start="1324" selection-end="1324" vertical-scroll-proportion="0.0" vertical-offset="516" max-vertical-offset="1635">
+          <folding>
+            <element signature="e#47#73#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Medcenter/Application/Helper/HelperData.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="55" column="30" selection-start="1814" selection-end="1831" vertical-scroll-proportion="0.0" vertical-offset="235" max-vertical-offset="1185">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Medcenter/Application/Model/Login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="91" selection-start="754" selection-end="836" vertical-scroll-proportion="0.0" vertical-offset="525" max-vertical-offset="945">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Medcenter/Application/Model/GetZendesckData.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="60" selection-start="1324" selection-end="1324" vertical-scroll-proportion="0.0" vertical-offset="516" max-vertical-offset="1635">
+          <folding>
+            <element signature="e#47#73#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Medcenter/Application/Helper/HelperData.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="55" column="30" selection-start="1814" selection-end="1831" vertical-scroll-proportion="0.0" vertical-offset="235" max-vertical-offset="1185">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Medcenter/Application/Model/Login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="91" selection-start="754" selection-end="836" vertical-scroll-proportion="0.0" vertical-offset="525" max-vertical-offset="945">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="29" selection-start="591" selection-end="591" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3285" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Medcenter/Application/Controller/LoginController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="34" selection-start="482" selection-end="482" vertical-scroll-proportion="0.0" vertical-offset="435" max-vertical-offset="600" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Medcenter/Application/Model/Login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="40" selection-start="617" selection-end="617" vertical-scroll-proportion="0.0" vertical-offset="121" max-vertical-offset="960">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/login-novo.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="55" selection-start="2396" selection-end="2405" vertical-scroll-proportion="0.0" vertical-offset="312" max-vertical-offset="2430" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/js/AJAX_login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="0" selection-start="302" selection-end="302" vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="1755" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/composer/autoload_files.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="839" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/composer/autoload_namespaces.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="44" selection-start="763" selection-end="763" vertical-scroll-proportion="0.29447854" vertical-offset="0" max-vertical-offset="815" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Medcenter/Application/MedcenterMapper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="1" selection-start="227" selection-end="227" vertical-scroll-proportion="0.18404908" vertical-offset="0" max-vertical-offset="815" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Medcenter/Application/Routine/Auth.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="21" selection-start="413" selection-end="413" vertical-scroll-proportion="0.42331287" vertical-offset="0" max-vertical-offset="815" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Medcenter/Application/Routine/Json.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="19" selection-start="26" selection-end="26" vertical-scroll-proportion="0.036809817" vertical-offset="0" max-vertical-offset="815" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Medcenter/Application/Routine/Twig.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="0" selection-start="101" selection-end="101" vertical-scroll-proportion="0.11042945" vertical-offset="0" max-vertical-offset="825" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Medcenter/Application/Controller/Logout.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="0" selection-start="254" selection-end="254" vertical-scroll-proportion="0.34969324" vertical-offset="0" max-vertical-offset="815" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/js/AJAX_login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="58" selection-start="906" selection-end="906" vertical-scroll-proportion="0.25029796" vertical-offset="165" max-vertical-offset="1755" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/login-novo.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="41" selection-start="2260" selection-end="2260" vertical-scroll-proportion="0.35910225" vertical-offset="237" max-vertical-offset="2430" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/config.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="0" selection-start="57" selection-end="57" vertical-scroll-proportion="0.071513705" vertical-offset="0" max-vertical-offset="915" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Medcenter/Application/Controller/DashboardController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="41" selection-start="193" selection-end="193" vertical-scroll-proportion="-4.375" vertical-offset="0" max-vertical-offset="495" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/new-feed.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="48" selection-start="778" selection-end="778" vertical-scroll-proportion="-7.5" vertical-offset="0" max-vertical-offset="6270">
+          <folding>
+            <element signature="e#3157#3192#0" expanded="false" />
+            <element signature="e#3827#3860#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/box_view.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="256" column="59" selection-start="4732" selection-end="4732" vertical-scroll-proportion="-9.041667" vertical-offset="3623" max-vertical-offset="5205" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="214" column="160" selection-start="8358" selection-end="8358" vertical-scroll-proportion="-0.18703242" vertical-offset="3360" max-vertical-offset="7050" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/dashboard.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="65" column="0" selection-start="1985" selection-end="1985" vertical-scroll-proportion="-5.76" vertical-offset="687" max-vertical-offset="3075" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Medcenter/Application/Model/Dashboard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="5" selection-start="0" selection-end="706" vertical-scroll-proportion="0.2760736" vertical-offset="0" max-vertical-offset="815" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Medcenter/Application/Controller/LoginController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="0" selection-start="0" selection-end="498" vertical-scroll-proportion="0.40490797" vertical-offset="0" max-vertical-offset="815" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Medcenter/Application/Helper/CurlWrap.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="90" />
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/Core_c.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="6" selection-start="151" selection-end="151" vertical-scroll-proportion="0.14723927" vertical-offset="0" max-vertical-offset="5220" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Medcenter/Application/Model/Login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="91" selection-start="753" selection-end="836" vertical-scroll-proportion="0.0" vertical-offset="525" max-vertical-offset="945">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Medcenter/Application/Helper/HelperData.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="55" column="49" selection-start="1850" selection-end="1850" vertical-scroll-proportion="-19.958334" vertical-offset="286" max-vertical-offset="1125">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="214" column="0" selection-start="8115" selection-end="8115" vertical-scroll-proportion="-15.166667" vertical-offset="2846" max-vertical-offset="3315">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/respect/rest/library/Respect/Rest/Router.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="208" column="0" selection-start="6900" selection-end="6900" vertical-scroll-proportion="-6.5" vertical-offset="2859" max-vertical-offset="3840">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/respect/rest/library/Respect/Rest/Request.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="0" selection-start="1417" selection-end="1417" vertical-scroll-proportion="-6.5" vertical-offset="474" max-vertical-offset="1590">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/respect/rest/library/Respect/Rest/Routes/ClassName.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="0" selection-start="1517" selection-end="1517" vertical-scroll-proportion="-13.291667" vertical-offset="401" max-vertical-offset="870">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Medcenter/Application/Controller/ZendeskController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="0" selection-start="380" selection-end="380" vertical-scroll-proportion="-11.875" vertical-offset="0" max-vertical-offset="450">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Medcenter/Application/Model/GetZendesckData.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="106" column="5" selection-start="2532" selection-end="2532" vertical-scroll-proportion="0.2947977" vertical-offset="1335" max-vertical-offset="4230">
+          <folding>
+            <element signature="e#47#73#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
+

@@ -1,0 +1,43 @@
+<style>
+.modal-header .close{margin-top:-10px !important;}
+</style>
+
+<!-- Cadastra comentário via Ajax !-->
+<form class="denunciaBox" name="denunciaBox" action="" id="{{boxID|raw}}" method="POST" style="text-align:left;">
+   <div class="modal-header">
+     
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+     <h4 class="modal-title">{{titulo|raw}}</h4>
+    </div>      <!-- /modal-header -->
+      
+      <div class="modal-body">
+      <p>
+        
+        <label for="exampleInputEmail1">Ao denunciar este box ele entrará na lista de strik`s, onde um algortimo verifica a procedência da sua e outras denuncias feitas a este box. Caso este box atinja o número de strik`s limite ele será automaticamente removido!</label>
+      
+      </p>
+      </div>
+      <!-- /modal-body -->
+
+      <div class="form-group" style="margin:15px;">
+        
+        <label for="exampleInputEmail1">Motivo da denuncia</label>
+          <select name="motivo">
+
+              <option value="">Selecione um motivo </option>
+              <option value="conteudo improprio"> Conteúdo Impróprio </option>
+              <option value="conteudo nao relacionado"> Conteúdo não Relacionado </option>
+              <option value="spam"> Spam </option>
+          </select>
+      </div>
+
+      <input type="hidden" name="boxID" value="{{boxID|raw}}">
+
+      <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Voltar</button>
+               
+                <input type="submit" class="btn btn-danger" style="float:right; margin-bottom:5px;" value="Denunciar">
+            </div>   
+
+  </form>  
+

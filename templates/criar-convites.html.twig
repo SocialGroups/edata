@@ -1,0 +1,69 @@
+<script type="text/javascript">
+  var $j = jQuery.noConflict();
+</script>
+
+<!-- Cadastra comentário via Ajax !-->
+  <script type="text/javascript">
+  jQuery('#editarNome').live("submit",function(){
+  var dados = jQuery( this ).serialize();
+
+  jQuery.ajax({
+    type: "POST",
+    url: "/relatar-bug/",
+    data: dados,
+    success: function( data )
+    {
+      //alert(  );
+
+      if(data == 'true'){
+
+        setTimeout(function () { location.reload(true); }, 1000);
+
+        // DADOS INSERIDOS COM SUCESSO
+        $j.gritter.add({
+          title: 'Bug Relatado com sucesso! ',
+          text: '' ,
+          class_name: 'gritter-success'
+        });
+
+      }else{
+
+        $j.gritter.add({
+                title: 'Erro! por favor preencha o campo relatando o bug encontrado!',
+                text: '' ,                    
+                class_name: 'gritter-error'
+        });
+      }
+    }
+  });
+  
+  return false;
+});
+  </script>
+<!-- Cadastra comentário via Ajax !-->
+
+<style>
+
+.gritter-success{
+background-color: #0E852F;}
+
+.gritter-error{
+background-color: #E41414;}
+
+</style>
+
+
+<form name="editarPerfil" action="/convites/" enctype="multipart/form-data" id="editarNome" method="POST" style="margin:15px;">
+
+	<div class="form-group" style="float:left; width:100%;">
+			    
+			   Olá, temos uma equipe de 1 engenheiro que também esta fazendo o papel de design e FrontEnd. <br> Ajude-nos a dar trabalho para este programador desocupado :
+
+			   Descreva o problema ou sugestão :
+			   <textarea class="form-control" name="descricao" rows="3" style="margin-top:15px;"></textarea>
+
+			    <input type="submit" class="btn btn-danger" value="Relatar bug ou sugestão" style="float:right; margin-left:10px; margin-top:15px;">
+
+  	</div>
+
+</form>

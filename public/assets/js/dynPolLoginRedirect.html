@@ -1,0 +1,44 @@
+<!doctype html public "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta http-equiv="Expires" content="-1"/>
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Cache-Control" content="no-cache"/>
+	<meta name="id" content="polLoginRedirect" >
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Policy Login Redirect</title>
+	<script type="text/JavaScript" src="jquery-5.0.0.0o-3287920670.js"></script>
+	<script type="text/javascript">
+	<!--
+	var strPolicyRequir = "The policy set up by your network administrator requires that ";
+	var strAuthYourself = "you authenticate yourself with this firewall before you can have access.";
+	var strAuthYourselfInDomain = "only authenticated users are allowed access through this firewall. You do not appear to be logged into the domain, and so must authenticate yourself before you can have access.";
+	var strAuthIntro = "To authenticate yourself click on the following link and enter your user name and password to log in to the firewall.";
+	var strClickLogin = "Click here to log in";
+	// -->
+	</script>
+	<script type="text/JavaScript" src="polLoginRedirect.js"></script>
+	<link rel=stylesheet href="swl_login-5.0o-586369509.css" TYPE="text/css">
+</head>
+<body class="popup_error_bg">
+	<div id="popup_branding_bar"><img src="clear.gif" class="logo_popup" width="280" height="39" alt=""></div>
+	<div align="center">
+		<br>
+		<div id="popup_error_box">
+			<div id="popup_box_header">
+				<div id="alert_icon"></div>
+				<div id="popup_box_header_text">
+					Authentication Required
+				</div>
+			</div>
+			<div id="popup_box_text">
+				<br><br>
+				<a href="auth.html"></a>
+				<br><br>
+			</div>
+		</div>
+		<div id="popup_box_reflection"></div>
+	</div>
+</body>
+</html>

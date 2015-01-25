@@ -1,0 +1,60 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+
+<style>
+
+body{
+
+	background: url('/img/search_bg_modal.jpg');
+	background-repeat: no-repeat !important;
+	background-position: center top -50px;
+	height:100% !important;
+
+}
+
+.content{
+
+	width: 725px;
+	height: 100px;
+	margin-top: 250px;
+	padding-top: 20px;
+	background-color: #FFF !important;
+	border: 1px solid #F7F5F5;
+	padding-left: 10px;
+	-moz-border-radius: 4px; /* Para Firefox */
+	-webkit-border-radius: 4px; /*Para Safari e Chrome */
+	border-radius: 4px; /* Para Opera 10.5+*/
+
+
+}
+
+#field2{visibility: hidden;}
+
+
+</style>
+
+<center>
+	<div class="content">
+
+		<form name="socialSearch" action="" >
+
+			<input type="text" class="form-control" name="q" value="" style="width:600px; float:left;" placeholder="Encontre grupos, pessoas, fotos, vídeos etc... Eai o que você procura?">
+
+			<input type="submit" value="Pesquisar" style="float:left; margin-left:15px;" class="btn btn-primary">
+
+			<div class="notification" style="float:left; margin-top:15px;">
+
+				<strong> Você esta procurando por : </strong>
+				<input type="radio" name="tipoBusca" checked value="GrupoBox"> Grupos & Boxes
+				<input type="radio" name="tipoBusca" value="usuario"> @Usuários
+				<input type="radio" name="tipoBusca" value="hashtag"> #Hashtags
+
+			</div>
+
+		</form>
+
+	</div>
+</center>
+
+{% endblock %}

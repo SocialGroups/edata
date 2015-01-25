@@ -1,0 +1,244 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+
+<!-- Evita Conflitos no Javascript !-->
+<script type="text/javascript">
+  var $j = jQuery.noConflict();
+</script>
+<!-- Evita Conflitos no Javascript !-->
+
+<!-- Includes Javascript Modal !-->
+<!DOCTYPE>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="/assets/css/reset.css" type="text/css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="/assets/css/demo.css" type="text/css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="/assets/Source/assets/css/simplemodal.css" type="text/css" media="screen" title="no title" charset="utf-8">
+    <script src="/assets/javascript/mootools-core-1.3.1.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/assets/javascript/mootools-more-1.3.1.1.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/assets/Source/simple-modal.js" type="text/javascript" charset="utf-8"></script>
+	<link rel="shortcut icon" type="image/png" href="http://simplemodal.plasm.it/apple-touch-icon.png" />
+
+</head>
+
+<style>
+
+body{background-color: #e9eaed;}
+
+
+.simple-modal .simple-modal-body{padding: 0px; }
+
+
+#content_solicitacoes{width: 1100px; height: auto; min-height: 100%; margin-top: 80px; text-align: left;}
+
+.infityLoopContent{
+
+	width: 1100px; height: auto; float: left;
+}
+
+.content_box{width:100%; height:auto; padding:5px; background-color:#FFF; border:1px solid #e9eaed; margin-top:20px; margin-bottom:35px;  -moz-border-radius: 4px; /* Para Firefox */
+-webkit-border-radius: 4px; /*Para Safari e Chrome */
+border-radius: 4px;
+float: left;  /* Para Opera 10.5+*/
+}
+
+.solicitacao{
+
+	width: 100%;
+	height: auto;
+	float: left;
+	margin-bottom: 30px;
+	border-bottom: 1px solid #e9eaed;	
+}
+
+.ilustracao_solicitacao{
+
+	width: 160px;
+	height: 125px;
+	float: left;
+	margin-left: 20px;
+
+}
+
+.content_solicitacao_mensagem{
+
+	width: 888px;
+	height: auto;
+	min-height: 125px;
+	float: left;
+	margin-left: 20px;
+	text-align: left;
+}
+
+.content_solicitacao_mensagem_chamada{
+
+	width: 900px;
+	height: auto;
+	min-height: 30px;
+	font-size: 19px;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.content_solicitacao_mensagem_pedido{
+
+	width: 905px;
+	height: auto;
+	float: left;
+	font-size: 13px;
+	line-height:1.4;
+}
+
+.grupo_foto{
+
+	width: 92px;
+	height: auto;
+	max-height: 95px;
+	background-color: #FFF;
+	padding: 5px;
+	overflow:hidden;
+	float: left;
+	border: 1px solid #CCC;
+	-moz-border-radius: 4px; /* Para Firefox */
+	-webkit-border-radius: 4px; /*Para Safari e Chrome */
+	border-radius: 4px;  /* Para Opera 10.5+*/
+}
+
+.solicitante_avatar{
+
+	width: 92px;
+	height: auto;
+	max-height: 95px;
+	background-color: #FFF;
+	padding: 5px;
+	overflow:hidden;
+	float: left;
+	border: 1px solid #CCC;
+	margin-top: 30px;
+	margin-left: -30px;
+	-moz-border-radius: 4px; /* Para Firefox */
+	-webkit-border-radius: 4px; /*Para Safari e Chrome */
+	border-radius: 4px;  /* Para Opera 10.5+*/
+}
+
+.content_form_solicitacao{
+
+	width: 300px;
+	float: left;
+	height: auto;
+	margin-top: 25px;
+	margin-bottom: 10px;
+}
+
+
+</style>
+
+
+  	{% autoescape %}
+
+<center>
+
+  	{% autoescape %}
+
+  	<div id="content_solicitacoes">
+
+  		{% if numeroSolicitacoes|raw == 0 %}
+
+  		<p class="bg-warning" style="padding:15px;	 font-size:14px; line-height:1.4; text-align:center;">
+			Não Existe menções pendente de visualização =D
+		</p>
+
+  		{% endif %}
+
+		<center>
+
+		<div class="content_box" >
+
+			{% for mencoes in MensoesPendentes %}
+
+					<div class="solicitacao">
+
+						<div class="ilustracao_solicitacao">
+					      
+					      <span class="grupo_foto">
+					        <img height="80" src="{{mencoes.foto_perfil|raw}}" style="-moz-border-radius: 4px; /* Para Firefox */
+-webkit-border-radius: 4px; /*Para Safari e Chrome */
+border-radius: 4px;  /* Para Opera 10.5+*/" width="80">
+					      </span>
+
+    					</div>
+
+    					<div class="content_solicitacao_mensagem">
+    						
+    						<div class="content_solicitacao_mensagem_chamada">
+
+    							{% if mencoes.tipo|raw == 'box' %}
+
+    								Box : {{mencoes.titulo|raw}}
+
+    							{% else %}
+
+    								Interação : {{mencoes.conteudo|raw}}
+
+    							{% endif %}
+
+    						</div>
+
+    						<div class="content_solicitacao_mensagem_pedido">
+
+    							Olá, o usuário(a) {{mencoes.nome|raw}} {{mencoes.sobre_nome|raw}} santos mencionou você visualizar basta clicar no botão abaixo!	
+
+    						</div>
+
+    						<div class="content_form_solicitacao">
+
+    							<a class="btn btn-success"
+
+    							{% if mencoes.tipo|raw == 'box' %}
+    								
+    								href="/grupos/box/{{mencoes.meta_value|raw}}" 
+
+    							{% else %}
+
+    								href="/grupos/box/{{mencoes.grupo_box_id|raw}}"
+
+    							{% endif %}
+
+    							target="_blank">
+
+    								{% if mencoes.tipo|raw == 'box' %}
+
+    									Visualizar box completo
+
+    								{% else %}
+
+    									Visualizar interação completa
+
+    								{% endif %}
+
+
+    							</a>
+
+    						</div>
+
+    					</div>
+
+					</div>
+
+
+				{% endfor %}
+
+		</div>
+
+	</center>
+
+	</div>
+
+	{% endautoescape %}
+
+</center>
+
+  	{% endautoescape %}
+
+{% endblock %}

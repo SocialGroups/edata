@@ -1,0 +1,89 @@
+<style>
+.modal-header .close{margin-top:-10px !important;}
+
+.elementModalSeguidores{width:100%; height: auto;  margin:15px; margin-bottom:25px;}
+
+.nomeUsuario{
+
+  width: 65%;
+  font-size: 22px;
+  margin-left: 5px;
+
+}
+
+.nickUsuario{
+
+  width: 65%;
+  font-size: 15px;
+  margin-left: 5px;
+
+}
+
+</style>
+<!-- Cadastra comentário via Ajax !-->
+   <div class="modal-header">
+     
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+     <h4 class="modal-title">Seguidores</h4>
+    </div>      <!-- /modal-header -->
+      
+      <div class="modal-body">
+      <p style="float:left;">
+
+        {% if numeroSeguidores|raw == 0 %}
+
+         <center> <h4> Não existem seguidores =( </h4> </center>
+
+        {% else %}
+
+        <div class="contentGrupoSeguidores">
+        
+        {% for dadosSeguidor in grupoSeguidores %}
+
+          <div class="elementModalSeguidores">
+
+            <!-- Avatar usuário !-->
+              <img src="{{dadosSeguidor.foto_perfil|raw}}" width="65" height="65" style="float:left; margin-right: 15px;">
+            <!-- Avatar usuário !-->
+
+            <!-- Nome do usuário !-->
+              <div class="nomeUsuario">
+                {{dadosSeguidor.nome|raw}} {{dadosSeguidor.sobre_nome|raw}}
+              </div>
+            <!-- Nome do usuário !-->
+
+            <!-- Nome do usuário !-->
+              <div class="nickUsuario">
+                @{{dadosSeguidor.nick_name|raw}}
+              </div>
+            <!-- Nome do usuário !-->
+
+          </div>
+
+        {% endfor %}
+
+               <form name="LoadMoreSeguidores" class="LoadMoreSeguidores" id="FormLoadMoreSeguidores" style="float:left;">
+
+                  <input type="hidden" name="pagina" value="2">
+                  <input type="hidden" name="profileID" value="{{profileID|raw}}">
+
+                  <input type="submit" class="btn btn-primary" value="Mais Seguidores">
+
+                </form>
+
+        </div>
+
+        {% endif %}
+      
+      </p>
+
+      </div>
+      <!-- /modal-body -->
+
+      <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Voltar</button>
+
+      </div>   
+
+  </form>  
+

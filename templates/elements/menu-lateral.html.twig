@@ -1,0 +1,195 @@
+{% block menulateral %}
+	<div class="sidebar" id="sidebar">
+		<script type="text/javascript">
+			try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
+		</script>
+
+		<ul class="nav nav-list">
+			<li class="active">
+				<a href="/">
+					<i class="icon-dashboard"></i>
+					<span class="menu-text"> Home </span>
+				</a>
+			</li>
+
+			<li>
+				<a href="#" class="dropdown-toggle">
+					<i class="icon-edit"></i>
+					<span class="menu-text"> Cadastros </span>
+
+					<b class="arrow icon-angle-down"></b>
+				</a>
+
+				<ul class="submenu">
+					<li>
+						<a href="/cliente/list">
+							<i class="icon-double-angle-right"></i>
+							Cliente
+						</a>
+					</li>
+
+					<li>
+						<a href="/unidade/list">
+							<i class="icon-double-angle-right"></i>
+							Unidade
+						</a>
+					</li>
+
+					<li>
+						<a href="/tipo-prestador/list">
+							<i class="icon-double-angle-right"></i>
+							Tipo de Prestador
+						</a>
+					</li>
+
+					<li>
+						<a href="/grupo-procedimento/list">
+							<i class="icon-double-angle-right"></i>
+							Grupo de Procedimento
+						</a>
+					</li>
+
+					<li>
+						<a href="/grupo-produto/list">
+							<i class="icon-double-angle-right"></i>
+							Grupo de Produto
+						</a>
+					</li>
+
+					<li>
+						<a href="/forma-pagamento/list">
+							<i class="icon-double-angle-right"></i>
+							Forma de Pagamento
+						</a>
+					</li>
+
+					<li>
+						<a href="/fonte/list">
+							<i class="icon-double-angle-right"></i>
+							Fonte
+						</a>
+					</li>
+
+					<li>
+						<a href="/departamento/list">
+							<i class="icon-double-angle-right"></i>
+							Departamento
+						</a>
+					</li>
+
+					<li>
+						<a href="/profissao/list">
+							<i class="icon-double-angle-right"></i>
+							Profissão
+						</a>
+					</li>
+
+					
+				</ul>
+			</li>
+
+			<li>
+				<a href="calendar.html">
+					<i class="icon-calendar"></i>
+
+					<span class="menu-text">
+						Agendamento
+						<!--<span class="badge badge-transparent tooltip-error" title="2&nbsp;Important&nbsp;Events">
+							<i class="icon-warning-sign red bigger-130"></i>
+						</span>-->
+					</span>
+				</a>
+
+				
+			</li>
+			
+
+			<li>
+				<a href="#" class="dropdown-toggle">
+					<i class="icon-money"></i>
+					<span class="menu-text"> Financeiro </span>
+
+					<b class="arrow icon-angle-down"></b>
+				</a>
+
+				<ul class="submenu">
+					<li>
+						<a href="/grupo-financeiro/list">
+							<i class="icon-double-angle-right"></i>
+							Grupo Financeiro
+						</a>
+					</li>
+					<li>
+						<a href="/grupo-plano-contas/list">
+							<i class="icon-double-angle-right"></i>
+							Grupo de Plano de Contas
+						</a>
+					</li>
+
+				</ul>
+
+			</li>
+
+			<li>
+				<a href="#" class="dropdown-toggle">
+					<i class="icon-list"></i>
+					<span class="menu-text"> Relatórios </span>
+
+					<span class="badge badge-transparent tooltip-error" title="">
+
+		    			<i class="icon-warning-sign red bigger-130"></i>
+
+					</span>
+				</a>
+
+			</li>
+
+			<li>
+				<a href="#" class="dropdown-toggle">
+					<i class="icon-cog"></i>
+					<span class="menu-text"> Administrativo </span>
+
+					<b class="arrow icon-angle-down"></b>
+				</a>
+
+				<ul class="submenu">
+					<li>
+						<a href="/telas/list">
+							<i class="icon-double-angle-right"></i>
+							Cadastro de Telas 
+						</a>
+					</li>
+					
+					<li>
+						<a href="/grupo-acesso/list">
+							<i class="icon-double-angle-right"></i>
+							Cadastro de Grupo de Acessos 
+						</a>
+					</li>
+					
+					<li>
+						<a href="/usuario/list">
+							<i class="icon-double-angle-right"></i>
+							Cadastro de Usuários 
+						</a>
+					</li>
+					
+
+				</ul>
+
+			</li>
+
+
+
+			
+		</ul><!-- /.nav-list -->
+
+		<div class="sidebar-collapse" id="sidebar-collapse">
+			<i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+		</div>
+
+		<script type="text/javascript">
+			try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
+		</script>
+	</div>
+{% endblock %}

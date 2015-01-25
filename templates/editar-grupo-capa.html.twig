@@ -1,0 +1,50 @@
+<style>
+.modal-header .close{margin-top:-10px !important;}
+</style>
+<!-- Cadastra comentário via Ajax !-->
+<form action="/editar-grupo/" enctype="multipart/form-data" method="post" id="adicionarGrupo" class="adicionarGrupo">
+   <div class="modal-header">
+     
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+     <h4 class="modal-title">Alterar capa de um grupo</h4>
+    </div>      <!-- /modal-header -->
+      
+      <div class="modal-body">
+      <p>
+        
+        <label for="exampleInputEmail1">Simples, fácil e rápido. Selecione uma foto do seu computador e pronto!</label>
+      
+      </p>
+      </div>
+      <!-- /modal-body -->
+
+      <div class="form-group" style="margin:15px; float:left;">
+        
+        <label for="exampleInputEmail1">Clique na camera abaixo para selecionar uma foto : </label>
+            <style>
+
+  .image-upload > input
+{
+    display: none;
+}
+
+</style>
+
+<div class="image-upload" style="float:left;">
+    <label for="file_upload">
+       <div class="btn btn-default btn-sm btn-small"> <i class="fa fa-camera"></i> </div>
+    </label>
+    <input type="file" name="file_upload" id="file_upload">
+</div>
+      </div>
+
+       <input type="hidden" name="grupoID" value="{{grupoID|raw}}">
+
+      <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Voltar</button>
+               
+                <input type="submit" class="btn btn-primary" style="float:right; margin-bottom:5px;" value="Alterar">
+            </div>   
+
+  </form>  
+

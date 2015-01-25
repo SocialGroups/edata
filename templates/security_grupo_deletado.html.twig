@@ -1,0 +1,126 @@
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="/assets/css/jquery.gritter.css" />
+  <link rel="stylesheet" href="/assets/css/jquery.gritter.css" />
+  
+  <link rel="stylesheet" href="/assets/css/jquery-ui-1.10.3.full.min.css" />  
+  <script src="/assets/js/jquery.gritter.min.js"></script>
+  <script src="/assets/js/jquery.gritter.min.js"></script>
+
+
+
+ <script type="text/javascript">
+  jQuery(document).ready(function(){
+    jQuery('#SecurityKey').submit(function(){
+      var dados = jQuery( this ).serialize();
+ 
+      jQuery.ajax({
+        type: "POST",
+        url: "/grupo-temporario/AtivaGrupoSecurity",
+        data: dados,
+        success: function( data )
+        {
+          //alert(  );
+
+          if(data == 'true'){
+
+          	setTimeout(function () { location.reload(true); }, 1000);
+
+            // DADOS INSERIDOS COM SUCESSO
+            $.gritter.add({
+              title: 'Código ativado com sucesso!',
+              text: '' ,
+              class_name: 'gritter-success'
+            });
+
+
+
+
+          }else{
+
+            $.gritter.add({
+                    title: 'Erro, Código Inválido!',
+                    text: '' ,                    
+                    class_name: 'gritter-success'
+            });
+          }
+        }
+      });
+      
+      return false;
+    });
+  });
+</script>
+
+<style>
+
+body{background-color:#1E2762; background-position:center;}
+
+.content{width:600px; background-color: #FFF; height: 100px; border-color:#ddd; border: 1px solid transparent; border-radius:4px; border:1px solid #ddd; padding: 10px;}
+
+.icon_content{width: 300px; height: 200px; margin-top: 20px; margin-bottom: 80px;}
+
+.content_text{
+
+	font-size: 33px; color: #333; text-align: center; padding: 10px; font-family: arial;
+
+}
+
+.input{width: 400px; height: 35px;}
+
+</style>
+
+<center>
+
+	<div class="icon_content">
+
+			<img src="/img/1399617535_cloud_problem.png">
+
+	</div>
+
+	<div class="content">
+
+		<div class="content_text"> <strong style="color:#666;"> 404 -> </strong> Grupo não encontrado!</div>
+
+	</div>
+
+</center>
+
+
+	{% if return|raw == 'true' %}
+
+		<script>
+			 // DADOS INSERIDOS COM SUCESSO
+            $.gritter.add({
+              title: 'Box Postado com sucesso!',
+              text: '' ,
+              time: 2000,
+              class_name: 'gritter-success'
+            });
+
+		</script>
+
+	{% endif %}
+
+	{% if return|raw == 'false' %}
+
+		<script>
+			 // DADOS INSERIDOS COM SUCESSO
+            $.gritter.add({
+              title: 'Você não tem permissão para postar um box neste grupo!',
+              text: '' ,
+               time: 2000,
+              class_name: 'gritter-success'
+            });
+
+		</script>
+
+	{% endif %}

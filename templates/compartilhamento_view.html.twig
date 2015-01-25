@@ -1,0 +1,83 @@
+  <style>
+.modal-header .close{margin-top:-10px !important;}
+</style>
+  <link rel="stylesheet" href="/assets/css/chosen.css" />
+  <link rel="stylesheet" href="/assets/css/chosen.min.css" />
+  <script src="/assets/js/chosen.jquery.min.js"></script>
+  <script type="text/javascript" src="/assets/js/chosen.ajaxaddition.jquery.js"></script>
+
+     <form class="compartilhou" name="compartilhou" action="" id="{{boxID|raw}}" method="POST" style="text-align:left;">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                 <h4 class="modal-title">Compartilhar Box:</h4>
+            </div>      <!-- /modal-header -->
+            <div class="modal-body">
+            <p>
+
+              {{descricao|raw}} <br> 
+            </p>
+            </div>
+            <!-- /modal-body -->
+
+            {% if youtube|raw > '' %}
+
+            <div class="content_Video" style="width:100%; margin-left:0px; ">
+
+                  <iframe width="100%" height="345" src="//www.youtube.com/embed/{{youtube|raw}}" frameborder="0" allowfullscreen></iframe>
+
+              </div>
+
+            {% endif %}
+
+            <div class="grupo" style="width:100%; padding:15px;">
+
+               <strong> Grupo : </strong> <select name="grupoID" id="grupoIDCompartilhamento{{boxID|raw}}" style="width:300px;">
+                     
+                    <option value=''> Digite o nome do grupo </option>
+                 
+                </select>
+
+            </div>
+
+            {% for getDadosUsuario in dadosUsuarioLogado %} 
+
+            <div class="comentarios" style="width:100%; padding:15px; height:70px;">
+
+                <div class="profile-img-wrapper pull-left"> <img src="{{getDadosUsuario.foto_perfil|raw}}" alt="" data-src="{{getDadosUsuario.foto_perfil|raw}}" data-src-retina="{{getDadosUsuario.foto_perfil|raw}}" width="35" height="35"> </div>
+                <div class="inline pull-right" style="width:91%;">
+                  <div class="input-group transparent ">
+                    <input type="text" class="form-control" name="conteudoCompartilhamento" id="conteudoComentario{{feed.id|raw}}" placeholder="Escrever algo">
+                    <span class="input-group-addon">  </span>
+                  </div>
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+            <input type="hidden" name="boxID" id="boxID" value="{{boxID|raw}}">
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Voltar</button>
+               
+                <input type="submit" class="btn btn-primary" value="Compartilhar Box">
+            </div>   
+
+  </form>   <!-- /modal-footer -->
+
+<!-- Grid Images !-->
+
+  <script src="/assets/js/jquery.photoset-grid.js"></script>
+  <script src="/assets/js/js/jquery.colorbox.js"></script>
+  <script type="text/javascript">
+
+           $('#grupoIDCompartilhamento{{boxID|raw}}').ajaxChosen({
+                   dataType: 'json',
+                   type: 'POST',
+                   url:'/ajax/'
+           },{
+                   loadingImg: 'loading.gif'
+           });
+
+</script>
