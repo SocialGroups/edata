@@ -40,6 +40,7 @@ class Login implements Routable
             $_SESSION['login']          = $_POST['login'];
             $_SESSION['userId']         = $usuario->id;
             $_SESSION['email']          = $usuario->email;
+            $_SESSION['departament']    = $usuario->departament;
 
             return true;
 

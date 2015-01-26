@@ -18,17 +18,19 @@ class Dashboard implements Routable
         $this->mapper = $this->c->mapper;
     }
 
+    public function getTicketData()
+    {
+
+        $usuario = $this->mapper->ticket->ticket_field->author(array("name"=>"Alexandre"))->fetchAll();
+
+    }
+
     public function renderLayout()
     {
 
-        $data = array(
-
-            'name'  => 'lucas dos santos alves',
-            'email' => 'lucas.santos@e-smart.com.br'
-
-        );
-        $vars['data']  = $data;
-        $vars['_view'] = 'dashboard.html.twig';
+        $vars['userEmail']          = $_SESSION['email'];
+        $vars['userDepartament']    = $_SESSION['departament'];
+        $vars['_view']              = 'dashboard.html.twig';
 
         return $vars;
     }

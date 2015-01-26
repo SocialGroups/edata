@@ -24,6 +24,8 @@ $r->any('/', 'SocialGroups\Application\Controller\Home')
 
 $r->any('/zendesk/*/*/*/*', 'Medcenter\Application\Controller\ZendeskController');
 
+$r->any('/jira/*/*/*/*', 'Medcenter\Application\Controller\JiraController');
+
 // Rota responsável pelo Feed / Home da aplicação
 $r->any('/home/*/*/*/*', 'Medcenter\Application\Controller\DashboardController')
     ->by($authenticated);

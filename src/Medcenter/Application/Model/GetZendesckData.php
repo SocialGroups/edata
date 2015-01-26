@@ -28,9 +28,9 @@ class GetZendesckData implements Routable
     public function getUserId($userAssigned)
     {
 
-        if($userAssigned == null OR $userAssigned == 11){
+        if($userAssigned == null OR $userAssigned == 12){
 
-            return 11;
+            return 12;
 
         }
 
@@ -178,19 +178,13 @@ class GetZendesckData implements Routable
 
     public function setTicketStatus($ticketId,$status,$date)
     {
+        $ticket = new \stdClass;
+        $ticket->ticket_id = $ticketId;
+        $ticket->status = $status;
+        $ticket->date   = $date;
 
-        if($this->checkTicketStatus($ticketId,$status,$date)){
-
-            $ticket = new \stdClass;
-            $ticket->ticket_id = $ticketId;
-            $ticket->status = $status;
-            $ticket->date   = $date;
-
-            $this->mapper->ticket_status->persist($ticket);
-            $this->mapper->flush();
-
-        }
-
+        $this->mapper->ticket_status->persist($ticket);
+        $this->mapper->flush();
     }
 
     public function setData($data)
@@ -240,7 +234,7 @@ class GetZendesckData implements Routable
 
         $i = $getLastId->ticket_id;
 
-        $controller = $i+200;
+        $controller = $i+50;
 
         while ( $i <= $controller ) {
 
@@ -248,7 +242,8 @@ class GetZendesckData implements Routable
 
         $getData = $this->helper->getCurl("/tickets/$i.json", '', "GET");
 
-        if($getData->ticket->id > null){
+        if(isset($getData->ticket)){
+
             $setData = array(
 
                 'ticket_id'             => $getData->ticket->id,
@@ -260,7 +255,7 @@ class GetZendesckData implements Routable
                 'equipe_responsavel'    => $this->helper->tratamentsZdFiled('equipe_responsavel',$getData->ticket->fields),
                 'qty_horas_orcadas'     => $this->helper->tratamentsZdFiled('qty_horas_orcadas',$getData->ticket->fields),
                 'status_de_orcamento'   => $this->helper->tratamentsZdFiled('status_de_orcamento',$getData->ticket->fields),
-                'desenvolvedor'         => ($this->helper->tratamentsZdFiled('desenvolvedor',$getData->ticket->fields) == null)? 11 : $this->helper->tratamentsZdFiled('desenvolvedor',$getData->ticket->fields),
+                'desenvolvedor'         => ($this->helper->tratamentsZdFiled('desenvolvedor',$getData->ticket->fields) == null)? 12 : $this->helper->tratamentsZdFiled('desenvolvedor',$getData->ticket->fields),
                 'qty_horas_orcadas'     => $this->helper->tratamentsZdFiled('qty_horas_orcadas',$getData->ticket->fields)
 
             );
